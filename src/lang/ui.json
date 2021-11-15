@@ -19,6 +19,21 @@
       }
     },
     "Main": {},
-    "NotMatch": {}
+    "NotMatch": {},
+    "Forgot": {
+      "Title": "¿Has olvidado la contraseña?",
+      "Paragraph": "Envía tu nombre de usuario o correo para reiniciar tu contraseña",
+      "Labels": {
+        "User": "Usuario"
+      },
+      "Buttons": {
+        "Send": "Enviar",
+        "Return": "Volver al Login"
+      },
+      "Placeholders": {
+        "User": "Nombre de usuario"
+      }
+    },
+    "SignUp": {}
   }
 }

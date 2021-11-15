@@ -10,6 +10,8 @@ import Loading from "./components/loading/Loading";
 import Login from "./views/login/Login";
 import Main from "./views/main/Main";
 import NotMatch from "./views/notmatch/NotMatch";
+import SignUp from "./views/signup/SignUp";
+import Forgot from "./views/forgot/Forgot";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -30,7 +32,7 @@ const App = () => {
               <Login texts={ui.ES.Login} />
             </Route>
             <Route exact path="/signup">
-              <Signup texts={ui.ES.SingUp} />
+              <SignUp texts={ui.ES.SignUp} />
             </Route>
             <Route exact path="/forgot">
               <Forgot texts={ui.ES.Forgot} />

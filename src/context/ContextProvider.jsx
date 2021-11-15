@@ -7,7 +7,7 @@ const contextReducer = (contextState, action) => {
     case "log-in":
       return { user: action.user };
     case "log-off":
-      return { user: {} };
+      return { user: "" };
     default:
       return { contextState };
   }
@@ -15,7 +15,7 @@ const contextReducer = (contextState, action) => {
 
 const ContextProvider = ({ children }) => {
   const [contextState, setContextState] = React.useReducer(contextReducer, {
-    user: {},
+    user: "",
     lang: "",
   });
 
