@@ -29,6 +29,12 @@ const App = () => {
             <Route exact path="/">
               <Login texts={ui.ES.Login} />
             </Route>
+            <Route exact path="/signup">
+              <Signup texts={ui.ES.SingUp} />
+            </Route>
+            <Route exact path="/forgot">
+              <Forgot texts={ui.ES.Forgot} />
+            </Route>
             <Route>
               <NotMatch texts={ui.ES.NotMatch} />
             </Route>
