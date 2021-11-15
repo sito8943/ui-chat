@@ -34,6 +34,25 @@
         "User": "Nombre de usuario"
       }
     },
-    "SignUp": {}
+    "SignUp": {
+      "Title": "Comienza tu viaje",
+      "Paragraph": "Únete la increible comunidad. Juegos, noticias, amigos y mucho más!",
+      "Buttons": {
+        "SignUp": "Registrarse",
+        "Return": "Volver al Login"
+      },
+      "Labels": {
+        "User": "Usuario",
+        "Email": "Email",
+        "Password": "Contraseña",
+        "PasswordR": "Repite la contraseña"
+      },
+      "Placeholders": {
+        "User": "Nombre de usuario",
+        "Email": "Email",
+        "Password": "Contraseña",
+        "PasswordR": "Repite la contraseña"
+      }
+    }
   }
 }
