@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { ContextProvider, useContext } from "./context/ContextProvider";
 
 import "uikit/dist/css/uikit.min.css";
 
@@ -9,6 +10,7 @@ import Loading from "./components/loading/Loading";
 
 const App = () => {
   const [loading, setLoaging] = useState(true);
+  const [contextState, setContextState] = useContext();
 
   useEffect(() => {
     setLoading(false);
@@ -22,7 +24,9 @@ const App = () => {
         <Router>
           <ContextProvider>
             <Switch>
-              <Route exact path="/"></Route>
+              <Route exact path="/">
+                {contextState.user === {} ? <Login /> : <Main />}
+              </Route>
               <Route>
                 <NotMatch texts={ui} />
               </Route>
