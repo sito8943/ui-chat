@@ -1,0 +1,24 @@
+{
+  "ES": {
+    "Login": {
+      "Title": "Ui-Chat",
+      "Paragraph": "Un lugar donde en el cual las cosas comienzan a tener sentido",
+      "Buttons": {
+        "SignIn": "Inicia sesión",
+        "SignUp": "Registrarse",
+        "Forgot": "¿Has olvidado tu contraseña?"
+      },
+      "Labels": {
+        "User": "Usuario",
+        "Password": "Contraseña",
+        "Remember": "Recordar"
+      },
+      "Placeholders": {
+        "User": "Nombre de usuario",
+        "Password": "Contraseña"
+      }
+    },
+    "Main": {},
+    "NotMatch": {}
+  }
+}
