@@ -12,12 +12,20 @@ import Main from "./views/main/Main";
 import NotMatch from "./views/notmatch/NotMatch";
 import SignUp from "./views/signup/SignUp";
 import Forgot from "./views/forgot/Forgot";
+import { connectionState } from "./services/get";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
-  const {contextState, setContextState} = useContext();
+  const { contextState, setContextState } = useContext();
+
+  const init = async () => {
+    const netStatus = await connectionState();
+    if (netStatus == 200)
+      
+  };
 
   useEffect(() => {
+    await init();
     setLoading(false);
   }, []);
 
@@ -29,7 +37,11 @@ const App = () => {
         <Router>
           <Switch>
             <Route exact path="/">
-              <Login texts={ui.ES.Login} />
+              {contextState.user == "" ? (
+                <Login texts={ui.ES.Login} />
+              ) : (
+                <Main texts={ui.ES.Main} />
+              )}
             </Route>
             <Route exact path="/signup">
               <SignUp texts={ui.ES.SignUp} />

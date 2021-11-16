@@ -2,7 +2,7 @@ import { getAuth } from "../auth/auth";
 import config from "../config";
 import axios from "axios";
 
-export async const connectionState = () => {
+export const connectionState = async () => {
     try {
         const response = await axios.get(`${config.serverUrl}/status`, {
             headers: getAuth,

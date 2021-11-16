@@ -11,8 +11,7 @@ export async const sendMessage = (who, target, message) => {
         },
         {
             headers: getAuth
-        }
-        )
+        });
         const result = response.status
         if (result != 200) return response.statusText
         return result

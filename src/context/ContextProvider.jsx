@@ -4,6 +4,10 @@ const Context = React.createContext();
 
 const contextReducer = (contextState, action) => {
   switch (action.type) {
+    case "offline": 
+      return { user: contextState.user, lang: contextState.lang, netStatus: false }
+    case "online": 
+      return { user: contextState.user, lang: contextState.lang, netStatus: true }
     case "log-in":
       return { user: action.user };
     case "log-off":
@@ -17,6 +21,7 @@ const ContextProvider = ({ children }) => {
   const [contextState, setContextState] = React.useReducer(contextReducer, {
     user: "",
     lang: "",
+    netStatus: true,
   });
 
   const value = { contextState, setContextState };
