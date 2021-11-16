@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+import UIkit from "uikit";
+
 import Loading from "../../components/loading/Loading";
 import { useContext } from "../../context/ContextProvider";
 
@@ -9,9 +11,11 @@ const Login = (props) => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [remember, setRemember] = useState(false);
-  const {contextState, setContextState} = useContext();
+  const { contextState, setContextState } = useContext();
 
-  const init = () => {};
+  const init = () => {
+    UIkit.notification({ message: "Danger message...", status: "danger" });
+  };
 
   const signIn = (e) => {
     e.preventDefault();

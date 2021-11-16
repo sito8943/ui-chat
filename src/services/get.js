@@ -11,6 +11,6 @@ export const connectionState = async () => {
         if (result != 200) return response.statusText
         return result
     } catch (err) {
-        return String(error)
+        return String(err)
     }
 }

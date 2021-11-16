@@ -20,12 +20,12 @@ const App = () => {
 
   const init = async () => {
     const netStatus = await connectionState();
-    if (netStatus == 200)
-      
+    if (netStatus == 200) setContextState({ type: "online" });
+    else setContextState({ type: "offline" });
   };
 
   useEffect(() => {
-    await init();
+    init();
     setLoading(false);
   }, []);
 
