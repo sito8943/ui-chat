@@ -12,6 +12,16 @@
   padding: 0 10px !important;
 }
 
+.uk-offcanvas-bar {
+  background-color: dodgerblue !important;
+}
+
+.uk-offcanvas-close {
+  border: none !important;
+  background: none !important;
+  color: white !important;
+}
+
 .chat-icon {
   margin: 0 5px;
   font-size: 1.5rem !important;
@@ -37,4 +47,11 @@
   color: dodgerblue !important;
 }
 
+.menu-button {
+  border: none !important;
+  color: #a09f9f !important;
+}
 
+.menu-button:hover {
+  color: dodgerblue !important;
+}

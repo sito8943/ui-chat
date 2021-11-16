@@ -34,7 +34,12 @@ import {
   BsStarFill,
   BsQuestionCircleFill,
   BsFillBackspaceFill,
+  BsFillMenuButtonWideFill,
 } from "react-icons/bs";
+
+export const MenuIcon = () => {
+  return <BsFillMenuButtonWideFill />;
+};
 
 export const NotificationIcon = () => {
   return <BsBellFill />;

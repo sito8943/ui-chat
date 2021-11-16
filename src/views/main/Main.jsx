@@ -127,7 +127,7 @@ const Main = (props) => {
   const send = () => {};
 
   return (
-    <div classNameName="main" style={{ height: "100vh" }}>
+    <div className="main" style={{ height: "100vh" }}>
       <NavBar texts={props.texts.NavBar} />
       <div
         className="uk-grid-collapse uk-text-center uk-section"
@@ -156,7 +156,7 @@ const Main = (props) => {
                   value={message}
                   onChange={handleInput}
                   type="text"
-                  style={{ border: "none" }}
+                  style={{ border: "none", height: "50px" }}
                 />
                 <a
                   id="backspace"
