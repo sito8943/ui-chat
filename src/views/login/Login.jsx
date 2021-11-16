@@ -9,7 +9,7 @@ const Login = (props) => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [remember, setRemember] = useState(false);
-  //const [contextState, setContextState] = useContext();
+  const {contextState, setContextState} = useContext();
 
   const init = () => {};
 

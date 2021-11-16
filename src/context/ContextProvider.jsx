@@ -9,7 +9,7 @@ const contextReducer = (contextState, action) => {
     case "log-off":
       return { user: "" };
     default:
-      return { contextState };
+      throw new Error(`Unhandled action type: ${action.type}`);
   }
 };
 

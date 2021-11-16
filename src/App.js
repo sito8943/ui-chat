@@ -15,7 +15,7 @@ import Forgot from "./views/forgot/Forgot";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
-  //const [contextState, setContextState] = useContext();
+  const {contextState, setContextState} = useContext();
 
   useEffect(() => {
     setLoading(false);
