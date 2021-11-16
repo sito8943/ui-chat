@@ -37,6 +37,7 @@ const Main = (props) => {
   const [emoji, setEmoji] = useState("laughing");
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
+  const [chats, setChats] = useState([]);
   let pressTimer = undefined;
 
   const init = async () => {};
@@ -134,11 +135,14 @@ const Main = (props) => {
         data-uk-grid
       >
         <div className="uk-width-medium uk-visible@m uk-background-muted">
-          <div className="uk-padding">Item</div>
+          <div className="uk-padding">{chats.map((d, i) => {})}</div>
         </div>
         <div className="uk-width-expand@m uk-width-1-1@s">
           <div>
-            <div className="uk-section" data-uk-height-viewport="offset-top: true; offset-bottom: true">
+            <div
+              className="uk-section"
+              data-uk-height-viewport="offset-top: true; offset-bottom: true"
+            >
               {messages.map((d, i) => {})}
             </div>
             <form className="uk-width-1-1">
