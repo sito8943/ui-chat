@@ -24,8 +24,10 @@
       }
     },
     "Main": {
-      "Placeholders": {
-        "Search": "Buscar..."
+      "Navbar": {
+        "Placeholders": {
+          "Search": "Buscar..."
+        }
       }
     },
     "NotMatch": {},

@@ -17,6 +17,8 @@ import {
   WinkEmojiIcon,
 } from "../../icons/icons";
 
+import NavBar from '../../components/navbar/NavBar'
+
 const emojis = [
   "laughing",
   "angry",
@@ -32,33 +34,40 @@ const emojis = [
 
 const Main = (props) => {
   const { contextState, setContextState } = useContext();
-  const [search, setSearch] = useState("");
   const [emoji, setEmoji] = useState("laughing");
   const [message, setMessage] = useState("");
+  const [messages, setMessages] = useState([]);
+  let pressTimer = undefined;
+
+  const init = async () => {};
+
+  useEffect(() => {
+    init();
+  }, []);
 
   const handleInput = (e) => {
     switch (e.target.id) {
-      case "search":
-        return setSearch(e.target.value);
-
       default:
-        if (e.target.value != "") {
-          document
-            .getElementById("backspace")
-            .classList.remove("icon-no-hover");
-          document.getElementById("backspace").classList.add("icon-hover");
-
-          document.getElementById("send").classList.remove("icon-no-hover");
-          document.getElementById("send").classList.add("icon-hover");
-        } else {
-          document.getElementById("backspace").classList.remove("icon-hover");
-          document.getElementById("backspace").classList.add("icon-no-hover");
-
-          document.getElementById("send").classList.remove("icon-hover");
-          document.getElementById("send").classList.add("icon-no-hover");
-        }
+        if (e.target.value != "") addHover();
+        else removeHover();
         return setMessage(e.target.value);
     }
+  };
+
+  const addHover = () => {
+    document.getElementById("backspace").classList.remove("icon-no-hover");
+    document.getElementById("backspace").classList.add("icon-hover");
+
+    document.getElementById("send").classList.remove("icon-no-hover");
+    document.getElementById("send").classList.add("icon-hover");
+  };
+
+  const removeHover = () => {
+    document.getElementById("backspace").classList.remove("icon-hover");
+    document.getElementById("backspace").classList.add("icon-no-hover");
+
+    document.getElementById("send").classList.remove("icon-hover");
+    document.getElementById("send").classList.add("icon-no-hover");
   };
 
   const changeEmoji = () => {
@@ -93,64 +102,55 @@ const Main = (props) => {
     }
   };
 
+  const deleteLast = () => {
+    if (message != "") {
+      setMessage(message.substr(0, message.length - 1));
+      if (pressTimer == undefined) {
+        pressTimer = window.setTimeout(function () {
+          setMessage("");
+        }, 2500);
+      }
+    } else {
+      removeHover();
+    }
+  };
+  const resetDelete = () => {
+    if (pressTimer != undefined) {
+      clearTimeout(pressTimer);
+      pressTimer = undefined;
+    }
+    document.getElementById("message").focus();
+    if (message == "") removeHover();
+  };
+
+  const send = () => {};
+
   return (
     <div classNameName="main" style={{ height: "100vh" }}>
-      <nav className="uk-navbar-container" data-uk-navbar>
-        <div className="uk-navbar-left">
-          <a className="uk-navbar-item uk-logo" href="#">
-            <img src="/logo192.png" alt="app-logo" style={{ height: "60px" }} />
-          </a>
-          <div className="uk-navbar-item">
-            <form action="javascript:void(0)">
-              <input
-                className="uk-input uk-form-width-small"
-                type="text"
-                id="search"
-                placeholder={props.texts.Placeholders.Search}
-                value={search}
-                onChange={handleInput}
-              />
-            </form>
-          </div>
-        </div>
-        <div className="uk-navbar-right uk-visible@m">
-          <ul className="uk-navbar-nav">
-            <li className="uk-active">
-              <a href="#">Active</a>
-            </li>
-            <li>
-              <a href="#">Parent</a>
-              <div className="uk-navbar-dropdown">
-                <ul className="uk-nav uk-navbar-dropdown-nav">
-                  <li className="uk-active">
-                    <a href="#">Active</a>
-                  </li>
-                  <li>
-                    <a href="#">Item</a>
-                  </li>
-                  <li>
-                    <a href="#">Item</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <a href="#">Item</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+      <NavBar texts={props.texts.NavBar} />
       <div
-        className="uk-grid-collapse uk-text-center uk-height-expand"
+        className="uk-grid-collapse uk-text-center uk-section"
+        data-uk-height-viewport="expand: true"
         data-uk-grid
       >
-        <div className="uk-width-medium uk-visible@m">
+        <div
+          className="uk-width-medium uk-visible@m uk-background-muted uk-section"
+          data-uk-height-viewport="expand: true"
+        >
           <div className="uk-background-muted uk-padding">Item</div>
         </div>
-        <div className="uk-width-expand@m  uk-width-1-1@s">
-          <div className="uk-padding">
-            <div className="uk-height-expand"></div>
-            <form className="uk-height-small">
+        <div
+          className="uk-width-expand@m uk-width-1-1@s uk-section"
+          data-uk-height-viewport="expand: true"
+        >
+          <div className="uk-section" data-uk-height-viewport="expand: true">
+            <div
+              className="uk-section uk-section-default"
+              data-uk-height-viewport="expand: true"
+            >
+              {messages.map((d, i) => {})}
+            </div>
+            <form className="uk-width-1-1">
               <div
                 style={{ border: "1px solid #e5e5e5", alignItems: "center" }}
                 className="uk-width-1-1 uk-flex"
@@ -167,7 +167,8 @@ const Main = (props) => {
                   id="backspace"
                   className="chat-icon icon icon-no-hover"
                   href="#"
-                  disabled
+                  onMouseDown={deleteLast}
+                  onMouseUp={resetDelete}
                 >
                   <BackspaceIcon />
                 </a>
@@ -176,7 +177,6 @@ const Main = (props) => {
                   onMouseLeave={changeEmoji}
                   className="chat-icon icon"
                   href="#"
-                  disabled
                 >
                   {showEmoji()}
                 </a>
@@ -184,7 +184,7 @@ const Main = (props) => {
                   id="send"
                   className="chat-icon icon icon-no-hover"
                   href="#"
-                  disabled
+                  onClick={send}
                 >
                   <ChatIcon />
                 </a>
