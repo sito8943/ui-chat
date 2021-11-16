@@ -23,7 +23,11 @@
         "Password": "Contraseña"
       }
     },
-    "Main": {},
+    "Main": {
+      "Placeholders": {
+        "Search": "Buscar..."
+      }
+    },
     "NotMatch": {},
     "Forgot": {
       "Title": "¿Has olvidado la contraseña?",

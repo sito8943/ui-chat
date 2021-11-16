@@ -20,7 +20,72 @@ import {
   BsFillPlayFill,
   BsFillPlusCircleFill,
   BsFillShareFill,
+  BsBellFill,
+  BsChatDotsFill,
+  BsCheckCircleFill,
+  BsCompassFill,
+  BsDashCircleFill,
+  BsGearFill,
+  BsInfoCircleFill,
+  BsShieldLockFill,
+  BsToggleOff,
+  BsToggleOn,
+  BsXCircleFill,
+  BsStarFill,
+  BsQuestionCircleFill,
 } from "react-icons/bs";
+
+export const NotificationIcon = () => {
+  return <BsBellFill />;
+};
+
+export const ChatIcon = () => {
+  return <BsChatDotsFill />;
+};
+
+export const CorrectIcon = () => {
+  return <BsCheckCircleFill />;
+};
+
+export const ExploreIcon = () => {
+  return <BsCompassFill />;
+};
+
+export const RemoveIcon = () => {
+  return <BsDashCircleFill />;
+};
+
+export const SettingsIcon = () => {
+  return <BsGearFill />;
+};
+
+export const InfoIcon = () => {
+  return <BsInfoCircleFill />;
+};
+
+export const SecureIcon = () => {
+  return <BsShieldLockFill />;
+};
+
+export const ToggleOffIcon = () => {
+  return <BsToggleOff />;
+};
+
+export const ToggOnIcon = () => {
+  return <BsToggleOn />;
+};
+
+export const XIcon = () => {
+  return <BsXCircleFill />;
+};
+
+export const StarIcon = () => {
+  return <BsStarFill />;
+};
+
+export const QuestionIcon = () => {
+  return <BsQuestionCircleFill />;
+};
 
 export const AngryEmojiIcon = () => {
   return <BsFillEmojiAngryFill />;
