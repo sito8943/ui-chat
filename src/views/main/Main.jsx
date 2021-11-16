@@ -1,7 +1,34 @@
 import React, { useState, useEffect } from "react";
 
 import { useContext } from "../../context/ContextProvider";
-import { ChatIcon, BackspaceIcon, LaughingEmojIcon, DizzyEmojiIcon, ExpressionlessEmojiIcon,  } from "../../icons/icons";
+import {
+  ChatIcon,
+  BackspaceIcon,
+  LaughingEmojIcon,
+  DizzyEmojiIcon,
+  ExpressionlessEmojiIcon,
+  AngryEmojiIcon,
+  FrownEmojiIcon,
+  NeutralEmojiIcon,
+  HearEyesEmojiIcon,
+  SmileEmojiIcon,
+  SmileUpsideDownEmojiIcon,
+  SunglassesEmojiIcon,
+  WinkEmojiIcon,
+} from "../../icons/icons";
+
+const emojis = [
+  "laughing",
+  "angry",
+  "dizzy",
+  "expression",
+  "frown",
+  "heareyes",
+  "neutral",
+  "smile",
+  "smileupside",
+  "sunglasses",
+];
 
 const Main = (props) => {
   const { contextState, setContextState } = useContext();
@@ -17,6 +44,12 @@ const Main = (props) => {
       default:
         return setMessage(e.value);
     }
+  };
+
+  const changeEmoji = () => {
+    const an = Math.random() * (emojis.length - 0) + 0;
+    console.log(emojis[Math.floor(an)]);
+    setEmoji(emojis[Math.floor(an)]);
   };
 
   const showEmoji = () => {
@@ -119,7 +152,13 @@ const Main = (props) => {
                 <a className="chat-icon icon" href="#" disabled>
                   <BackspaceIcon />
                 </a>
-                <a className="chat-icon icon" href="#" disabled>
+                <a
+                  onMouseEnter={changeEmoji}
+                  onMouseLeave={changeEmoji}
+                  className="chat-icon icon"
+                  href="#"
+                  disabled
+                >
                   {showEmoji()}
                 </a>
                 <a className="chat-icon icon " href="#" disabled>
