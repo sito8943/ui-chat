@@ -39,10 +39,10 @@ const Main = (props) => {
   const handleInput = (e) => {
     switch (e.target.id) {
       case "search":
-        return setSearch(e.value);
+        return setSearch(e.target.value);
 
       default:
-        if (e.value != "") {
+        if (e.target.value != "") {
           document
             .getElementById("backspace")
             .classList.remove("icon-no-hover");
@@ -57,7 +57,7 @@ const Main = (props) => {
           document.getElementById("send").classList.remove("icon-hover");
           document.getElementById("send").classList.add("icon-no-hover");
         }
-        return setMessage(e.value);
+        return setMessage(e.target.value);
     }
   };
 
