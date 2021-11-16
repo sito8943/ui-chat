@@ -35,7 +35,22 @@ import {
   BsQuestionCircleFill,
   BsFillBackspaceFill,
   BsFillMenuButtonWideFill,
+  BsCircleFill,
+  BsFillMoonFill,
+  BsEarbuds,
 } from "react-icons/bs";
+
+export const DontDisturbIcon = () => {
+  return <BsEarbuds />;
+};
+
+export const IdleIcon = () => {
+  return <BsFillMoonFill />;
+};
+
+export const DotIcon = () => {
+  return <BsCircleFill />;
+};
 
 export const MenuIcon = () => {
   return <BsFillMenuButtonWideFill />;

@@ -42,7 +42,7 @@ const App = () => {
           <Notification texts={ui.ES.Notification} />
           <Switch>
             <Route exact path="/">
-              {contextState.user != "" ? (
+              {contextState.user == "" ? (
                 <Login texts={ui.ES.Login} />
               ) : (
                 <Main texts={ui.ES.Main} />

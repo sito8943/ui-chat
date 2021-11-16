@@ -1,20 +1,54 @@
 import React, { useState, useEffect } from "react";
 import { useContext } from "../../context/ContextProvider";
-import { MenuIcon, SettingsIcon, XIcon } from "../../icons/icons";
+import {
+  IdleIcon,
+  DotIcon,
+  SettingsIcon,
+  XIcon,
+  DontDisturbIcon,
+} from "../../icons/icons";
 
 const NavBar = (props) => {
   const { contextState, setContextState } = useContext();
   const [search, setSearch] = useState("");
-  const [alternative, setAlternative] = useState(false);
+  const [alternative, setAlternative] = useState(true);
 
   const init = async () => {};
 
-  useEffect(() => { 
+  useEffect(() => {
     setTimeout(() => {
-      setAlternative(!alternative)
-      console.log(alternative);
-    }, 2000);
+      setAlternative(!alternative);
+    }, 9000);
   }, [alternative]);
+
+  const printStateIcon = () => {
+    switch (contextState.user.state) {
+      case "offline":
+        return (
+          <span className="offline state-icon">
+            <DotIcon />
+          </span>
+        );
+      case "idle":
+        return (
+          <span className="idle state-icon">
+            <IdleIcon />
+          </span>
+        );
+      case "dont-disturb":
+        return (
+          <span className="dont-disturb state-icon">
+            <DontDisturbIcon />
+          </span>
+        );
+      default:
+        return (
+          <span className="online state-icon">
+            <DotIcon />
+          </span>
+        );
+    }
+  };
 
   const handleInput = (e) => {
     switch (e.target.id) {
@@ -27,10 +61,10 @@ const NavBar = (props) => {
     <nav className="uk-navbar-container" data-uk-navbar>
       {!alternative ? (
         <div className="uk-navbar-left uk-animation-slide-bottom-small">
-          <a className="uk-navbar-item uk-logo" href="#">
+          <a className="uk-navbar-item uk-logo " href="#">
             <img src="/logo192.png" alt="app-logo" style={{ height: "60px" }} />
           </a>
-          <div className="uk-navbar-item">
+          <div className="uk-navbar-item ">
             <form action="javascript:void(0)">
               <input
                 className="uk-input uk-form-width-small"
@@ -44,13 +78,19 @@ const NavBar = (props) => {
           </div>
         </div>
       ) : (
-        <div className="uk-navbar-left uk-animation-slide-bottom-small">
+        <div className="uk-navbar-left uk-animation-slide-bottom-small ">
           <ul className="uk-navbar-nav">
             <li className="uk-active">
               <a href="#">{contextState.user.name}</a>
             </li>
             <li>
-              <a href="#">{contextState.user.state}</a>
+              <a href="">
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  {printStateIcon()}
+
+                  <span>{contextState.user.state}</span>
+                </div>
+              </a>
             </li>
           </ul>
         </div>

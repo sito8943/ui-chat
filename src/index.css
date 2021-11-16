@@ -55,3 +55,23 @@
 .menu-button:hover {
   color: dodgerblue !important;
 }
+
+.online {
+  color: limegreen !important;
+}
+
+.offline {
+  color: #a09f9f !important;
+}
+
+.idle {
+  color: rgb(161, 135, 112) !important;
+}
+
+.dont-disturb {
+  color: crimson !important;
+}
+
+.state-icon {
+  margin: 0 5px 2px 0
+}
