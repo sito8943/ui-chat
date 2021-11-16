@@ -20,13 +20,15 @@ const Forgot = (props) => {
 
   const send = async (e) => {
     e.preventDefault();
-    setContextState({ type: "checking" });
-    const netStatus = await connectionState();
-    if (netStatus) {
-      const user = {
-        name: name,
-      };
-    } else setContextState({ type: "offline" });
+    setTimeout(async () => {
+      setContextState({ type: "checking" });
+      const netStatus = await connectionState();
+      if (netStatus) {
+        const user = {
+          name: name,
+        };
+      } else setContextState({ type: "offline" });
+    }, 300);
   };
 
   const init = () => {};
@@ -37,7 +39,11 @@ const Forgot = (props) => {
   }, []);
 
   return (
-    <div data-uk-grid style={{ alignItems: "center", height: "100vh" }}>
+    <div
+      className="uk-animation-scale-down"
+      data-uk-grid
+      style={{ alignItems: "center", height: "100vh" }}
+    >
       <div className="uk-width-expand"></div>
       <div
         className="uk-card uk-card-default uk-card-body"

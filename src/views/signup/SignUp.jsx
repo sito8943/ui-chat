@@ -18,15 +18,17 @@ const SignUp = (props) => {
 
   const signUp = async (e) => {
     e.preventDefault();
-    setContextState({ type: "checking" });
-    const netStatus = await connectionState();
-    if (netStatus) {
-      const user = {
-        name: name,
-        email: email,
-        password: password,
-      };
-    } else setContextState({ type: "offline" });
+    setTimeout(async () => {
+      setContextState({ type: "checking" });
+      const netStatus = await connectionState();
+      if (netStatus) {
+        const user = {
+          name: name,
+          email: email,
+          password: password,
+        };
+      } else setContextState({ type: "offline" });
+    }, 300);
   };
 
   const handleInput = (e) => {
@@ -48,7 +50,11 @@ const SignUp = (props) => {
   }, []);
 
   return (
-    <div data-uk-grid style={{ alignItems: "center", height: "100vh" }}>
+    <div
+      className="uk-animation-scale-down"
+      data-uk-grid
+      style={{ alignItems: "center", height: "100vh" }}
+    >
       <div className="uk-width-expand"></div>
       <div
         className="uk-card uk-card-default uk-card-body"

@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 
 import { useContext } from "../../context/ContextProvider";
+import { ChatIcon, BackspaceIcon, LaughingEmojIcon, DizzyEmojiIcon, ExpressionlessEmojiIcon,  } from "../../icons/icons";
 
 const Main = (props) => {
   const { contextState, setContextState } = useContext();
   const [search, setSearch] = useState("");
+  const [emoji, setEmoji] = useState("laughing");
+  const [message, setMessage] = useState("");
 
   const handleInput = (e) => {
     switch (e.target.id) {
@@ -12,21 +15,48 @@ const Main = (props) => {
         return setSearch(e.value);
 
       default:
-        break;
+        return setMessage(e.value);
+    }
+  };
+
+  const showEmoji = () => {
+    switch (emoji) {
+      case "laughing":
+        return <LaughingEmojIcon />;
+      case "angry":
+        return <AngryEmojiIcon />;
+      case "dizzy":
+        return <DizzyEmojiIcon />;
+      case "expression":
+        return <ExpressionlessEmojiIcon />;
+      case "frown":
+        return <FrownEmojiIcon />;
+      case "heareyes":
+        return <HearEyesEmojiIcon />;
+      case "neutral":
+        return <NeutralEmojiIcon />;
+      case "smile":
+        return <SmileEmojiIcon />;
+      case "smileupside":
+        return <SmileUpsideDownEmojiIcon />;
+      case "sunglasses":
+        return <SunglassesEmojiIcon />;
+      default:
+        return <WinkEmojiIcon />;
     }
   };
 
   return (
-    <div classNameName="main">
-      <nav class="uk-navbar-container" data-uk-navbar>
-        <div class="uk-navbar-left">
-          <a class="uk-navbar-item uk-logo" href="#">
+    <div classNameName="main" style={{ height: "100vh" }}>
+      <nav className="uk-navbar-container" data-uk-navbar>
+        <div className="uk-navbar-left">
+          <a className="uk-navbar-item uk-logo" href="#">
             <img src="/logo192.png" alt="app-logo" style={{ height: "60px" }} />
           </a>
-          <div class="uk-navbar-item">
+          <div className="uk-navbar-item">
             <form action="javascript:void(0)">
               <input
-                class="uk-input uk-form-width-small"
+                className="uk-input uk-form-width-small"
                 type="text"
                 id="search"
                 placeholder={props.texts.Placeholders.Search}
@@ -36,16 +66,16 @@ const Main = (props) => {
             </form>
           </div>
         </div>
-        <div class="uk-navbar-right">
-          <ul class="uk-navbar-nav">
-            <li class="uk-active">
+        <div className="uk-navbar-right uk-visible@m">
+          <ul className="uk-navbar-nav">
+            <li className="uk-active">
               <a href="#">Active</a>
             </li>
             <li>
               <a href="#">Parent</a>
-              <div class="uk-navbar-dropdown">
-                <ul class="uk-nav uk-navbar-dropdown-nav">
-                  <li class="uk-active">
+              <div className="uk-navbar-dropdown">
+                <ul className="uk-nav uk-navbar-dropdown-nav">
+                  <li className="uk-active">
                     <a href="#">Active</a>
                   </li>
                   <li>
@@ -63,12 +93,41 @@ const Main = (props) => {
           </ul>
         </div>
       </nav>
-      <div className="uk-grid-collapse uk-text-center" data-uk-grid>
-        <div className="uk-width-medium">
+      <div
+        className="uk-grid-collapse uk-text-center uk-height-expand"
+        data-uk-grid
+      >
+        <div className="uk-width-medium uk-visible@m">
           <div className="uk-background-muted uk-padding">Item</div>
         </div>
-        <div className="uk-width-expand ">
-          <div className="uk-background-primary  uk-padding uk-light">Item</div>
+        <div className="uk-width-expand@m  uk-width-1-1@s">
+          <div className="uk-padding">
+            <div className="uk-height-expand"></div>
+            <form className="uk-height-small">
+              <div
+                style={{ border: "1px solid #e5e5e5", alignItems: "center" }}
+                className="uk-width-1-1 uk-flex"
+              >
+                <input
+                  id="message"
+                  className="uk-input"
+                  value={message}
+                  onChange={handleInput}
+                  type="text"
+                  style={{ border: "none" }}
+                />
+                <a className="chat-icon icon" href="#" disabled>
+                  <BackspaceIcon />
+                </a>
+                <a className="chat-icon icon" href="#" disabled>
+                  {showEmoji()}
+                </a>
+                <a className="chat-icon icon " href="#" disabled>
+                  <ChatIcon />
+                </a>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>

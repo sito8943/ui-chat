@@ -11,3 +11,20 @@
 .uk-button {
   padding: 0 10px !important;
 }
+
+.chat-icon {
+  margin: 0 5px;
+  font-size: 1.2rem !important;
+}
+
+.icon {
+  color: #e5e5e5;
+}
+
+.icon:disabled {
+  color: #e5e5e5 !important;
+}
+
+.icon:hover {
+  color: dodgerblue;
+}

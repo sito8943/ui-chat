@@ -33,6 +33,7 @@ import {
   BsXCircleFill,
   BsStarFill,
   BsQuestionCircleFill,
+  BsFillBackspaceFill,
 } from "react-icons/bs";
 
 export const NotificationIcon = () => {
@@ -169,4 +170,8 @@ export const NewChatIcon = () => {
 
 export const ShareIcon = () => {
   return <BsFillShareFill />;
+};
+
+export const BackspaceIcon = () => {
+  return <BsFillBackspaceFill />;
 };
