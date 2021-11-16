@@ -9,14 +9,12 @@ const NavBar = (props) => {
 
   const init = async () => {};
 
-  useEffect(() => {
-    console.log("hola");
-    const interval = setInterval(() => {
-      alert("hola");
-      setAlternative(true);
-    }, 1000);
-    return clearInterval(interval);
-  }, []);
+  useEffect(() => { 
+    setTimeout(() => {
+      setAlternative(!alternative)
+      console.log(alternative);
+    }, 2000);
+  }, [alternative]);
 
   const handleInput = (e) => {
     switch (e.target.id) {
@@ -27,7 +25,7 @@ const NavBar = (props) => {
 
   return (
     <nav className="uk-navbar-container" data-uk-navbar>
-      {alternative ? (
+      {!alternative ? (
         <div className="uk-navbar-left uk-animation-slide-bottom-small">
           <a className="uk-navbar-item uk-logo" href="#">
             <img src="/logo192.png" alt="app-logo" style={{ height: "60px" }} />
@@ -47,10 +45,14 @@ const NavBar = (props) => {
         </div>
       ) : (
         <div className="uk-navbar-left uk-animation-slide-bottom-small">
-           <ul class="uk-navbar-nav">
-            <li class="uk-active"><a href="#">{contextState.user.name}</a></li>
-            <li><a href="#">{contextState.user.state}</a></li>
-        </ul>
+          <ul className="uk-navbar-nav">
+            <li className="uk-active">
+              <a href="#">{contextState.user.name}</a>
+            </li>
+            <li>
+              <a href="#">{contextState.user.state}</a>
+            </li>
+          </ul>
         </div>
       )}
       <div className="uk-navbar-right uk-visible@m">
@@ -91,7 +93,7 @@ const NavBar = (props) => {
       <div>
         <div id="offcanvas-usage" data-uk-offcanvas>
           <div className="uk-offcanvas-bar">
-            <button className="uk-offcanvas-close" type="button" data-uk-close>
+            <button className="uk-offcanvas-close" type="button">
               <XIcon />
             </button>
 
