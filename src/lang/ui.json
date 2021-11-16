@@ -1,7 +1,8 @@
 {
   "ES": {
-    "Notification" : {
-      "NotConnected" : "No tienes conexión con el servidor"
+    "Notification": {
+      "NotConnected": "No tienes conexión con el servidor",
+      "Connected": "Se ha restablecido la conexión"
     },
     "Login": {
       "Title": "Ui-Chat",

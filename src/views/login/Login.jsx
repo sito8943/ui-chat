@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import UIkit from "uikit";
-
 import Loading from "../../components/loading/Loading";
-import { WarningIcon } from "../../icons/icons";
+import Notification from "../../components/notification/Notification";
+
 import { useContext } from "../../context/ContextProvider";
 
 const Login = (props) => {
@@ -14,17 +13,7 @@ const Login = (props) => {
   const [remember, setRemember] = useState(false);
   const { contextState, setContextState } = useContext();
 
-  const init = () => {
-    const notConnected = props.texts.notification.NotConnected;
-    if (!contextState.netState) {
-      UIkit.notification({
-        message: `${notConnected}`,
-        status: "danger",
-        pos: "bottom-right",
-        timeout: 5000
-      });
-    }
-  };
+  const init = () => {};
 
   const signIn = (e) => {
     e.preventDefault();
@@ -51,95 +40,98 @@ const Login = (props) => {
   }, []);
 
   return (
-    <div data-uk-grid style={{ alignItems: "center", height: "100vh" }}>
-      <div className="uk-width-expand"></div>
-      <div
-        className="uk-card uk-card-default uk-card-body"
-        style={{ padding: " 50px 75px" }}
-      >
-        {loading ? (
-          <Loading />
-        ) : (
-          <>
-            <div className="uk-flex">
-              <img
-                src="/logo512.png"
-                alt="app-logo"
-                style={{ height: "120px", marginRight: "20px" }}
-              />
-              <h3 className="uk-card-title">{props.texts.login.Title}</h3>
-            </div>
-            <p>{props.texts.login.Paragraph}</p>
-            <form onSubmit={signIn}>
-              <fieldset className="uk-fieldset">
-                <legend className="uk-legend">
-                  {props.texts.login.Labels.User}
-                </legend>
-                <div className="uk-margin">
-                  <input
-                    id="name"
-                    value={name}
-                    onChange={handleInput}
-                    className="uk-input"
-                    type="text"
-                    placeholder={props.texts.login.Placeholders.User}
-                    required
-                  />
-                </div>
-              </fieldset>
-              <fieldset className="uk-fieldset">
-                <legend className="uk-legend">
-                  {props.texts.login.Labels.Password}
-                </legend>
-                <div className="uk-margin">
-                  <input
-                    id="password"
-                    value={password}
-                    onChange={handleInput}
-                    className="uk-input"
-                    type="password"
-                    placeholder={props.texts.login.Placeholders.Password}
-                    required
-                  />
-                </div>
-              </fieldset>
-              <fieldset className="uk-fieldset uk-margin uk-grid-small uk-child-width-auto uk-grid">
-                <label>
-                  <input
-                    id="remember"
-                    value={remember}
-                    onClick={handleInput}
-                    class="uk-checkbox"
-                    type="checkbox"
-                  />
-                  {props.texts.login.Labels.Remember}
-                </label>
-              </fieldset>
-              <div className="uk-button-group">
-                <button className="uk-button uk-button-primary">
-                  {props.texts.login.Buttons.SignIn}
-                </button>
-                <button
-                  className="uk-button uk-button-default"
-                  style={{ marginLeft: "20px" }}
-                >
-                  <Link style={{ textDecoration: "none" }} to="/signup">
-                    {props.texts.login.Buttons.SignUp}
-                  </Link>
-                </button>
+    <>
+      <Notification texts={props.texts.notification} />
+      <div data-uk-grid style={{ alignItems: "center", height: "100vh" }}>
+        <div className="uk-width-expand"></div>
+        <div
+          className="uk-card uk-card-default uk-card-body"
+          style={{ padding: " 50px 75px" }}
+        >
+          {loading ? (
+            <Loading />
+          ) : (
+            <>
+              <div className="uk-flex">
+                <img
+                  src="/logo512.png"
+                  alt="app-logo"
+                  style={{ height: "120px", marginRight: "20px" }}
+                />
+                <h3 className="uk-card-title">{props.texts.login.Title}</h3>
               </div>
-            </form>
-            <hr />
-            <div className="uk-button-group">
-              <Link className="uk-link-muted" to="/forgot">
-                {props.texts.login.Buttons.Forgot}
-              </Link>
-            </div>
-          </>
-        )}
+              <p>{props.texts.login.Paragraph}</p>
+              <form onSubmit={signIn}>
+                <fieldset className="uk-fieldset">
+                  <legend className="uk-legend">
+                    {props.texts.login.Labels.User}
+                  </legend>
+                  <div className="uk-margin">
+                    <input
+                      id="name"
+                      value={name}
+                      onChange={handleInput}
+                      className="uk-input"
+                      type="text"
+                      placeholder={props.texts.login.Placeholders.User}
+                      required
+                    />
+                  </div>
+                </fieldset>
+                <fieldset className="uk-fieldset">
+                  <legend className="uk-legend">
+                    {props.texts.login.Labels.Password}
+                  </legend>
+                  <div className="uk-margin">
+                    <input
+                      id="password"
+                      value={password}
+                      onChange={handleInput}
+                      className="uk-input"
+                      type="password"
+                      placeholder={props.texts.login.Placeholders.Password}
+                      required
+                    />
+                  </div>
+                </fieldset>
+                <fieldset className="uk-fieldset uk-margin uk-grid-small uk-child-width-auto uk-grid">
+                  <label>
+                    <input
+                      id="remember"
+                      value={remember}
+                      onClick={handleInput}
+                      class="uk-checkbox"
+                      type="checkbox"
+                    />
+                    {props.texts.login.Labels.Remember}
+                  </label>
+                </fieldset>
+                <div className="uk-button-group">
+                  <button className="uk-button uk-button-primary">
+                    {props.texts.login.Buttons.SignIn}
+                  </button>
+                  <button
+                    className="uk-button uk-button-default"
+                    style={{ marginLeft: "20px" }}
+                  >
+                    <Link style={{ textDecoration: "none" }} to="/signup">
+                      {props.texts.login.Buttons.SignUp}
+                    </Link>
+                  </button>
+                </div>
+              </form>
+              <hr />
+              <div className="uk-button-group">
+                <Link className="uk-link-muted" to="/forgot">
+                  {props.texts.login.Buttons.Forgot}
+                </Link>
+              </div>
+            </>
+          )}
+        </div>
+        <div className="uk-width-expand"></div>
       </div>
-      <div className="uk-width-expand"></div>
-    </div>
+    </>
   );
 };
 
