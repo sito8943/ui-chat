@@ -18,7 +18,7 @@ const NavBar = (props) => {
   useEffect(() => {
     setTimeout(() => {
       setAlternative(!alternative);
-    }, 9000);
+    }, 50000);
   }, [alternative]);
 
   const printStateIcon = () => {
@@ -60,8 +60,8 @@ const NavBar = (props) => {
   return (
     <nav className="uk-navbar-container" data-uk-navbar>
       {!alternative ? (
-        <div className="uk-navbar-left uk-animation-slide-bottom-small">
-          <a className="uk-navbar-item uk-logo " href="#">
+        <div className="uk-navbar-left">
+          <a className="uk-navbar-item uk-logo" href="#">
             <img src="/logo192.png" alt="app-logo" style={{ height: "60px" }} />
           </a>
           <div className="uk-navbar-item ">
@@ -78,7 +78,10 @@ const NavBar = (props) => {
           </div>
         </div>
       ) : (
-        <div className="uk-navbar-left uk-animation-slide-bottom-small ">
+        <div className="uk-navbar-left">
+          <a className="uk-navbar-item uk-logo" href="#">
+            <img className="profile-img" src="https://robohash.org/138.246.253.15.png" alt="app-logo" style={{ height: "50px" }} />
+          </a>
           <ul className="uk-navbar-nav">
             <li className="uk-active">
               <a href="#">{contextState.user.name}</a>
