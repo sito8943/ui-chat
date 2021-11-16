@@ -25,6 +25,14 @@
   color: #e5e5e5 !important;
 }
 
-.icon:hover {
-  color: dodgerblue;
+.icon-no-hover {
+  cursor: inherit;
+}
+
+.icon-no-hover:hover {
+  color: #a09f9f !important;
+}
+
+.icon-hover:hover {
+  color: dodgerblue !important;
 }

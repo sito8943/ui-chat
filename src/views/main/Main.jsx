@@ -42,13 +42,27 @@ const Main = (props) => {
         return setSearch(e.value);
 
       default:
+        if (e.value != "") {
+          document
+            .getElementById("backspace")
+            .classList.remove("icon-no-hover");
+          document.getElementById("backspace").classList.add("icon-hover");
+
+          document.getElementById("send").classList.remove("icon-no-hover");
+          document.getElementById("send").classList.add("icon-hover");
+        } else {
+          document.getElementById("backspace").classList.remove("icon-hover");
+          document.getElementById("backspace").classList.add("icon-no-hover");
+
+          document.getElementById("send").classList.remove("icon-hover");
+          document.getElementById("send").classList.add("icon-no-hover");
+        }
         return setMessage(e.value);
     }
   };
 
   const changeEmoji = () => {
     const an = Math.random() * (emojis.length - 0) + 0;
-    console.log(emojis[Math.floor(an)]);
     setEmoji(emojis[Math.floor(an)]);
   };
 
@@ -149,7 +163,12 @@ const Main = (props) => {
                   type="text"
                   style={{ border: "none" }}
                 />
-                <a className="chat-icon icon" href="#" disabled>
+                <a
+                  id="backspace"
+                  className="chat-icon icon icon-no-hover"
+                  href="#"
+                  disabled
+                >
                   <BackspaceIcon />
                 </a>
                 <a
@@ -161,7 +180,12 @@ const Main = (props) => {
                 >
                   {showEmoji()}
                 </a>
-                <a className="chat-icon icon " href="#" disabled>
+                <a
+                  id="send"
+                  className="chat-icon icon icon-no-hover"
+                  href="#"
+                  disabled
+                >
                   <ChatIcon />
                 </a>
               </div>
