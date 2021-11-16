@@ -1,4 +1,13 @@
 .uk-notification-message-danger {
-    color: aliceblue !important;
-    background-color: crimson !important;
+  color: aliceblue !important;
+  background-color: crimson !important;
+}
+
+.uk-notification-message-warning {
+  color: aliceblue !important;
+  background-color: orange !important;
+}
+
+.uk-button {
+  padding: 0 10px !important;
 }

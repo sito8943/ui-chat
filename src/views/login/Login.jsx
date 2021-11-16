@@ -50,7 +50,7 @@ const Login = (props) => {
         <div className="uk-width-expand"></div>
         <div
           className="uk-card uk-card-default uk-card-body"
-          style={{ padding: " 50px 75px" }}
+          style={{ padding: " 50px 50px" }}
         >
           {loading ? (
             <Loading />
@@ -104,7 +104,7 @@ const Login = (props) => {
                       id="remember"
                       value={remember}
                       onClick={handleInput}
-                      class="uk-checkbox"
+                      className="uk-checkbox"
                       type="checkbox"
                       style={{ marginRight: "10px" }}
                     />
@@ -115,14 +115,13 @@ const Login = (props) => {
                   <button className="uk-button uk-button-primary">
                     {props.texts.Buttons.SignIn}
                   </button>
-                  <button
+                  <Link
                     className="uk-button uk-button-default"
-                    style={{ marginLeft: "20px" }}
+                    style={{ textDecoration: "none", marginLeft: "20px" }}
+                    to="/signup"
                   >
-                    <Link style={{ textDecoration: "none" }} to="/signup">
-                      {props.texts.Buttons.SignUp}
-                    </Link>
-                  </button>
+                    {props.texts.Buttons.SignUp}
+                  </Link>
                 </div>
               </form>
               <hr />

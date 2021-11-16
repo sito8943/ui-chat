@@ -3,9 +3,13 @@ import { Link } from "react-router-dom";
 
 import Loading from "../../components/loading/Loading";
 
+import { useContext } from "../../context/ContextProvider";
+import { connectionState } from "../../services/get";
+
 const Forgot = (props) => {
   const [loading, setLoading] = useState(true);
   const [name, setName] = useState("");
+  const { contextState, setContextState } = useContext();
 
   const handleInput = (e) => {
     switch (e.target.id) {
@@ -14,11 +18,15 @@ const Forgot = (props) => {
     }
   };
 
-  const send = (e) => {
+  const send = async (e) => {
     e.preventDefault();
-    const user = {
-      name: name,
-    };
+    setContextState({ type: "checking" });
+    const netStatus = await connectionState();
+    if (netStatus) {
+      const user = {
+        name: name,
+      };
+    } else setContextState({ type: "offline" });
   };
 
   const init = () => {};
@@ -67,14 +75,13 @@ const Forgot = (props) => {
                 <button className="uk-button uk-button-primary">
                   {props.texts.Buttons.Send}
                 </button>
-                <button
+                <Link
                   className="uk-button uk-button-default"
-                  style={{ marginLeft: "20px" }}
+                  style={{ textDecoration: "none", marginLeft: "20px" }}
+                  to="/"
                 >
-                  <Link style={{ textDecoration: "none" }} to="/">
-                    {props.texts.Buttons.Return}
-                  </Link>
-                </button>
+                  {props.texts.Buttons.Return}
+                </Link>
               </div>
             </form>
           </>

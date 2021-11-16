@@ -88,7 +88,7 @@ const SignUp = (props) => {
                 </legend>
                 <div className="uk-margin">
                   <input
-                    id="name"
+                    id="email"
                     value={email}
                     onChange={handleInput}
                     className="uk-input"
@@ -120,7 +120,7 @@ const SignUp = (props) => {
                 </legend>
                 <div className="uk-margin">
                   <input
-                    id="password"
+                    id="passwordR"
                     value={passwordR}
                     onChange={handleInput}
                     className="uk-input"
@@ -134,14 +134,13 @@ const SignUp = (props) => {
                 <button className="uk-button uk-button-primary">
                   {props.texts.Buttons.SignUp}
                 </button>
-                <button
+                <Link
                   className="uk-button uk-button-default"
-                  style={{ marginLeft: "20px" }}
+                  style={{ textDecoration: "none", marginLeft: "20px" }}
+                  to="/"
                 >
-                  <Link style={{ textDecoration: "none" }} to="/">
-                    {props.texts.Buttons.Return}
-                  </Link>
-                </button>
+                  {props.texts.Buttons.Return}
+                </Link>
               </div>
             </form>
             <hr />
