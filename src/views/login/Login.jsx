@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import Loading from "../../components/loading/Loading";
-import Notification from "../../components/notification/Notification";
 
 import { useContext } from "../../context/ContextProvider";
+import { connectionState } from "../../services/get";
 
 const Login = (props) => {
   const [loading, setLoading] = useState(true);
@@ -15,12 +15,17 @@ const Login = (props) => {
 
   const init = () => {};
 
-  const signIn = (e) => {
+  const signIn = async (e) => {
     e.preventDefault();
-    const user = {
-      name: name,
-      password: password,
-    };
+    setContextState({ type: "checking" });
+    const netStatus = await connectionState();
+    if (netStatus) {
+      if (netStatus == 200) setContextState({ type: "online" });
+      const user = {
+        name: name,
+        password: password,
+      };
+    } else setContextState({ type: "offline" });
   };
 
   const handleInput = (e) => {
@@ -41,7 +46,6 @@ const Login = (props) => {
 
   return (
     <>
-      <Notification texts={props.texts.notification} />
       <div data-uk-grid style={{ alignItems: "center", height: "100vh" }}>
         <div className="uk-width-expand"></div>
         <div
@@ -58,13 +62,13 @@ const Login = (props) => {
                   alt="app-logo"
                   style={{ height: "120px", marginRight: "20px" }}
                 />
-                <h3 className="uk-card-title">{props.texts.login.Title}</h3>
+                <h3 className="uk-card-title">{props.texts.Title}</h3>
               </div>
-              <p>{props.texts.login.Paragraph}</p>
+              <p>{props.texts.Paragraph}</p>
               <form onSubmit={signIn}>
                 <fieldset className="uk-fieldset">
                   <legend className="uk-legend">
-                    {props.texts.login.Labels.User}
+                    {props.texts.Labels.User}
                   </legend>
                   <div className="uk-margin">
                     <input
@@ -73,14 +77,14 @@ const Login = (props) => {
                       onChange={handleInput}
                       className="uk-input"
                       type="text"
-                      placeholder={props.texts.login.Placeholders.User}
+                      placeholder={props.texts.Placeholders.User}
                       required
                     />
                   </div>
                 </fieldset>
                 <fieldset className="uk-fieldset">
                   <legend className="uk-legend">
-                    {props.texts.login.Labels.Password}
+                    {props.texts.Labels.Password}
                   </legend>
                   <div className="uk-margin">
                     <input
@@ -89,7 +93,7 @@ const Login = (props) => {
                       onChange={handleInput}
                       className="uk-input"
                       type="password"
-                      placeholder={props.texts.login.Placeholders.Password}
+                      placeholder={props.texts.Placeholders.Password}
                       required
                     />
                   </div>
@@ -102,20 +106,21 @@ const Login = (props) => {
                       onClick={handleInput}
                       class="uk-checkbox"
                       type="checkbox"
+                      style={{ marginRight: "10px" }}
                     />
-                    {props.texts.login.Labels.Remember}
+                    {props.texts.Labels.Remember}
                   </label>
                 </fieldset>
                 <div className="uk-button-group">
                   <button className="uk-button uk-button-primary">
-                    {props.texts.login.Buttons.SignIn}
+                    {props.texts.Buttons.SignIn}
                   </button>
                   <button
                     className="uk-button uk-button-default"
                     style={{ marginLeft: "20px" }}
                   >
                     <Link style={{ textDecoration: "none" }} to="/signup">
-                      {props.texts.login.Buttons.SignUp}
+                      {props.texts.Buttons.SignUp}
                     </Link>
                   </button>
                 </div>
@@ -123,7 +128,7 @@ const Login = (props) => {
               <hr />
               <div className="uk-button-group">
                 <Link className="uk-link-muted" to="/forgot">
-                  {props.texts.login.Buttons.Forgot}
+                  {props.texts.Buttons.Forgot}
                 </Link>
               </div>
             </>

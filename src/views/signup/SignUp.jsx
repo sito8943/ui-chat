@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import Loading from "../../components/loading/Loading";
+
 import { useContext } from "../../context/ContextProvider";
+import { connectionState } from "../../services/get";
 
 const SignUp = (props) => {
   const [loading, setLoading] = useState(true);
@@ -10,18 +12,21 @@ const SignUp = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordR, setPasswordR] = useState("");
-  const [remember, setRemember] = useState(false);
-  //const [contextState, setContextState] = useContext();
+  const { contextState, setContextState } = useContext();
 
   const init = () => {};
 
-  const signUp = (e) => {
+  const signUp = async (e) => {
     e.preventDefault();
-    const user = {
-      name: name,
-      email: email,
-      password: password,
-    };
+    setContextState({ type: "checking" });
+    const netStatus = await connectionState();
+    if (netStatus) {
+      const user = {
+        name: name,
+        email: email,
+        password: password,
+      };
+    } else setContextState({ type: "offline" });
   };
 
   const handleInput = (e) => {
@@ -33,7 +38,7 @@ const SignUp = (props) => {
       case "password":
         return setPassword(e.target.value);
       case "passwordR":
-        return setPassword(e.target.value);
+        return setPasswordR(e.target.value);
     }
   };
 
