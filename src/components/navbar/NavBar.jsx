@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useContext } from "../../context/ContextProvider";
 
 const NavBar = (props) => {
   const { contextState, setContextState } = useContext();

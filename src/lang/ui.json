@@ -24,7 +24,7 @@
       }
     },
     "Main": {
-      "Navbar": {
+      "NavBar": {
         "Placeholders": {
           "Search": "Buscar..."
         }

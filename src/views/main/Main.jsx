@@ -17,7 +17,7 @@ import {
   WinkEmojiIcon,
 } from "../../icons/icons";
 
-import NavBar from '../../components/navbar/NavBar'
+import NavBar from "../../components/navbar/NavBar";
 
 const emojis = [
   "laughing",
@@ -130,24 +130,15 @@ const Main = (props) => {
       <NavBar texts={props.texts.NavBar} />
       <div
         className="uk-grid-collapse uk-text-center uk-section"
-        data-uk-height-viewport="expand: true"
+        data-uk-height-viewport="offset-top: true; offset-bottom: true"
         data-uk-grid
       >
-        <div
-          className="uk-width-medium uk-visible@m uk-background-muted uk-section"
-          data-uk-height-viewport="expand: true"
-        >
-          <div className="uk-background-muted uk-padding">Item</div>
+        <div className="uk-width-medium uk-visible@m uk-background-muted">
+          <div className="uk-padding">Item</div>
         </div>
-        <div
-          className="uk-width-expand@m uk-width-1-1@s uk-section"
-          data-uk-height-viewport="expand: true"
-        >
-          <div className="uk-section" data-uk-height-viewport="expand: true">
-            <div
-              className="uk-section uk-section-default"
-              data-uk-height-viewport="expand: true"
-            >
+        <div className="uk-width-expand@m uk-width-1-1@s">
+          <div>
+            <div className="uk-section" data-uk-height-viewport="offset-top: true; offset-bottom: true">
               {messages.map((d, i) => {})}
             </div>
             <form className="uk-width-1-1">
