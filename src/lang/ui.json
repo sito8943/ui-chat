@@ -1,5 +1,8 @@
 {
   "ES": {
+    "Notification" : {
+      "NotConnected" : "No tienes conexión con el servidor"
+    },
     "Login": {
       "Title": "Ui-Chat",
       "Paragraph": "Un lugar donde en el cual las cosas comienzan a tener sentido",
