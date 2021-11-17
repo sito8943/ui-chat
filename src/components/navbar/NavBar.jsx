@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useContext } from "../../context/ContextProvider";
+import { Image, Shimmer } from "react-shimmer";
 import {
   IdleIcon,
   DotIcon,
@@ -80,7 +81,10 @@ const NavBar = (props) => {
       ) : (
         <div className="uk-navbar-left">
           <a className="uk-navbar-item uk-logo" href="#">
-            <img className="profile-img" src="https://robohash.org/138.246.253.15.png" alt="app-logo" style={{ height: "50px" }} />
+            <Image
+              src="https://robohash.org/138.246.253.15.png"
+              fallback={<Shimmer width={50} height={50} />}
+            />
           </a>
           <ul className="uk-navbar-nav">
             <li className="uk-active">
