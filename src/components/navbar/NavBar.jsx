@@ -1,54 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useContext } from "../../context/ContextProvider";
-import {
-  IdleIcon,
-  DotIcon,
-  SettingsIcon,
-  XIcon,
-  DontDisturbIcon,
-} from "../../icons/icons";
+import { SettingsIcon, XIcon } from "../../icons/icons";
 
 const NavBar = (props) => {
   const { contextState, setContextState } = useContext();
   const [search, setSearch] = useState("");
-  const [alternative, setAlternative] = useState(true);
 
   const init = async () => {};
 
   useEffect(() => {
-    setTimeout(() => {
-      setAlternative(!alternative);
-    }, 50000);
-  }, [alternative]);
-
-  const printStateIcon = () => {
-    switch (contextState.user.state) {
-      case "offline":
-        return (
-          <span className="offline state-icon">
-            <DotIcon />
-          </span>
-        );
-      case "idle":
-        return (
-          <span className="idle state-icon">
-            <IdleIcon />
-          </span>
-        );
-      case "dont-disturb":
-        return (
-          <span className="dont-disturb state-icon">
-            <DontDisturbIcon />
-          </span>
-        );
-      default:
-        return (
-          <span className="online state-icon">
-            <DotIcon />
-          </span>
-        );
-    }
-  };
+    init();
+  }, []);
 
   const handleInput = (e) => {
     switch (e.target.id) {
@@ -59,45 +21,24 @@ const NavBar = (props) => {
 
   return (
     <nav className="uk-navbar-container" data-uk-navbar>
-      {!alternative ? (
-        <div className="uk-navbar-left">
-          <a className="uk-navbar-item uk-logo" href="#">
-            <img src="/logo192.png" alt="app-logo" style={{ height: "60px" }} />
-          </a>
-          <div className="uk-navbar-item ">
-            <form action="javascript:void(0)">
-              <input
-                className="uk-input uk-form-width-small"
-                type="text"
-                id="search"
-                placeholder={props.texts.Placeholders.Search}
-                value={search}
-                onChange={handleInput}
-              />
-            </form>
-          </div>
+      <div className="uk-navbar-left">
+        <a className="uk-navbar-item uk-logo" href="#">
+          <img src="/logo192.png" alt="app-logo" style={{ height: "60px" }} />
+        </a>
+        <div className="uk-navbar-item ">
+          <form action="javascript:void(0)">
+            <input
+              className="uk-input uk-form-width-small"
+              type="text"
+              id="search"
+              placeholder={props.texts.Placeholders.Search}
+              value={search}
+              onChange={handleInput}
+            />
+          </form>
         </div>
-      ) : (
-        <div className="uk-navbar-left">
-          <a className="uk-navbar-item uk-logo" href="#">
-            <img className="profile-img" src="https://robohash.org/138.246.253.15.png" alt="app-logo" style={{ height: "50px" }} />
-          </a>
-          <ul className="uk-navbar-nav">
-            <li className="uk-active">
-              <a href="#">{contextState.user.name}</a>
-            </li>
-            <li>
-              <a href="">
-                <div style={{ display: "flex", alignItems: "center" }}>
-                  {printStateIcon()}
+      </div>
 
-                  <span>{contextState.user.state}</span>
-                </div>
-              </a>
-            </li>
-          </ul>
-        </div>
-      )}
       <div className="uk-navbar-right uk-visible@m">
         <ul className="uk-navbar-nav">
           <li className="uk-active">

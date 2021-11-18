@@ -15,9 +15,13 @@ import {
   SmileUpsideDownEmojiIcon,
   SunglassesEmojiIcon,
   WinkEmojiIcon,
+  IdleIcon,
+  DotIcon,
+  DontDisturbIcon,
 } from "../../icons/icons";
 
 import NavBar from "../../components/navbar/NavBar";
+import ChatItemPlaceholder from "../../components/chatItem/ChatItemPlaceholder";
 
 const emojis = [
   "laughing",
@@ -37,7 +41,7 @@ const Main = (props) => {
   const [emoji, setEmoji] = useState("laughing");
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
-  const [chats, setChats] = useState([]);
+  const [chats, setChats] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
   let pressTimer = undefined;
 
   const init = async () => {};
@@ -126,16 +130,74 @@ const Main = (props) => {
 
   const send = () => {};
 
+  const printStateIcon = () => {
+    switch (contextState.user.state) {
+      case "offline":
+        return (
+          <span className="offline state-icon">
+            <DotIcon />
+          </span>
+        );
+      case "idle":
+        return (
+          <span className="idle state-icon">
+            <IdleIcon />
+          </span>
+        );
+      case "dont-disturb":
+        return (
+          <span className="dont-disturb state-icon">
+            <DontDisturbIcon />
+          </span>
+        );
+      default:
+        return (
+          <span className="online state-icon">
+            <DotIcon />
+          </span>
+        );
+    }
+  };
+
   return (
     <div className="main" style={{ height: "100vh" }}>
       <NavBar texts={props.texts.NavBar} />
       <div
         className="uk-grid-collapse uk-text-center uk-section"
         data-uk-height-viewport="offset-top: true; offset-bottom: true"
+        style={{ padding: "0" }}
         data-uk-grid
       >
-        <div className="uk-width-medium uk-visible@m uk-background-muted">
-          <div className="uk-padding">{chats.map((d, i) => {})}</div>
+        <div
+          style={{ padding: "0" }}
+          className="uk-width-medium uk-visible@m uk-background-muted uk-section"
+          data-uk-height-viewport="offset-top: true; offset-bottom: true"
+        >
+          <div
+            style={{ background: "#fff", padding: "20px" }}
+            className="uk-flex-middle uk-flex"
+          >
+            <img
+              className="profile-img"
+              src="/logo192.png"
+              alt="app-logo"
+              style={{ height: "45px", marginLeft: "4px", marginRight: "10px" }}
+            />
+            <div className="chat-description">
+              <span>{contextState.user.name}</span>
+              <button className="user-state-button">
+                {printStateIcon()}
+
+                <span>{contextState.user.state}</span>
+              </button>
+            </div>
+          </div>
+
+          <div>
+            {chats.map((d, i) => {
+              return <ChatItemPlaceholder key={i} />;
+            })}
+          </div>
         </div>
         <div className="uk-width-expand@m uk-width-1-1@s">
           <div>

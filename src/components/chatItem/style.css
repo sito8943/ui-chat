@@ -1,0 +1,80 @@
+body {
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  height: 85px;
+  padding: 1%;
+  background-color: white;
+  box-shadow: 2px 5px 5px 1px lightgrey;
+}
+
+.img-container {
+  width: 15%;
+  padding: 20px;
+}
+
+.img {
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  background-color: #babbbc;
+}
+
+.content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 20px 0;
+  justify-content: space-between;
+}
+
+.stripe {
+  border: 1px solid white;
+  height: 20%;
+  background-color: #babbbc;
+}
+
+.small-stripe {
+  width: 40%;
+}
+
+.medium-stripe {
+  width: 70%;
+}
+
+.long-stripe {
+  width: 100%;
+}
+
+.container.loading .img, .container.loading .stripe {
+  animation: hintloading 2s ease-in-out 0s infinite reverse;
+  -webkit-animation: hintloading 2s ease-in-out 0s infinite reverse;
+}
+
+@keyframes hintloading
+{
+  0% {
+    opacity: 0.5;
+  }
+  50%  {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+@-webkit-keyframes hintloading
+{
+  0% {
+    opacity: 0.5;
+  }
+  50%  {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
