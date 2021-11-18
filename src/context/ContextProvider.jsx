@@ -43,7 +43,12 @@ const contextReducer = (contextState, action) => {
 
 const ContextProvider = ({ children }) => {
   const [contextState, setContextState] = React.useReducer(contextReducer, {
-    user: { name: "Sito", state: "online" },
+    user: {
+      name: "Sito",
+      state: "online",
+      photo: "/logo192.png",
+      link: "/account",
+    },
     lang: "",
     netStatus: "",
     showingNotification: false,

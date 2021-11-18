@@ -12,7 +12,6 @@ const ChatItemPlaceholder = (props) => {
       <div class="content">
         <div class="stripe small-stripe"></div>
         <div class="stripe medium-stripe"></div>
-        <div class="stripe long-stripe"></div>
       </div>
     </div>
   );

@@ -15,13 +15,11 @@ import {
   SmileUpsideDownEmojiIcon,
   SunglassesEmojiIcon,
   WinkEmojiIcon,
-  IdleIcon,
-  DotIcon,
-  DontDisturbIcon,
 } from "../../icons/icons";
 
 import NavBar from "../../components/navbar/NavBar";
 import ChatItemPlaceholder from "../../components/chatItem/ChatItemPlaceholder";
+import ChatItem from "../../components/chatItem/ChatItem";
 
 const emojis = [
   "laughing",
@@ -130,35 +128,6 @@ const Main = (props) => {
 
   const send = () => {};
 
-  const printStateIcon = () => {
-    switch (contextState.user.state) {
-      case "offline":
-        return (
-          <span className="offline state-icon">
-            <DotIcon />
-          </span>
-        );
-      case "idle":
-        return (
-          <span className="idle state-icon">
-            <IdleIcon />
-          </span>
-        );
-      case "dont-disturb":
-        return (
-          <span className="dont-disturb state-icon">
-            <DontDisturbIcon />
-          </span>
-        );
-      default:
-        return (
-          <span className="online state-icon">
-            <DotIcon />
-          </span>
-        );
-    }
-  };
-
   return (
     <div className="main" style={{ height: "100vh" }}>
       <NavBar texts={props.texts.NavBar} />
@@ -170,32 +139,18 @@ const Main = (props) => {
       >
         <div
           style={{ padding: "0" }}
-          className="uk-width-medium uk-visible@m uk-background-muted uk-section"
+          className="uk-width-medium uk-visible@m uk-background-muted uk-section chat-list"
           data-uk-height-viewport="offset-top: true; offset-bottom: true"
         >
-          <div
-            style={{ background: "#fff", padding: "20px" }}
-            className="uk-flex-middle uk-flex"
-          >
-            <img
-              className="profile-img"
-              src="/logo192.png"
-              alt="app-logo"
-              style={{ height: "45px", marginLeft: "4px", marginRight: "10px" }}
-            />
-            <div className="chat-description">
-              <span>{contextState.user.name}</span>
-              <button className="user-state-button">
-                {printStateIcon()}
-
-                <span>{contextState.user.state}</span>
-              </button>
-            </div>
-          </div>
-
+          <ChatItem data={contextState.user} />
           <div>
             {chats.map((d, i) => {
-              return <ChatItemPlaceholder key={i} />;
+              return (
+                <div className="uk-animation-fade">
+                  <hr style={{ margin: "auto", width: "90%" }} />
+                  <ChatItemPlaceholder key={i} />
+                </div>
+              );
             })}
           </div>
         </div>

@@ -7,7 +7,6 @@ body {
   height: 85px;
   padding: 1%;
   background-color: white;
-  box-shadow: 2px 5px 5px 1px lightgrey;
 }
 
 .img-container {
@@ -27,7 +26,7 @@ body {
   display: flex;
   flex-direction: column;
   padding: 20px 20px 20px 0;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .stripe {
@@ -48,17 +47,23 @@ body {
   width: 100%;
 }
 
-.container.loading .img, .container.loading .stripe {
+.container.loading .img,
+.container.loading .stripe {
   animation: hintloading 2s ease-in-out 0s infinite reverse;
   -webkit-animation: hintloading 2s ease-in-out 0s infinite reverse;
 }
 
-@keyframes hintloading
-{
+.chat-photo {
+  height: 45px;
+  margin-left: 4px;
+  margin-right: 10px;
+}
+
+@keyframes hintloading {
   0% {
     opacity: 0.5;
   }
-  50%  {
+  50% {
     opacity: 1;
   }
   100% {
@@ -66,12 +71,11 @@ body {
   }
 }
 
-@-webkit-keyframes hintloading
-{
+@-webkit-keyframes hintloading {
   0% {
     opacity: 0.5;
   }
-  50%  {
+  50% {
     opacity: 1;
   }
   100% {

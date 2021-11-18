@@ -85,6 +85,10 @@ body {
   border-radius: 50%;
 }
 
+.chat-list {
+  box-shadow: 2px 5px 5px 1px lightgrey;
+}
+
 .chat-item {
   margin-left: 10px;
   padding: 10px 0;
