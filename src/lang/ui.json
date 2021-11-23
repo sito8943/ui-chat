@@ -1,5 +1,10 @@
 {
   "ES": {
+    "Navbar": {
+      "Placeholders": {
+        "Search": "Buscar..."
+      }
+    },
     "Notification": {
       "NotConnected": "No tienes conexión con el servidor",
       "Connected": "Se ha restablecido la conexión",
@@ -24,11 +29,10 @@
       }
     },
     "Main": {
-      "NavBar": {
-        "Placeholders": {
-          "Search": "Buscar..."
-        }
-      }
+      
+    },
+    "Account": {
+
     },
     "NotMatch": {},
     "Forgot": {

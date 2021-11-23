@@ -16,6 +16,7 @@ import Main from "./views/main/Main";
 import NotMatch from "./views/notmatch/NotMatch";
 import SignUp from "./views/signup/SignUp";
 import Forgot from "./views/forgot/Forgot";
+import Account from "./views/account/Account";
 
 import { connectionState } from "./services/get";
 
