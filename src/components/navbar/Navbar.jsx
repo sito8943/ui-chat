@@ -4,6 +4,9 @@ import { SettingsIcon, XIcon } from "../../icons/icons";
 
 import { Outlet, Link } from "react-router-dom";
 
+import ChatItemPlaceholder from "../../components/chatItem/ChatItemPlaceholder";
+import ChatItem from "../../components/chatItem/ChatItem";
+
 const Navbar = (props) => {
   const { contextState, setContextState } = useContext();
   const [search, setSearch] = useState("");
@@ -75,11 +78,13 @@ const Navbar = (props) => {
               </li>
             </ul>
           </div>
+
           <div className="uk-navbar-right uk-hidden@m">
             <button
               className="uk-button uk-button-default uk-margin-small-right menu-button"
               type="button"
               data-uk-toggle="target: #offcanvas-usage"
+              style={{ fontSize: "1.5rem", marginBottom: "6px" }}
             >
               <SettingsIcon />
             </button>
@@ -90,6 +95,8 @@ const Navbar = (props) => {
                 <button className="uk-offcanvas-close" type="button">
                   <XIcon />
                 </button>
+
+                <ChatItem data={contextState.user} />
 
                 <h3>Title</h3>
 

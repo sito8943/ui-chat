@@ -17,7 +17,6 @@ import {
   WinkEmojiIcon,
 } from "../../icons/icons";
 
-import NavBar from "../../components/navbar/Navbar";
 import ChatItemPlaceholder from "../../components/chatItem/ChatItemPlaceholder";
 import ChatItem from "../../components/chatItem/ChatItem";
 
@@ -129,7 +128,7 @@ const Main = (props) => {
   const send = () => {};
 
   return (
-    <div className="main" style={{ height: "100vh" }}>
+    <div className="main">
       <div
         className="uk-grid-collapse uk-text-center uk-section"
         data-uk-height-viewport="offset-top: true; offset-bottom: true"
@@ -139,9 +138,7 @@ const Main = (props) => {
         <div
           style={{ padding: "0" }}
           className="uk-width-medium uk-visible@m uk-background-muted uk-section chat-list"
-          data-uk-height-viewport="offset-top: true; offset-bottom: true"
         >
-          <ChatItem data={contextState.user} />
           <div>
             {chats.map((d, i) => {
               return (
@@ -161,7 +158,7 @@ const Main = (props) => {
             >
               {messages.map((d, i) => {})}
             </div>
-            <form className="uk-width-1-1">
+            <form className="uk-expand" style={{padding:"10px"}}>
               <div
                 style={{ border: "1px solid #e5e5e5", alignItems: "center" }}
                 className="uk-width-1-1 uk-flex"
@@ -172,6 +169,9 @@ const Main = (props) => {
                   value={message}
                   onChange={handleInput}
                   type="text"
+                  placeholder={props.texts.Placeholders.Message}
+                  autoComplete="off"
+                  autoFocus
                   style={{ border: "none", height: "50px" }}
                 />
                 <a
@@ -201,6 +201,9 @@ const Main = (props) => {
                 </a>
               </div>
             </form>
+            <div>
+
+            </div>
           </div>
         </div>
       </div>

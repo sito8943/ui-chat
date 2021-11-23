@@ -35,7 +35,7 @@ const ChatItem = (props) => {
 
   return (
     <div
-      style={{ background: "#fff", padding: "20px" }}
+      style={{ padding: "20px" }}
       className="uk-flex-middle uk-flex"
     >
       <Link to={props.data.link}>
