@@ -17,7 +17,7 @@ import {
   WinkEmojiIcon,
 } from "../../icons/icons";
 
-import NavBar from "../../components/navbar/NavBar";
+import NavBar from "../../components/navbar/Navbar";
 import ChatItemPlaceholder from "../../components/chatItem/ChatItemPlaceholder";
 import ChatItem from "../../components/chatItem/ChatItem";
 
@@ -130,7 +130,6 @@ const Main = (props) => {
 
   return (
     <div className="main" style={{ height: "100vh" }}>
-      <NavBar texts={props.texts.NavBar} />
       <div
         className="uk-grid-collapse uk-text-center uk-section"
         data-uk-height-viewport="offset-top: true; offset-bottom: true"
