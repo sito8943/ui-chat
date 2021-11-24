@@ -85,7 +85,7 @@ const Navbar = (props) => {
               className="uk-button uk-button-default uk-margin-small-right menu-button"
               type="button"
               data-uk-toggle="target: #offcanvas-usage"
-              style={{ fontSize: "1.5rem", marginBottom: "6px" }}
+              style={{ fontSize: "1.5rem", marginBottom: "10px" }}
             >
               <SettingsIcon />
             </button>
@@ -98,8 +98,6 @@ const Navbar = (props) => {
                 </button>
 
                 <ChatItem data={contextState.user} />
-
-                <h3>Title</h3>
 
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed

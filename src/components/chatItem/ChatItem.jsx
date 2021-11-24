@@ -34,10 +34,7 @@ const ChatItem = (props) => {
   };
 
   return (
-    <div
-      style={{ padding: "20px" }}
-      className="uk-flex-middle uk-flex"
-    >
+    <div style={{ padding: "20px" }} className="uk-flex-middle uk-flex">
       <Link to={props.data.link}>
         <img
           className="profile-img chat-photo"
