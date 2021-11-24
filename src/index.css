@@ -1,3 +1,50 @@
+*::-webkit-scrollbar,
+.css-4ljt47-MenuList::-webkit-scrollbar,
+.myScroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Ponemos un color de fondo y redondeamos las esquinas del thumb */
+*::-webkit-scrollbar-thumb,
+.css-4ljt47-MenuList::-webkit-scrollbar-thumb,
+.myScroll::-webkit-scrollbar-thumb {
+  background: gray;
+  border-radius: 4px;
+}
+
+/* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+*::-webkit-scrollbar-thumb:hover,
+.css-4ljt47-MenuList::-webkit-scrollbar-thumb:hover,
+.myScroll::-webkit-scrollbar-thumb:hover {
+  background: #949494;
+  box-shadow: 0 0 2px 1px rgba(102, 100, 100, 0.2);
+}
+
+/* Cambiamos el fondo cuando esté en active */
+*::-webkit-scrollbar-thumb:active,
+.css-4ljt47-MenuList::-webkit-scrollbar-thumb:active,
+.myScroll::-webkit-scrollbar-thumb:active {
+  background-color: #9b9b9b;
+}
+
+/* Ponemos un color de fondo y redondeamos las esquinas del track */
+*::-webkit-scrollbar-track,
+.css-4ljt47-MenuList::-webkit-scrollbar-track,
+.myScroll::-webkit-scrollbar-track {
+  background: #3a3a3a00;
+  border-radius: 4px;
+}
+
+/* Cambiamos el fondo cuando esté en active o hover */
+*::-webkit-scrollbar-track:hover,
+.css-4ljt47-MenuList::-webkit-scrollbar:hover,
+.myScroll::-webkit-scrollbar-track:hover,
+html::-webkit-scrollbar-track:active,
+.css-4ljt47-MenuList::-webkit-scrollbar:active,
+.myScroll::-webkit-scrollbar-track:active {
+  background: #3a3a3a00;
+}
+
 .uk-notification-message-danger {
   color: aliceblue !important;
   background-color: crimson !important;
@@ -87,6 +134,8 @@ body {
 
 .chat-list {
   box-shadow: 2px 5px 5px 1px lightgrey;
+  overflow: auto;
+  height: calc(100vh - 80px);
 }
 
 .chat-item {

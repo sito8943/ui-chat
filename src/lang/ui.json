@@ -29,7 +29,9 @@
       }
     },
     "Main": {
-      
+      "Placeholders" : {
+        "Message" : "Reply..."
+      }
     },
     "Account": {
 

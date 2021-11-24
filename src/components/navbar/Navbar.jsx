@@ -4,6 +4,7 @@ import { SettingsIcon, XIcon } from "../../icons/icons";
 
 import { Outlet, Link } from "react-router-dom";
 
+import ChatItemPlaceholder from "../../components/chatItem/ChatItemPlaceholder";
 import ChatItem from "../../components/chatItem/ChatItem";
 
 const Navbar = (props) => {
@@ -78,6 +79,7 @@ const Navbar = (props) => {
               </li>
             </ul>
           </div>
+
           <div className="uk-navbar-right uk-hidden@m">
             <button
               className="uk-button uk-button-default uk-margin-small-right menu-button"
