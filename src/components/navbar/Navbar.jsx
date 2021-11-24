@@ -4,6 +4,8 @@ import { SettingsIcon, XIcon } from "../../icons/icons";
 
 import { Outlet, Link } from "react-router-dom";
 
+import ChatItem from "../../components/chatItem/ChatItem";
+
 const Navbar = (props) => {
   const { contextState, setContextState } = useContext();
   const [search, setSearch] = useState("");
@@ -50,6 +52,7 @@ const Navbar = (props) => {
           </div>
 
           <div className="uk-navbar-right uk-visible@m">
+            <ChatItem data={contextState.user} />
             <ul className="uk-navbar-nav">
               <li className="uk-active">
                 <Link to="#">Active</Link>
@@ -80,6 +83,7 @@ const Navbar = (props) => {
               className="uk-button uk-button-default uk-margin-small-right menu-button"
               type="button"
               data-uk-toggle="target: #offcanvas-usage"
+              style={{ fontSize: "1.5rem", marginBottom: "10px" }}
             >
               <SettingsIcon />
             </button>
@@ -91,7 +95,7 @@ const Navbar = (props) => {
                   <XIcon />
                 </button>
 
-                <h3>Title</h3>
+                <ChatItem data={contextState.user} />
 
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed

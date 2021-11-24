@@ -141,7 +141,6 @@ const Main = (props) => {
           className="uk-width-medium uk-visible@m uk-background-muted uk-section chat-list"
           data-uk-height-viewport="offset-top: true; offset-bottom: true"
         >
-          <ChatItem data={contextState.user} />
           <div>
             {chats.map((d, i) => {
               return (
@@ -161,7 +160,7 @@ const Main = (props) => {
             >
               {messages.map((d, i) => {})}
             </div>
-            <form className="uk-width-1-1">
+            <form className="uk-width-1-1" style={{ padding: "10px" }}>
               <div
                 style={{ border: "1px solid #e5e5e5", alignItems: "center" }}
                 className="uk-width-1-1 uk-flex"
