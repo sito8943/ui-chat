@@ -53,6 +53,7 @@ const Navbar = (props) => {
           </div>
 
           <div className="uk-navbar-right uk-visible@m">
+            <ChatItem data={contextState.user} />
             <ul className="uk-navbar-nav">
               <li className="uk-active">
                 <Link to="#">Active</Link>

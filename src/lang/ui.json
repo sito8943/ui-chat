@@ -2,7 +2,7 @@
   "ES": {
     "Navbar": {
       "Placeholders": {
-        "Search": "Buscar..."
+        "Search": "Buscar chat..."
       }
     },
     "Notification": {
@@ -21,7 +21,7 @@
       "Labels": {
         "User": "Usuario",
         "Password": "Contraseña",
-        "Remember": "Recordar"
+        "Remember": "Responder..."
       },
       "Placeholders": {
         "User": "Nombre de usuario",
