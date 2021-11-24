@@ -42,7 +42,7 @@ const Navbar = (props) => {
               <form action="javascript:void(0)">
                 <input
                   className="uk-input uk-form-width-small"
-                  type="text"
+                  type="search"
                   id="search"
                   placeholder={props.texts.Placeholders.Search}
                   value={search}
@@ -53,7 +53,7 @@ const Navbar = (props) => {
           </div>
 
           <div className="uk-navbar-right uk-visible@m">
-            <ChatItem data={contextState.user} />
+            <ChatItem data={contextState.user} /> 
             <ul className="uk-navbar-nav">
               <li className="uk-active">
                 <Link to="#">Active</Link>
