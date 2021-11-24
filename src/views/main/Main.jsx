@@ -156,7 +156,11 @@ const Main = (props) => {
               className="uk-section"
               data-uk-height-viewport="offset-top: true; offset-bottom: true"
             >
-              {messages.map((d, i) => {})}
+              {messages.map((d, i) => {
+                <div key={i}>
+
+                </div>
+              })}
             </div>
             <form className="uk-expand" style={{padding:"10px"}}>
               <div
