@@ -22,7 +22,6 @@ import {
   BsFillShareFill,
   BsBellFill,
   BsChatDotsFill,
-  BsCheckCircleFill,
   BsCompassFill,
   BsDashCircleFill,
   BsGearFill,
@@ -38,7 +37,18 @@ import {
   BsCircleFill,
   BsFillMoonFill,
   BsEarbuds,
+  BsCheckCircleFill,
+  BsCheckCircle,
+  BsCircle,
 } from "react-icons/bs";
+
+export const NotSentIcon = () => {
+  return <BsCircle />;
+};
+
+export const SentIcon = () => {
+  return <BsCheckCircle />;
+};
 
 export const DontDisturbIcon = () => {
   return <BsEarbuds />;

@@ -16,9 +16,13 @@ import {
   SmileUpsideDownEmojiIcon,
   SunglassesEmojiIcon,
   WinkEmojiIcon,
+  XIcon,
+  NotSentIcon,
+  SentIcon,
+  CorrectIcon,
 } from "../../icons/icons";
 
-import ChatMessage from "../../models/ChatMessage";
+import ChatMessage, { MessageStates } from "../../models/ChatMessage";
 import ChatItemPlaceholder from "../../components/chatItem/ChatItemPlaceholder";
 import ChatItem from "../../components/chatItem/ChatItem";
 import User from "../../models/User";
@@ -126,6 +130,26 @@ const Main = (props) => {
     }
   };
 
+  /**
+   *
+   * @param {string} state
+   */
+  const showStateIcon = (state) => {
+    switch (state) {
+      case MessageStates.not_sent:
+        return <NotSentIcon />;
+      case MessageStates.sent:
+        return <SentIcon />;
+      case MessageStates.received:
+        return <CorrectIcon />;
+      case MessageStates.seen:
+        break;
+      // error
+      default:
+        return <XIcon />;
+    }
+  };
+
   const deleteLast = () => {
     if (message !== "") {
       setMessage(message.substr(0, message.length - 1));
@@ -202,14 +226,15 @@ const Main = (props) => {
                       <div style={{ textAlign: "right", paddingRight: "20px" }}>
                         <label
                           htmlFor=""
-                          style={{ backgroundColor: "dodgerblue" }}
+                          style={{
+                            backgroundColor: "dodgerblue",
+                            marginRight: "5px",
+                          }}
                           className="otherMessage"
                         >
                           {d.message}
                         </label>
-                        {
-                          
-                        }
+                        {showStateIcon(d.State)}
                       </div>
                     )}
                   </div>
