@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import { useContext } from "../../context/ContextProvider";
 import {
@@ -17,8 +18,10 @@ import {
   WinkEmojiIcon,
 } from "../../icons/icons";
 
+import ChatMessage from "../../models/ChatMessage";
 import ChatItemPlaceholder from "../../components/chatItem/ChatItemPlaceholder";
 import ChatItem from "../../components/chatItem/ChatItem";
+import User from "../../models/User";
 
 const emojis = [
   "laughing",
@@ -37,7 +40,14 @@ const Main = (props) => {
   const { contextState, setContextState } = useContext();
   const [emoji, setEmoji] = useState("laughing");
   const [message, setMessage] = useState("");
-  const [messages, setMessages] = useState([]);
+  const [otherUsers, setOtherUsers] = useState([
+    new User("Laura", "offline", "/logo192.png", "/laura"),
+  ]);
+  const [messages, setMessages] = useState([
+    new ChatMessage("Sito", "Hola"),
+    new ChatMessage("Sito", "Hola"),
+    new ChatMessage("Laura", "Hola"),
+  ]);
   const [chats, setChats] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
   let pressTimer = undefined;
 
@@ -46,6 +56,18 @@ const Main = (props) => {
   useEffect(() => {
     init();
   }, []);
+
+  /**
+   *
+   * @param {string} name
+   */
+  const lookUserByName = (name) => {
+    const result = otherUsers.filter((item) => {
+      if (item.Name === name) return item;
+    });
+    if (result.length > 0) return result[0];
+    return null;
+  };
 
   const handleInput = (e) => {
     switch (e.target.id) {
@@ -157,12 +179,41 @@ const Main = (props) => {
               data-uk-height-viewport="offset-top: true; offset-bottom: true"
             >
               {messages.map((d, i) => {
-                <div key={i}>
-
-                </div>
+                return (
+                  <div key={i} style={{ padding: "10px" }}>
+                    {d.Sender !== contextState.user.name ? (
+                      <div style={{ textAlign: "left" }}>
+                        <Link to={lookUserByName(d.Sender).link}>
+                          <img
+                            className="profile-img chat-photo small"
+                            src={lookUserByName(d.Sender).photo}
+                            alt={lookUserByName(d.Sender).name + "-photo"}
+                          />
+                        </Link>
+                        <label
+                          htmlFor=""
+                          style={{ backgroundColor: "darkslategrey" }}
+                          className="otherMessage"
+                        >
+                          {d.Message}
+                        </label>
+                      </div>
+                    ) : (
+                      <div style={{ textAlign: "right" }}>
+                        <label
+                          htmlFor=""
+                          style={{ backgroundColor: "dodgerblue" }}
+                          className="otherMessage"
+                        >
+                          {d.message}
+                        </label>
+                      </div>
+                    )}
+                  </div>
+                );
               })}
             </div>
-            <form className="uk-expand" style={{padding:"10px"}}>
+            <form className="uk-expand" style={{ padding: "10px" }}>
               <div
                 style={{ border: "1px solid #e5e5e5", alignItems: "center" }}
                 className="uk-width-1-1 uk-flex"
@@ -205,9 +256,7 @@ const Main = (props) => {
                 </a>
               </div>
             </form>
-            <div>
-
-            </div>
+            <div></div>
           </div>
         </div>
       </div>

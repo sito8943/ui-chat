@@ -59,6 +59,17 @@ body {
   margin-right: 10px;
 }
 
+.otherMessage {
+  color: white;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: text;
+}
+
+.small {
+  height: 25px !important;
+}
+
 @keyframes hintloading {
   0% {
     opacity: 0.5;

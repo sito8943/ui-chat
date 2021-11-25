@@ -1,4 +1,5 @@
 import * as React from "react";
+import User from "../models/User";
 
 const Context = React.createContext();
 
@@ -43,12 +44,7 @@ const contextReducer = (contextState, action) => {
 
 const ContextProvider = ({ children }) => {
   const [contextState, setContextState] = React.useReducer(contextReducer, {
-    user: {
-      name: "Sito",
-      state: "online",
-      photo: "/logo192.png",
-      link: "/account",
-    },
+    user: new User("Sito", "online", "/logo192.png", "/account"),
     lang: "",
     netStatus: "",
     showingNotification: false,
