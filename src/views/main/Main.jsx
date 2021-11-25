@@ -140,6 +140,12 @@ const Main = (props) => {
     }
   };
 
+  const retry = (e) => {
+    const newMessages = [...messages];
+    newMessages[e.target.id].State = MessageStates.not_sent;
+    setMessages(newMessages);
+  };
+
   /**
    *
    * @param {string} state
@@ -159,12 +165,12 @@ const Main = (props) => {
       default:
         return (
           <span
+            className="error-icon"
             onClick={retry}
             id={index}
-            style={{ color: "crimson" }}
             uk-tooltip={props.texts.Tooltips.NotConnected}
           >
-            <XIcon />
+            x
           </span>
         );
     }
@@ -182,6 +188,7 @@ const Main = (props) => {
       removeHover();
     }
   };
+
   const resetDelete = () => {
     if (pressTimer !== undefined) {
       clearTimeout(pressTimer);

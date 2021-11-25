@@ -70,6 +70,15 @@ body {
   height: 25px !important;
 }
 
+.error-icon {
+  padding: 0px 5px 2px 5px;
+  font-size: 13px;
+  border-radius: 50%;
+  background: crimson;
+  color: white;
+  cursor: pointer;
+}
+
 @keyframes hintloading {
   0% {
     opacity: 0.5;
