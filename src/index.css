@@ -95,6 +95,7 @@ body {
 }
 
 .icon-hover:hover {
+  cursor: pointer;
   color: dodgerblue !important;
 }
 

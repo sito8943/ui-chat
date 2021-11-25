@@ -175,7 +175,18 @@ const Main = (props) => {
     if (message !== "") removeHover();
   };
 
-  const send = () => {};
+  const sendMessage = (e) => {
+    e.preventDefault();
+    const newMessage = new ChatMessage(contextState.user.Name, message);
+    setMessage("");
+    setMessages([...messages, newMessage]);
+  };
+
+  const updateMessageState = (index, newState) => {
+    const newMessages = [...messages];
+    newMessages[index].State = newState;
+    setMessages(newMessages);
+  };
 
   return (
     <div className="main">
@@ -245,7 +256,11 @@ const Main = (props) => {
                 );
               })}
             </div>
-            <form className="uk-expand" style={{ padding: "10px" }}>
+            <form
+              onSubmit={sendMessage}
+              className="uk-expand"
+              style={{ padding: "10px" }}
+            >
               <div
                 style={{ border: "1px solid #e5e5e5", alignItems: "center" }}
                 className="uk-width-1-1 uk-flex"
@@ -278,14 +293,15 @@ const Main = (props) => {
                 >
                   {showEmoji()}
                 </a>
-                <a
+                <button
+                  type="submit"
                   id="send"
                   className="chat-icon icon icon-no-hover"
                   href="#"
-                  onClick={send}
+                  style={{ border: "none", background: "none", padding: "0" }}
                 >
                   <ChatIcon />
-                </a>
+                </button>
               </div>
             </form>
             <div></div>
