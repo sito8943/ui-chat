@@ -29,7 +29,7 @@ const Navbar = (props) => {
       {contextState.user.name == "" ? (
         <></>
       ) : (
-        <nav className="uk-navbar-container" data-uk-navbar>
+        <nav className="uk-navbar-container navbar" data-uk-navbar>
           <div className="uk-navbar-left">
             <Link className="uk-navbar-item uk-logo" to="#">
               <img
