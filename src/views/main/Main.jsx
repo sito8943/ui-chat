@@ -146,7 +146,11 @@ const Main = (props) => {
         break;
       // error
       default:
-        return <XIcon />;
+        return (
+          <span style={{ color: "crimson" }}>
+            <XIcon />
+          </span>
+        );
     }
   };
 
