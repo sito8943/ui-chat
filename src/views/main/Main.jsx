@@ -221,7 +221,7 @@ const Main = (props) => {
       >
         <div
           style={{ padding: "0" }}
-          className="uk-width-medium uk-visible@m uk-background-muted uk-section chat-list"
+          className="uk-width-medium uk-visible@s uk-background-muted uk-section chat-list"
         >
           <div>
             {chats.map((d, i) => {
