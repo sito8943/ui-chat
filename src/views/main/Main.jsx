@@ -72,7 +72,7 @@ const Main = (props) => {
   const handleInput = (e) => {
     switch (e.target.id) {
       default:
-        if (e.target.value != "") addHover();
+        if (e.target.value !== "") addHover();
         else removeHover();
         return setMessage(e.target.value);
     }
@@ -127,7 +127,7 @@ const Main = (props) => {
   };
 
   const deleteLast = () => {
-    if (message != "") {
+    if (message !== "") {
       setMessage(message.substr(0, message.length - 1));
       if (pressTimer == undefined) {
         pressTimer = window.setTimeout(function () {
@@ -139,12 +139,12 @@ const Main = (props) => {
     }
   };
   const resetDelete = () => {
-    if (pressTimer != undefined) {
+    if (pressTimer !== undefined) {
       clearTimeout(pressTimer);
       pressTimer = undefined;
     }
     document.getElementById("message").focus();
-    if (message == "") removeHover();
+    if (message !== "") removeHover();
   };
 
   const send = () => {};
@@ -199,7 +199,7 @@ const Main = (props) => {
                         </label>
                       </div>
                     ) : (
-                      <div style={{ textAlign: "right" }}>
+                      <div style={{ textAlign: "right", paddingRight: "20px" }}>
                         <label
                           htmlFor=""
                           style={{ backgroundColor: "dodgerblue" }}
@@ -207,6 +207,9 @@ const Main = (props) => {
                         >
                           {d.message}
                         </label>
+                        {
+                          
+                        }
                       </div>
                     )}
                   </div>
