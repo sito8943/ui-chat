@@ -3,6 +3,7 @@
     "axios": "^0.24.0",
     "blurhash": "^1.1.4",
     "core-js": "^3",
+    "crypto-js": "^4.1.1",
     "firebase": "8.0.0",
     "imagekit": "^3.2.2",
     "imagekitio-react": "^1.0.11",
