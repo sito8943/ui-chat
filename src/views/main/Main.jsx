@@ -143,8 +143,9 @@ const Main = (props) => {
   /**
    *
    * @param {string} state
+   * @param {number} index
    */
-  const showStateIcon = (state) => {
+  const showStateIcon = (state, index) => {
     switch (state) {
       case MessageStates.not_sent:
         return <NotSentIcon />;
@@ -157,7 +158,12 @@ const Main = (props) => {
       // error
       default:
         return (
-          <span style={{ color: "crimson" }}>
+          <span
+            onClick={retry}
+            id={index}
+            style={{ color: "crimson" }}
+            uk-tooltip={props.texts.Tooltips.NotConnected}
+          >
             <XIcon />
           </span>
         );
@@ -259,7 +265,7 @@ const Main = (props) => {
                         >
                           {d.message}
                         </label>
-                        {showStateIcon(d.State)}
+                        {showStateIcon(d.State, i)}
                       </div>
                     )}
                   </div>

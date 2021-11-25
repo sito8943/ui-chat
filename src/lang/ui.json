@@ -29,13 +29,14 @@
       }
     },
     "Main": {
-      "Placeholders" : {
-        "Message" : "Reply..."
+      "Placeholders": {
+        "Message": "Reply..."
+      },
+      "Tooltips": {
+        "NotConnected": "No tienes conexión con el servidor"
       }
     },
-    "Account": {
-
-    },
+    "Account": {},
     "NotMatch": {},
     "Forgot": {
       "Title": "¿Has olvidado la contraseña?",
