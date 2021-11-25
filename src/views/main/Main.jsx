@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import lzwCompress from 'lzwcompress';
+import lzwCompress from "lzwcompress";
 
 import { useContext } from "../../context/ContextProvider";
 import {
@@ -70,9 +70,10 @@ const Main = (props) => {
   useEffect(() => {
     init();
     checkForMessages();
-    const obj = new ChatMessage("Sito", "Hola como esta");
-
-    alert(lzwCompress.pack(obj));
+    //const obj = new ChatMessage("Sito", "Hola como esta");
+    const obj = { message: "Hola como esta" };
+    const pack = lzwCompress.pack(obj);
+    alert(lzwCompress.unpack(JSON.stringify(pack)));
   }, [messages]);
 
   /**
