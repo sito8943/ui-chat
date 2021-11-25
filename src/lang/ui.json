@@ -33,7 +33,7 @@
         "Message": "Reply..."
       },
       "Tooltips": {
-        "NotConnected": "No tienes conexión con el servidor"
+        "NotConnected": "No tienes conexión con el servidor. Has clic para reintentar"
       }
     },
     "Account": {},
