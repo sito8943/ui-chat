@@ -164,14 +164,14 @@ const Main = (props) => {
       // error
       default:
         return (
-          <span
+          <button
             className="error-icon"
             onClick={retry}
             id={index}
             uk-tooltip={props.texts.Tooltips.NotConnected}
           >
             x
-          </span>
+          </button>
         );
     }
   };
