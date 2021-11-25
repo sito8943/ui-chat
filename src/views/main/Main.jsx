@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import lzwCompress from 'lzwcompress';
 
 import { useContext } from "../../context/ContextProvider";
 import {
@@ -69,6 +70,9 @@ const Main = (props) => {
   useEffect(() => {
     init();
     checkForMessages();
+    const obj = new ChatMessage("Sito", "Hola como esta");
+
+    alert(lzwCompress.pack(obj));
   }, [messages]);
 
   /**
@@ -332,7 +336,7 @@ const Main = (props) => {
         </div>
         <div
           style={{ padding: "0" }}
-          className="uk-width-medium uk-visible@m uk-background-muted uk-section chat-list"
+          className="uk-width-medium uk-visible@m uk-background-muted uk-section right-bar"
         >
           <>
             {otherUsers.length == 1 ? (
