@@ -245,11 +245,11 @@ const Main = (props) => {
                   <div key={i} style={{ padding: "10px" }}>
                     {d.Sender !== contextState.user.name ? (
                       <div style={{ textAlign: "left" }}>
-                        <Link to={lookUserByName(d.Sender).link}>
+                        <Link to={lookUserByName(d.Sender).Link}>
                           <img
                             className="profile-img chat-photo small"
-                            src={lookUserByName(d.Sender).photo}
-                            alt={lookUserByName(d.Sender).name + "-photo"}
+                            src={lookUserByName(d.Sender).Photo}
+                            alt={lookUserByName(d.Sender).Name + "-photo"}
                           />
                         </Link>
                         <label
@@ -329,6 +329,28 @@ const Main = (props) => {
             </form>
             <div></div>
           </div>
+        </div>
+        <div
+          style={{ padding: "0" }}
+          className="uk-width-medium uk-visible@m uk-background-muted uk-section chat-list"
+        >
+          <>
+            {otherUsers.length == 1 ? (
+              <div style={{ marginTop: "10px" }}>
+                <Link to={otherUsers[0].Link}>
+                  <img
+                    style={{ margin: 0 }}
+                    className="profile-img chat-photo large"
+                    src={otherUsers[0].Photo}
+                    alt={otherUsers[0].Name + "-photo"}
+                  />
+                </Link>
+                <h3 style={{ margin: "0" }}>{otherUsers[0].Name}</h3>
+              </div>
+            ) : (
+              <></>
+            )}
+          </>
         </div>
       </div>
     </div>
