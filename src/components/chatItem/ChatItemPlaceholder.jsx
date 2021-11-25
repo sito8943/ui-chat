@@ -5,13 +5,13 @@ import './style.css'
 const ChatItemPlaceholder = (props) => {
 
   return (
-    <div class="container loading">
-      <div class="img-container">
-        <div class="img"></div>
+    <div className="container loading">
+      <div className="img-container">
+        <div className="img"></div>
       </div>
-      <div class="content">
-        <div class="stripe small-stripe"></div>
-        <div class="stripe medium-stripe"></div>
+      <div className="content">
+        <div className="stripe small-stripe"></div>
+        <div className="stripe medium-stripe"></div>
       </div>
     </div>
   );

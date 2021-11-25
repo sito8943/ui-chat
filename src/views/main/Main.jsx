@@ -26,6 +26,7 @@ import ChatMessage, { MessageStates } from "../../models/ChatMessage";
 import ChatItemPlaceholder from "../../components/chatItem/ChatItemPlaceholder";
 import ChatItem from "../../components/chatItem/ChatItem";
 import User from "../../models/User";
+import { sendMessage } from "../../services/post";
 
 const emojis = [
   "laughing",
@@ -47,19 +48,28 @@ const Main = (props) => {
   const [otherUsers, setOtherUsers] = useState([
     new User("Laura", "offline", "/logo192.png", "/laura"),
   ]);
-  const [messages, setMessages] = useState([
-    new ChatMessage("Sito", "Hola"),
-    new ChatMessage("Sito", "Hola"),
-    new ChatMessage("Laura", "Hola"),
-  ]);
+  const [messages, setMessages] = useState([]);
   const [chats, setChats] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
   let pressTimer = undefined;
 
   const init = async () => {};
 
+  const checkForMessages = async () => {
+    setTimeout(() => {
+      for (let i = 0; i < messages.length; ++i)
+        if (messages[i].State === MessageStates.not_sent)
+          for (let j = 0; j < otherUsers.length; ++j) {
+            const result = sendMessage(messages[i], otherUsers[j]);
+            if (result === 200) updateMessageState(i, MessageStates.sent);
+            else updateMessageState(i, MessageStates.error);
+          }
+    }, 200);
+  };
+
   useEffect(() => {
     init();
-  }, []);
+    checkForMessages();
+  }, [messages]);
 
   /**
    *
@@ -175,7 +185,7 @@ const Main = (props) => {
     if (message !== "") removeHover();
   };
 
-  const sendMessage = (e) => {
+  const sendReply = async (e) => {
     e.preventDefault();
     const newMessage = new ChatMessage(contextState.user.Name, message);
     setMessage("");
@@ -257,7 +267,7 @@ const Main = (props) => {
               })}
             </div>
             <form
-              onSubmit={sendMessage}
+              onSubmit={sendReply}
               className="uk-expand"
               style={{ padding: "10px" }}
             >
