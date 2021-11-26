@@ -361,7 +361,14 @@ const Main = (props) => {
                   placeholder={props.texts.Placeholders.Message}
                   autoComplete="off"
                   autoFocus
-                  style={{ border: "none", height: "50px" }}
+                  style={{
+                    border: "none",
+                    height: "50px",
+                    color:
+                      contextState.mode === "light"
+                        ? colors.LightFontColors
+                        : colors.DarkFontColors,
+                  }}
                 />
                 <button
                   type="button"

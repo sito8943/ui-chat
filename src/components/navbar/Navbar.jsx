@@ -79,6 +79,10 @@ const Navbar = (props) => {
                         ? colors.LightInputBorderColor
                         : colors.DarkInputBorderColor
                     }`,
+                    color:
+                      contextState.mode === "light"
+                        ? colors.LightFontColors
+                        : colors.DarkFontColors,
                   }}
                 />
               </form>
@@ -86,11 +90,25 @@ const Navbar = (props) => {
           </div>
 
           <div className="uk-navbar-right uk-visible@m">
-            <ChatItem data={contextState.user} />
+            <ChatItem
+              data={contextState.user}
+              color={
+                contextState.mode === "light"
+                  ? colors.LightFontColors
+                  : colors.DarkFontColors
+              }
+            />
             <button
               id="toggler"
               type="button"
-              style={{ fontSize: "1.5rem", marginBottom: "5px" }}
+              style={{
+                fontSize: "1.5rem",
+                marginBottom: "5px",
+                color:
+                  contextState.mode === "light"
+                    ? colors.LightFontColors
+                    : colors.DarkFontColors,
+              }}
               className="uk-button uk-button-default uk-margin-small-right menu-button"
               onClick={toggleMode}
             >

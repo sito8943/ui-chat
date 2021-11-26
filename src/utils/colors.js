@@ -16,6 +16,9 @@ export let colors = {
     DarkOffCanvas: '#222333',
     //input border color
     LightInputBorderColor: 'lightgray',
-    DarkInputBorderColor: '#434050'
+    DarkInputBorderColor: '#434050',
+    //font/icons color
+    LightFontColors: '#999',
+    DarkFontColors: 'aliceblue',
 
 }

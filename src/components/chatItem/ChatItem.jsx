@@ -43,8 +43,8 @@ const ChatItem = (props) => {
         />
       </Link>
       <div className="chat-description">
-        <span>{props.data.name}</span>
-        <button className="user-state-button">
+        <span style={{ color: props.color }}>{props.data.name}</span>
+        <button style={{ color: props.color }} className="user-state-button">
           {printStateIcon()}
           <span>{props.data.state}</span>
         </button>
