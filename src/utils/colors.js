@@ -7,7 +7,7 @@ export let colors = {
     DarkBarBackground: "#222333",
     //placeholders - shimmers
     LightPlaceholder: '#babbbc',
-    DarkPlaceholder: '#333333',
+    DarkPlaceholder: 'rgb(94 88 114)',
     //shadows
     LightShadows: 'lightgray',
     DarkShadows: 'black',
