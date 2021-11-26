@@ -31,21 +31,21 @@ import { sendMessage } from "../../services/post";
 import EmojiPanel, { Emojis } from "../../components/emojiPanel/EmojiPanel";
 
 const emojis = [
-  "laughing",
-  "angry",
-  "dizzy",
-  "expression",
-  "frown",
-  "heareyes",
-  "neutral",
-  "smile",
-  "smileupside",
-  "sunglasses",
+  Emojis.Laughing,
+  Emojis.Angry,
+  Emojis.Dizzy,
+  Emojis.Expression,
+  Emojis.Frown,
+  Emojis.Hearteyes,
+  Emojis.Neutral,
+  Emojis.Smile,
+  Emojis.Smileupside,
+  Emojis.Sunglasses,
 ];
 
 const Main = (props) => {
   const { contextState, setContextState } = useContext();
-  const [showEmojis, setShowEmojis] = useState(true);
+  const [showEmojis, setShowEmojis] = useState(false);
   const [emoji, setEmoji] = useState(Emojis.Laughing);
   const [message, setMessage] = useState("");
   const [otherUsers, setOtherUsers] = useState([
@@ -151,7 +151,7 @@ const Main = (props) => {
 
   const emojiPanel = (e) => {
     e.preventDefault();
-    setShowEmojis(true);
+    setShowEmojis(!showEmojis);
   };
 
   const retry = (e) => {
@@ -298,7 +298,8 @@ const Main = (props) => {
               className="uk-expand"
               style={{ padding: "10px" }}
             >
-              <EmojiPanel />
+              {showEmojis ? <EmojiPanel /> : <></>}
+
               <div
                 style={{ border: "1px solid #e5e5e5", alignItems: "center" }}
                 className="uk-width-1-1 uk-flex"
