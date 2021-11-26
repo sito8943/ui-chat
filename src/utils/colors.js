@@ -1,7 +1,7 @@
 export let colors = {
     //main
     LightMainBackground: "#fff",
-    DarkMainBackground: "#222",
+    DarkMainBackground: "rgb(19 19 29)",
     //bars
     LightBarBackground: "#f8f8f8",
     DarkBarBackground: "#222333",
