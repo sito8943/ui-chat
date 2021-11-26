@@ -306,7 +306,7 @@ const Main = (props) => {
                   autoFocus
                   style={{ border: "none", height: "50px" }}
                 />
-                <a
+                <button
                   id="backspace"
                   className="chat-icon icon icon-no-hover"
                   href="#"
@@ -314,15 +314,15 @@ const Main = (props) => {
                   onMouseUp={resetDelete}
                 >
                   <BackspaceIcon />
-                </a>
-                <a
+                </button>
+                <button
                   onMouseEnter={changeEmoji}
                   onMouseLeave={changeEmoji}
                   className="chat-icon icon"
                   href="#"
                 >
                   {showEmoji()}
-                </a>
+                </button>
                 <button
                   type="submit"
                   id="send"
