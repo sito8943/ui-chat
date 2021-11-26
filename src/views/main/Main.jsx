@@ -425,7 +425,17 @@ const Main = (props) => {
                     alt={otherUsers[0].Name + "-photo"}
                   />
                 </Link>
-                <h3 style={{ margin: "0" }}>{otherUsers[0].Name}</h3>
+                <h3
+                  style={{
+                    margin: "0",
+                    color:
+                      contextState.mode === "light"
+                        ? colors.LightFontColors
+                        : colors.DarkFontColors,
+                  }}
+                >
+                  {otherUsers[0].Name}
+                </h3>
               </div>
             ) : (
               <></>
