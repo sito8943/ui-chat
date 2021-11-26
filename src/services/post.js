@@ -15,9 +15,9 @@ export const sendMessage = async (message, target) => {
     const response = await axios.post(
       `${config.serverUrl}/send/message`,
       {
-        who: message.Sender,
-        target: target.Name,
-        message: message.Message,
+        u: message.Sender,
+        t: target.Name,
+        m: message.Message,
       },
       {
         headers: getAuth,
