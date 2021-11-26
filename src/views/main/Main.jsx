@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { base64encode } from "nodejs-base64";
 
 import { useContext } from "../../context/ContextProvider";
 import {
@@ -46,7 +47,13 @@ const Main = (props) => {
   const [emoji, setEmoji] = useState("laughing");
   const [message, setMessage] = useState("");
   const [otherUsers, setOtherUsers] = useState([
-    new User("Laura", "offline", "/logo192.png", "/laura"),
+    new User(
+      base64encode("Laura"),
+      "Laura",
+      "offline",
+      "/logo192.png",
+      "/laura"
+    ),
   ]);
   const [messages, setMessages] = useState([]);
   const [chats, setChats] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
@@ -249,7 +256,7 @@ const Main = (props) => {
                           <img
                             className="profile-img chat-photo small"
                             src={lookUserByName(d.Sender).Photo}
-                            alt={lookUserByName(d.Sender).Name + "-photo"}
+                            alt={lookUserByName(d.Sender).Id + "-photo"}
                           />
                         </Link>
                         <label

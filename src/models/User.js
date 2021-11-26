@@ -5,14 +5,13 @@ export default class User {
    * @param {string} name
    * @param {string} state
    * @param {string} photo
-   * @param {string} link
    */
-  constructor(id = "", name = "", state = "", photo = "", link = "") {
+  constructor(id = "", name = "", state = "", photo = "") {
     this.id = id;
     this.name = name;
     this.state = state;
     this.photo = photo;
-    this.link = link;
+    this.link = "/uid:" + id;
   }
 
   /**

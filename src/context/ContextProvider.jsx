@@ -1,3 +1,4 @@
+import { base64encode } from "nodejs-base64";
 import * as React from "react";
 import User from "../models/User";
 
@@ -44,7 +45,7 @@ const contextReducer = (contextState, action) => {
 
 const ContextProvider = ({ children }) => {
   const [contextState, setContextState] = React.useReducer(contextReducer, {
-    user: new User("Sito", "online", "/logo192.png", "/account"),
+    user: new User(base64encode("Sito"), "Sito", "online", "/logo192.png", "/account"),
     lang: "",
     netStatus: "",
     showingNotification: false,
