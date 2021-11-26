@@ -9,10 +9,12 @@
 }
 
 .emoji-button {
+  width: 47px;
   margin: 0 !important;
   padding: 10px;
   font-size: 20px;
   border: none;
   text-align: center;
   background: none;
+  cursor: pointer;
 }
