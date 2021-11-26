@@ -80,6 +80,9 @@ body {
 .chat-icon {
   margin: 0 5px;
   font-size: 1.5rem !important;
+  border: none;
+  background: none;
+  padding: 0;
 }
 
 .icon {

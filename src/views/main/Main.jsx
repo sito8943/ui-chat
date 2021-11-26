@@ -147,6 +147,10 @@ const Main = (props) => {
     }
   };
 
+  const emojiPanel = (e) => {
+    e.preventDefault();
+  };
+
   const retry = (e) => {
     const newMessages = [...messages];
     newMessages[e.target.id].State = MessageStates.not_sent;
@@ -183,7 +187,7 @@ const Main = (props) => {
     }
   };
 
-  const deleteLast = () => {
+  const deleteLast = (e) => {
     if (message !== "") {
       setMessage(message.substr(0, message.length - 1));
       if (pressTimer == undefined) {
@@ -196,7 +200,7 @@ const Main = (props) => {
     }
   };
 
-  const resetDelete = () => {
+  const resetDelete = (e) => {
     if (pressTimer !== undefined) {
       clearTimeout(pressTimer);
       pressTimer = undefined;
@@ -307,19 +311,20 @@ const Main = (props) => {
                   style={{ border: "none", height: "50px" }}
                 />
                 <button
+                  type="button"
                   id="backspace"
                   className="chat-icon icon icon-no-hover"
-                  href="#"
                   onMouseDown={deleteLast}
                   onMouseUp={resetDelete}
                 >
                   <BackspaceIcon />
                 </button>
                 <button
+                  type="button"
                   onMouseEnter={changeEmoji}
                   onMouseLeave={changeEmoji}
-                  className="chat-icon icon"
-                  href="#"
+                  onClick={emojiPanel}
+                  className="chat-icon icon icon-hover"
                 >
                   {showEmoji()}
                 </button>
@@ -327,8 +332,6 @@ const Main = (props) => {
                   type="submit"
                   id="send"
                   className="chat-icon icon icon-no-hover"
-                  href="#"
-                  style={{ border: "none", background: "none", padding: "0" }}
                 >
                   <ChatIcon />
                 </button>
