@@ -12,6 +12,10 @@ export let colors = {
     LightShadows: 'lightgray',
     DarkShadows: 'black',
     //off-canvas
-    LightShadows: 'lightgray',
-    DarkShadows: 'black',
+    LightOffCanvas: '#f8f8f8',
+    DarkOffCanvas: '#222333',
+    //input border color
+    LightInputBorderColor: 'lightgray',
+    DarkInputBorderColor: '#434050'
+
 }

@@ -327,7 +327,14 @@ const Main = (props) => {
               {showEmojis ? <EmojiPanel /> : <></>}
 
               <div
-                style={{ border: "1px solid #434050", alignItems: "center" }}
+                style={{
+                  border: `1px solid ${
+                    contextState.mode === "light"
+                      ? colors.LightInputBorderColor
+                      : colors.DarkInputBorderColor
+                  }`,
+                  alignItems: "center",
+                }}
                 className="uk-width-1-1 uk-flex"
               >
                 <input
