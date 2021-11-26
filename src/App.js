@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useContext } from "./context/ContextProvider";
+import { ChatContext } from "./context/ChatContext";
 
 import "uikit/dist/css/uikit.min.css";
 
@@ -59,7 +60,9 @@ const App = () => {
                   contextState.user.name == "" ? (
                     <Login texts={ui.ES.Login} />
                   ) : (
-                    <Main texts={ui.ES.Main} />
+                    <ChatContext>
+                      <Main texts={ui.ES.Main} />
+                    </ChatContext>
                   )
                 }
               />

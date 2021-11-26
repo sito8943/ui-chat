@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { base64encode } from "nodejs-base64";
 
 import { useContext } from "../../context/ContextProvider";
+import { useChatContext } from "../../context/ChatContext";
 import {
   ChatIcon,
   BackspaceIcon,
@@ -45,6 +46,7 @@ const emojis = [
 
 const Main = (props) => {
   const { contextState, setContextState } = useContext();
+  const { chatContextState, setChatContextState } = useChatContext();
   const [showEmojis, setShowEmojis] = useState(false);
   const [emoji, setEmoji] = useState(Emojis.Laughing);
   const [message, setMessage] = useState("");
@@ -97,7 +99,10 @@ const Main = (props) => {
       default:
         if (e.target.value !== "") addHover();
         else removeHover();
-        return setMessage(e.target.value);
+        return setChatContextState({
+          type: "modifyText",
+          newMessage: e.target.value,
+        });
     }
   };
 
@@ -293,56 +298,55 @@ const Main = (props) => {
                 );
               })}
             </div>
-            <form
-              onSubmit={sendReply}
-              className="uk-expand"
-              style={{ padding: "10px" }}
-            >
-              {showEmojis ? <EmojiPanel /> : <></>}
-
-              <div
-                style={{ border: "1px solid #e5e5e5", alignItems: "center" }}
-                className="uk-width-1-1 uk-flex"
+              <form
+                onSubmit={sendReply}
+                className="uk-expand"
+                style={{ padding: "10px" }}
               >
-                <input
-                  id="message"
-                  className="uk-input"
-                  value={message}
-                  onChange={handleInput}
-                  type="text"
-                  placeholder={props.texts.Placeholders.Message}
-                  autoComplete="off"
-                  autoFocus
-                  style={{ border: "none", height: "50px" }}
-                />
-                <button
-                  type="button"
-                  id="backspace"
-                  className="chat-icon icon icon-no-hover"
-                  onMouseDown={deleteLast}
-                  onMouseUp={resetDelete}
+                {showEmojis ? <EmojiPanel /> : <></>}
+
+                <div
+                  style={{ border: "1px solid #e5e5e5", alignItems: "center" }}
+                  className="uk-width-1-1 uk-flex"
                 >
-                  <BackspaceIcon />
-                </button>
-                <button
-                  type="button"
-                  onMouseEnter={changeEmoji}
-                  onMouseLeave={changeEmoji}
-                  onClick={emojiPanel}
-                  className="chat-icon icon icon-hover"
-                >
-                  {showEmoji()}
-                </button>
-                <button
-                  type="submit"
-                  id="send"
-                  className="chat-icon icon icon-no-hover"
-                >
-                  <ChatIcon />
-                </button>
-              </div>
-            </form>
-            <div></div>
+                  <input
+                    id="message"
+                    className="uk-input"
+                    value={useChatContext}
+                    onChange={handleInput}
+                    type="text"
+                    placeholder={props.texts.Placeholders.Message}
+                    autoComplete="off"
+                    autoFocus
+                    style={{ border: "none", height: "50px" }}
+                  />
+                  <button
+                    type="button"
+                    id="backspace"
+                    className="chat-icon icon icon-no-hover"
+                    onMouseDown={deleteLast}
+                    onMouseUp={resetDelete}
+                  >
+                    <BackspaceIcon />
+                  </button>
+                  <button
+                    type="button"
+                    onMouseEnter={changeEmoji}
+                    onMouseLeave={changeEmoji}
+                    onClick={emojiPanel}
+                    className="chat-icon icon icon-hover"
+                  >
+                    {showEmoji()}
+                  </button>
+                  <button
+                    type="submit"
+                    id="send"
+                    className="chat-icon icon icon-no-hover"
+                  >
+                    <ChatIcon />
+                  </button>
+                </div>
+              </form>
           </div>
         </div>
         <div

@@ -56,6 +56,7 @@ const EmojiPanel = (props) => {
       <ul
         className="uk-subnav uk-subnav-pill"
         data-uk-switcher="animation: uk-animation-slide-left-medium, uk-animation-slide-right-medium"
+        style={{ marginBottom: "0" }}
       >
         {setOfCategories.map((d, i) => {
           return (
@@ -67,11 +68,16 @@ const EmojiPanel = (props) => {
           );
         })}
       </ul>
-      <ul className="uk-switcher uk-margin">
+      <hr style={{ margin: "auto", width: "90%" }} />
+      <ul className="uk-switcher">
         {setOfEmojis.map((d, i) => {
           return (
             <li key={i}>
-              <div className="uk-text-left" data-uk-grid>
+              <div
+                className="uk-text-center"
+                
+                data-uk-grid
+              >
                 {d.emojis.map((e, j) => {
                   return (
                     <button type="button" key={j} className="emoji-button">
