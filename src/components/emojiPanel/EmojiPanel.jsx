@@ -59,8 +59,10 @@ const EmojiPanel = (props) => {
       >
         {setOfCategories.map((d, i) => {
           return (
-            <li key={i}>
-              <a href="#">{d.emoji.emoji}</a>
+            <li style={{ paddingLeft: i == 0 ? "20px" : "0" }} key={i}>
+              <a style={{ fontSize: "20px", padding: "5px" }} href="#">
+                {d.emoji.emoji}
+              </a>
             </li>
           );
         })}
@@ -72,7 +74,7 @@ const EmojiPanel = (props) => {
               <div className="uk-text-left" data-uk-grid>
                 {d.emojis.map((e, j) => {
                   return (
-                    <button key={j} className="emoji-button">
+                    <button type="button" key={j} className="emoji-button">
                       {e.emoji}
                     </button>
                   );
