@@ -255,17 +255,22 @@ const Main = (props) => {
             {chats.map((d, i) => {
               return (
                 <div className="uk-animation-fade">
-                  <hr
-                    style={{
-                      margin: "auto",
-                      width: "90%",
-                      border: `1px solid ${
-                        contextState.mode === "light"
-                          ? colors.LightInputBorderColor
-                          : colors.DarkInputBorderColor
-                      }`,
-                    }}
-                  />
+                  {i !== 0 ? (
+                    <hr
+                      style={{
+                        margin: "auto",
+                        width: "90%",
+                        border: `1px solid ${
+                          contextState.mode === "light"
+                            ? colors.LightInputBorderColor
+                            : colors.DarkInputBorderColor
+                        }`,
+                      }}
+                    />
+                  ) : (
+                    <></>
+                  )}
+
                   <ChatItemPlaceholder
                     key={i}
                     color={
