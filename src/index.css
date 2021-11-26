@@ -59,10 +59,6 @@ html::-webkit-scrollbar-track:active,
   padding: 0 10px !important;
 }
 
-.uk-offcanvas-bar {
-  background-color: dodgerblue !important;
-}
-
 .uk-offcanvas-close {
   border: none !important;
   background: none !important;
@@ -71,6 +67,11 @@ html::-webkit-scrollbar-track:active,
 
 body {
   padding: 0 !important;
+}
+
+
+input {
+  background: none !important;
 }
 
 .chat-icon {

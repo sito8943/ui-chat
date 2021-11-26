@@ -327,7 +327,7 @@ const Main = (props) => {
               {showEmojis ? <EmojiPanel /> : <></>}
 
               <div
-                style={{ border: "1px solid #e5e5e5", alignItems: "center" }}
+                style={{ border: "1px solid #434050", alignItems: "center" }}
                 className="uk-width-1-1 uk-flex"
               >
                 <input

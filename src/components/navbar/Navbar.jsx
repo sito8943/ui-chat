@@ -73,6 +73,7 @@ const Navbar = (props) => {
                   placeholder={props.texts.Placeholders.Search}
                   value={search}
                   onChange={handleInput}
+                  style={{ border: "1px solid #434050" }}
                 />
               </form>
             </div>
@@ -128,7 +129,21 @@ const Navbar = (props) => {
             </button>
           </div>
           <div>
-            <div id="offcanvas-usage" data-uk-offcanvas>
+            <div
+              id="offcanvas-usage"
+              data-uk-offcanvas
+              style={{
+                backgroundColor:
+                  contextState.mode === "light"
+                    ? colors.LightBarBackground
+                    : colors.DarkBarBackground,
+                boxShadow: `1px 1px 5px 1px ${
+                  contextState.mode === "light"
+                    ? colors.LightShadows
+                    : colors.DarkShadows
+                }`,
+              }}
+            >
               <div className="uk-offcanvas-bar">
                 <button className="uk-offcanvas-close" type="button">
                   <XIcon />

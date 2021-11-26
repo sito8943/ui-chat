@@ -11,4 +11,7 @@ export let colors = {
     //shadows
     LightShadows: 'lightgray',
     DarkShadows: 'black',
+    //off-canvas
+    LightShadows: 'lightgray',
+    DarkShadows: 'black',
 }
