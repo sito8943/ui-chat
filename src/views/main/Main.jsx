@@ -243,6 +243,11 @@ const Main = (props) => {
               contextState.mode === "light"
                 ? colors.LightBarBackground
                 : colors.DarkBarBackground,
+            boxShadow: `1px 1px 5px 1px ${
+              contextState.mode === "light"
+                ? colors.LightShadows
+                : colors.DarkShadows
+            }`,
           }}
           className="uk-width-medium uk-visible@s uk-section chat-list"
         >
@@ -251,7 +256,19 @@ const Main = (props) => {
               return (
                 <div className="uk-animation-fade">
                   <hr style={{ margin: "auto", width: "90%" }} />
-                  <ChatItemPlaceholder key={i} color={contextState.mode === "light" ? colors.LightMainBackground : colors.DarkMainBackground} background={contextState.mode === "light" ? colors.LightPlaceholder : colors.DarkPlaceholder} />
+                  <ChatItemPlaceholder
+                    key={i}
+                    color={
+                      contextState.mode === "light"
+                        ? colors.LightMainBackground
+                        : colors.DarkMainBackground
+                    }
+                    background={
+                      contextState.mode === "light"
+                        ? colors.LightPlaceholder
+                        : colors.DarkPlaceholder
+                    }
+                  />
                 </div>
               );
             })}
@@ -360,6 +377,11 @@ const Main = (props) => {
               contextState.mode === "light"
                 ? colors.LightBarBackground
                 : colors.DarkBarBackground,
+            boxShadow: `1px 1px 5px 1px ${
+              contextState.mode === "light"
+                ? colors.LightShadows
+                : colors.DarkShadows
+            }`,
           }}
           className="uk-width-medium uk-visible@m uk-background-muted uk-section right-bar"
         >
