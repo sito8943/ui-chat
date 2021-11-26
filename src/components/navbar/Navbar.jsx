@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useContext } from "../../context/ContextProvider";
-import { SettingsIcon, XIcon } from "../../icons/icons";
+import {
+  SettingsIcon,
+  XIcon,
+  DarkModeIcon,
+  LightModeIcon,
+} from "../../icons/icons";
 
 import { Outlet, Link } from "react-router-dom";
 
@@ -12,6 +17,8 @@ const Navbar = (props) => {
   const [search, setSearch] = useState("");
 
   const init = async () => {};
+
+  
 
   useEffect(() => {
     init();
@@ -53,10 +60,14 @@ const Navbar = (props) => {
           </div>
 
           <div className="uk-navbar-right uk-visible@m">
-            <ChatItem data={contextState.user} /> 
+            <ChatItem data={contextState.user} />
             <ul className="uk-navbar-nav">
               <li className="uk-active">
-                <Link to="#">Active</Link>
+                <button id="toggler" onClick={toggleMode}>
+                  {
+
+                  }
+                </button>
               </li>
               <li>
                 <a href="#">Parent</a>

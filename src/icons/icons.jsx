@@ -40,7 +40,17 @@ import {
   BsCheckCircleFill,
   BsCheckCircle,
   BsCircle,
+  BsFillBrightnessHighFill,
+  BsFillMoonFill,
 } from "react-icons/bs";
+
+export const DarkModeIcon = () => {
+  return <BsFillMoonFill />;
+};
+
+export const LightModeIcon = () => {
+  return <BsFillBrightnessHighFill />;
+};
 
 export const NotSentIcon = () => {
   return <BsCircle />;
