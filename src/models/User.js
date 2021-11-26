@@ -1,16 +1,32 @@
 export default class User {
   /**
    *
+   * @param {string} id
    * @param {string} name
    * @param {string} state
    * @param {string} photo
    * @param {string} link
    */
-  constructor(name = "", state = "", photo = "", link = "") {
+  constructor(id = "", name = "", state = "", photo = "", link = "") {
+    this.id = id;
     this.name = name;
     this.state = state;
     this.photo = photo;
     this.link = link;
+  }
+
+  /**
+   * @returns user's id
+   */
+  get Id() {
+    return this.id;
+  }
+
+  /**
+   * @param id
+   */
+  set Id(id) {
+    this.id = id;
   }
 
   /**
