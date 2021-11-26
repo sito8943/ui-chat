@@ -7,3 +7,12 @@
   margin-top: -315px;
   margin-left: 405px;
 }
+
+.emoji-button {
+  margin: 0 !important;
+  padding: 10px;
+  font-size: 20px;
+  border: none;
+  text-align: center;
+  background: none;
+}
