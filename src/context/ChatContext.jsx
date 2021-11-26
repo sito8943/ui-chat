@@ -12,6 +12,10 @@ const contextReducer = (contextState, action) => {
       return {
         message: action.newMessage,
       };
+    case "init":
+      return {
+        message: "",
+      };
     default:
       throw new Error(`Unhandled action type: ${action.type}`);
   }

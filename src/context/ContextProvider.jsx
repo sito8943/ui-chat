@@ -6,10 +6,13 @@ const Context = React.createContext();
 
 const contextReducer = (contextState, action) => {
   switch (action.type) {
+    case "changeMode":
+
     case "showing":
       return {
         user: contextState.user,
         lang: contextState.lang,
+        mode: contextState.mode,
         netStatus: contextState.netStatus,
         showingNotification: true,
       };
@@ -18,6 +21,7 @@ const contextReducer = (contextState, action) => {
         user: contextState.user,
         lang: contextState.lang,
         netStatus: 0,
+        mode: contextState.mode,
         showingNotification: contextState.showingNotification,
       };
     case "online":
@@ -25,19 +29,33 @@ const contextReducer = (contextState, action) => {
         user: contextState.user,
         lang: contextState.lang,
         netStatus: 1,
+        mode: contextState.mode,
         showingNotification: contextState.showingNotification,
       };
     case "checking":
       return {
         user: contextState.user,
         lang: contextState.lang,
+        mode: contextState.mode,
         netStatus: 2,
         showingNotification: false,
       };
     case "log-in":
-      return { user: action.user };
+      return {
+        user: action.user,
+        lang: contextState.lang,
+        mode: contextState.mode,
+        netStatus: contextState.netStatus,
+        showingNotification: contextState.showingNotification,
+      };
     case "log-off":
-      return { user: "" };
+      return {
+        user: {},
+        lang: contextState.lang,
+        mode: contextState.mode,
+        netStatus: contextState.netStatus,
+        showingNotification: contextState.showingNotification,
+      };
     default:
       throw new Error(`Unhandled action type: ${action.type}`);
   }
@@ -45,9 +63,16 @@ const contextReducer = (contextState, action) => {
 
 const ContextProvider = ({ children }) => {
   const [contextState, setContextState] = React.useReducer(contextReducer, {
-    user: new User(base64encode("Sito"), "Sito", "online", "/logo192.png", "/account"),
+    user: new User(
+      base64encode("Sito"),
+      "Sito",
+      "online",
+      "/logo192.png",
+      "/account",
+    ),
     lang: "",
     netStatus: "",
+    mode: "dark",
     showingNotification: false,
   });
 

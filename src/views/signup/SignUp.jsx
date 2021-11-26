@@ -41,6 +41,8 @@ const SignUp = (props) => {
         return setPassword(e.target.value);
       case "passwordR":
         return setPasswordR(e.target.value);
+      default:
+        break;
     }
   };
 
