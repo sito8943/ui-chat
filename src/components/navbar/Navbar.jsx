@@ -41,7 +41,21 @@ const Navbar = (props) => {
       {contextState.user.name == "" ? (
         <></>
       ) : (
-        <nav className="uk-navbar-container navbar" data-uk-navbar style={{backgroundColor: contextState.mode === "light" ? colors.LightBarBackground : colors.DarkBarBackground, boxShadow: `1px 1px 5px 1px ${contextState.mode === "light" ? colors.LightShadows : colors.DarkShadows}`}}>
+        <nav
+          className="uk-navbar-container navbar"
+          data-uk-navbar
+          style={{
+            backgroundColor:
+              contextState.mode === "light"
+                ? colors.LightBarBackground
+                : colors.DarkBarBackground,
+            boxShadow: `1px 1px 5px 1px ${
+              contextState.mode === "light"
+                ? colors.LightShadows
+                : colors.DarkShadows
+            }`,
+          }}
+        >
           <div className="uk-navbar-left">
             <Link className="uk-navbar-item uk-logo" to="#">
               <img
