@@ -1,0 +1,9 @@
+.emoji-panel {
+  box-shadow: 5px 5px 5px 5px lightgrey;
+  overflow: auto;
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  margin-top: -315px;
+  margin-left: 405px;
+}

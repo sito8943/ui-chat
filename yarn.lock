@@ -6371,6 +6371,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"emojis@npm:^1.0.10":
+  version: 1.0.10
+  resolution: "emojis@npm:1.0.10"
+  checksum: da6a7c2bd973f45f11ca72511df6a7d2522ed609380478c4a2f793d0c7ac27f2b03eb2c73dba6e5b73e89907272cdb853ff647ff4022ea4010e3415e295fb7cf
+  languageName: node
+  linkType: hard
+
 "encodeurl@npm:~1.0.2":
   version: 1.0.2
   resolution: "encodeurl@npm:1.0.2"
@@ -15307,6 +15314,7 @@ __metadata:
     blurhash: ^1.1.4
     core-js: ^3
     crypto-js: ^4.1.1
+    emojis: ^1.0.10
     firebase: 8.0.0
     imagekit: ^3.2.2
     imagekitio-react: ^1.0.11
@@ -15321,6 +15329,7 @@ __metadata:
     react-select: 5.2.1
     react-shimmer: ^3.1.3
     uikit: ^3.8.0
+    unicode-emoji: ^2.3.0
   languageName: unknown
   linkType: soft
 
@@ -15347,6 +15356,13 @@ __metadata:
   version: 2.0.0
   resolution: "unicode-canonical-property-names-ecmascript@npm:2.0.0"
   checksum: 39be078afd014c14dcd957a7a46a60061bc37c4508ba146517f85f60361acf4c7539552645ece25de840e17e293baa5556268d091ca6762747fdd0c705001a45
+  languageName: node
+  linkType: hard
+
+"unicode-emoji@npm:^2.3.0":
+  version: 2.3.0
+  resolution: "unicode-emoji@npm:2.3.0"
+  checksum: 79a77e7f1030a77c36b9a6faba1839e1252fc9de767ee634eb4b6a7ab990104d69507a2e785c288ef86590be4e7243eb35607d600d31fd4fde5b0db5f0a3703d
   languageName: node
   linkType: hard
 

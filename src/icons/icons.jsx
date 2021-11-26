@@ -134,7 +134,7 @@ export const FrownEmojiIcon = () => {
   return <BsFillEmojiFrownFill />;
 };
 
-export const HearEyesEmojiIcon = () => {
+export const HeartEyesEmojiIcon = () => {
   return <BsFillEmojiHeartEyesFill />;
 };
 

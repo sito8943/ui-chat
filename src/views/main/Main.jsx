@@ -12,7 +12,7 @@ import {
   AngryEmojiIcon,
   FrownEmojiIcon,
   NeutralEmojiIcon,
-  HearEyesEmojiIcon,
+  HeartEyesEmojiIcon,
   SmileEmojiIcon,
   SmileUpsideDownEmojiIcon,
   SunglassesEmojiIcon,
@@ -28,6 +28,7 @@ import ChatItemPlaceholder from "../../components/chatItem/ChatItemPlaceholder";
 import ChatItem from "../../components/chatItem/ChatItem";
 import User from "../../models/User";
 import { sendMessage } from "../../services/post";
+import EmojiPanel, { Emojis } from "../../components/emojiPanel/EmojiPanel";
 
 const emojis = [
   "laughing",
@@ -44,7 +45,8 @@ const emojis = [
 
 const Main = (props) => {
   const { contextState, setContextState } = useContext();
-  const [emoji, setEmoji] = useState("laughing");
+  const [showEmojis, setShowEmojis] = useState(true);
+  const [emoji, setEmoji] = useState(Emojis.Laughing);
   const [message, setMessage] = useState("");
   const [otherUsers, setOtherUsers] = useState([
     new User(
@@ -122,25 +124,25 @@ const Main = (props) => {
 
   const showEmoji = () => {
     switch (emoji) {
-      case "laughing":
+      case Emojis.Laughing:
         return <LaughingEmojIcon />;
-      case "angry":
+      case Emojis.Angry:
         return <AngryEmojiIcon />;
-      case "dizzy":
+      case Emojis.Dizzy:
         return <DizzyEmojiIcon />;
-      case "expression":
+      case Emojis.Expression:
         return <ExpressionlessEmojiIcon />;
-      case "frown":
+      case Emojis.Frown:
         return <FrownEmojiIcon />;
-      case "heareyes":
-        return <HearEyesEmojiIcon />;
-      case "neutral":
+      case Emojis.Hearteyes:
+        return <HeartEyesEmojiIcon />;
+      case Emojis.Neutral:
         return <NeutralEmojiIcon />;
-      case "smile":
+      case Emojis.Smile:
         return <SmileEmojiIcon />;
-      case "smileupside":
+      case Emojis.Smileupside:
         return <SmileUpsideDownEmojiIcon />;
-      case "sunglasses":
+      case Emojis.Sunglasses:
         return <SunglassesEmojiIcon />;
       default:
         return <WinkEmojiIcon />;
@@ -149,6 +151,7 @@ const Main = (props) => {
 
   const emojiPanel = (e) => {
     e.preventDefault();
+    setShowEmojis(true);
   };
 
   const retry = (e) => {
@@ -295,6 +298,7 @@ const Main = (props) => {
               className="uk-expand"
               style={{ padding: "10px" }}
             >
+              <EmojiPanel />
               <div
                 style={{ border: "1px solid #e5e5e5", alignItems: "center" }}
                 className="uk-width-1-1 uk-flex"
