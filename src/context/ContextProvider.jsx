@@ -7,7 +7,13 @@ const Context = React.createContext();
 const contextReducer = (contextState, action) => {
   switch (action.type) {
     case "changeMode":
-
+      return {
+        user: contextState.user,
+        lang: contextState.lang,
+        mode: action.mode,
+        netStatus: contextState.netStatus,
+        showingNotification: contextState.showingNotification,
+      };
     case "showing":
       return {
         user: contextState.user,
@@ -68,7 +74,7 @@ const ContextProvider = ({ children }) => {
       "Sito",
       "online",
       "/logo192.png",
-      "/account",
+      "/account"
     ),
     lang: "",
     netStatus: "",

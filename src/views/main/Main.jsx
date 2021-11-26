@@ -30,6 +30,7 @@ import ChatItem from "../../components/chatItem/ChatItem";
 import User from "../../models/User";
 import { sendMessage } from "../../services/post";
 import EmojiPanel, { Emojis } from "../../components/emojiPanel/EmojiPanel";
+import { colors } from "../../utils/colors";
 
 const emojis = [
   Emojis.Laughing,
@@ -63,9 +64,7 @@ const Main = (props) => {
   const [chats, setChats] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
   let pressTimer = undefined;
 
-  const init = async () => {
-    setChatContextState({ type: "init" });
-  };
+  const init = async () => {};
 
   const checkForMessages = async () => {
     setTimeout(() => {
@@ -238,15 +237,21 @@ const Main = (props) => {
         data-uk-grid
       >
         <div
-          style={{ padding: "0" }}
-          className="uk-width-medium uk-visible@s uk-background-muted uk-section chat-list"
+          style={{
+            padding: "0",
+            backgroundColor:
+              contextState.mode === "light"
+                ? colors.LightBarBackground
+                : colors.DarkBarBackground,
+          }}
+          className="uk-width-medium uk-visible@s uk-section chat-list"
         >
           <div>
             {chats.map((d, i) => {
               return (
                 <div className="uk-animation-fade">
                   <hr style={{ margin: "auto", width: "90%" }} />
-                  <ChatItemPlaceholder key={i} />
+                  <ChatItemPlaceholder key={i} color={contextState.mode === "light" ? colors.LightMainBackground : colors.DarkMainBackground} background={contextState.mode === "light" ? colors.LightPlaceholder : colors.DarkPlaceholder} />
                 </div>
               );
             })}
@@ -349,7 +354,13 @@ const Main = (props) => {
           </div>
         </div>
         <div
-          style={{ padding: "0" }}
+          style={{
+            padding: "0",
+            backgroundColor:
+              contextState.mode === "light"
+                ? colors.LightBarBackground
+                : colors.DarkBarBackground,
+          }}
           className="uk-width-medium uk-visible@m uk-background-muted uk-section right-bar"
         >
           <>

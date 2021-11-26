@@ -6,7 +6,6 @@ body {
   display: flex;
   height: 85px;
   padding: 1%;
-  background-color: white;
 }
 
 .img-container {
@@ -18,7 +17,6 @@ body {
   border-radius: 50%;
   width: 45px;
   height: 45px;
-  background-color: #babbbc;
 }
 
 .content {
@@ -30,9 +28,7 @@ body {
 }
 
 .stripe {
-  border: 1px solid white;
   height: 20%;
-  background-color: #babbbc;
 }
 
 .small-stripe {

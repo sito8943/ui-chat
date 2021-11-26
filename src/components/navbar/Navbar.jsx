@@ -11,14 +11,13 @@ import { Outlet, Link } from "react-router-dom";
 
 import ChatItemPlaceholder from "../../components/chatItem/ChatItemPlaceholder";
 import ChatItem from "../../components/chatItem/ChatItem";
+import { colors } from "../../utils/colors";
 
 const Navbar = (props) => {
   const { contextState, setContextState } = useContext();
   const [search, setSearch] = useState("");
 
   const init = async () => {};
-
-  
 
   useEffect(() => {
     init();
@@ -31,12 +30,18 @@ const Navbar = (props) => {
     }
   };
 
+  const toggleMode = (e) => {
+    contextState.mode === "light"
+      ? setContextState({ type: "changeMode", mode: "dark" })
+      : setContextState({ type: "changeMode", mode: "light" });
+  };
+
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       {contextState.user.name == "" ? (
         <></>
       ) : (
-        <nav className="uk-navbar-container navbar" data-uk-navbar>
+        <nav className="uk-navbar-container navbar" data-uk-navbar style={{backgroundColor: contextState.mode === "light" ? colors.LightBarBackground : colors.DarkBarBackground, boxShadow: `1px 1px 5px 1px ${contextState.mode === "light" ? colors.LightShadows : colors.DarkShadows}`}}>
           <div className="uk-navbar-left">
             <Link className="uk-navbar-item uk-logo" to="#">
               <img
@@ -61,14 +66,21 @@ const Navbar = (props) => {
 
           <div className="uk-navbar-right uk-visible@m">
             <ChatItem data={contextState.user} />
+            <button
+              id="toggler"
+              type="button"
+              style={{ fontSize: "1.5rem", marginBottom: "5px" }}
+              className="uk-button uk-button-default uk-margin-small-right menu-button"
+              onClick={toggleMode}
+            >
+              {contextState.mode === "light" ? (
+                <DarkModeIcon />
+              ) : (
+                <LightModeIcon />
+              )}
+            </button>
             <ul className="uk-navbar-nav">
-              <li className="uk-active">
-                <button id="toggler" onClick={toggleMode}>
-                  {
-
-                  }
-                </button>
-              </li>
+              <li className="uk-active"></li>
               <li>
                 <a href="#">Parent</a>
                 <div className="uk-navbar-dropdown">

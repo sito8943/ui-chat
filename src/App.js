@@ -20,6 +20,7 @@ import Forgot from "./views/forgot/Forgot";
 import Account from "./views/account/Account";
 
 import { connectionState } from "./services/get";
+import { colors } from "./utils/colors";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -37,7 +38,7 @@ const App = () => {
   }, []);
 
   return (
-    <>
+    <div style={{ backgroundColor: contextState.mode === "light" ? colors.LightMainBackground : colors.DarkMainBackground}}>
       {loading ? (
         <div
           style={{
@@ -83,7 +84,7 @@ const App = () => {
           </Routes>
         </Router>
       )}
-    </>
+    </div>
   );
 };
 

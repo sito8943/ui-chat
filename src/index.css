@@ -69,10 +69,6 @@ html::-webkit-scrollbar-track:active,
   color: white !important;
 }
 
-.navbar {
-  box-shadow: 1px 1px 5px 1px lightgrey;
-}
-
 body {
   padding: 0 !important;
 }

@@ -41,7 +41,6 @@ import {
   BsCheckCircle,
   BsCircle,
   BsFillBrightnessHighFill,
-  BsFillMoonFill,
 } from "react-icons/bs";
 
 export const DarkModeIcon = () => {
