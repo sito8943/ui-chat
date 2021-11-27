@@ -60,7 +60,7 @@ const Main = (props) => {
       "/laura"
     ),
   ]);
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([new ChatMessage("Sito", )]);
   const [chats, setChats] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
   let pressTimer = undefined;
 

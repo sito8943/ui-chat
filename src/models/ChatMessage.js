@@ -1,24 +1,29 @@
 export let MessageStates = {
-  not_sent: "Not sent",
-  sent: "Sent",
-  seen: "Seen",
-  received: "Received",
-  error: "Error",
+  NotSent: 1,
+  Sent: 2,
+  Seen: 3,
+  Received: 4,
+  Error: 5,
 };
 
 /**
  * @author Sito
+ * @attribute sender - who sent the message
+ * @attribute message - message's content
+ * @attribute states - array of states per user's count - 1
  */
 export default class ChatMessage {
   /**
    *
    * @param {string} sender
    * @param {string} message
+   * @param {number[]} states
    */
-  constructor(sender = "", message = "") {
+  constructor(sender = "", message = "", states = []) {
     this.sender = sender;
     this.message = message;
-    this.state = MessageStates.not_sent;
+    if (states === []) this.state.push(MessageStates.not_sent);
+    else this.states = states
   }
 
   /**
@@ -52,15 +57,23 @@ export default class ChatMessage {
   /**
    * @returns message's state
    */
-  get State() {
-    return this.state;
+  get States() {
+    return this.states;
   }
 
   /**
-   * @param {string} message's state
+   * @param {number[]} message's states
    */
-  set State(state) {
-    this.state = state
+  set States(states) {
+    this.states = states;
+  }
+
+  /**
+   * @param {number} index
+   * @param {number} newState
+   */
+  set State(index, newState) {
+    this.states[index] = newState
   }
 
 }
