@@ -7,6 +7,11 @@ import { useContext } from "../../context/ContextProvider";
 import { connectionState } from "../../services/get";
 
 import { colors } from "../../utils/colors";
+import {
+  Header3,
+  Label,
+  Paragraph,
+} from "../../components/theme/ThemeComponents";
 
 const Forgot = (props) => {
   const [loading, setLoading] = useState(true);
@@ -41,14 +46,9 @@ const Forgot = (props) => {
   }, []);
 
   return (
-    <div
-      className="uk-animation-scale-down main-view"
-      data-uk-grid
-    >
+    <div className="uk-animation-scale-down main-view" data-uk-grid>
       <div className="uk-width-expand"></div>
-      <div
-        className="uk-card uk-card-default uk-card-body main-card"
-      >
+      <div className="uk-card uk-card-default uk-card-body main-card">
         {loading ? (
           <Loading />
         ) : (
@@ -59,31 +59,12 @@ const Forgot = (props) => {
                 alt="app-logo"
                 className="app-main-logo"
               />
-              <h3
-                className="uk-card-title"
-                style={{
-                  color:
-                    contextState.mode === "light"
-                      ? colors.LightFontColors
-                      : colors.DarkFontColors,
-                }}
-              >
-                {props.texts.Title}
-              </h3>
+              <Header3 title={props.texts.Title} />
             </div>
-            <p
-              style={{
-                color:
-                  contextState.mode === "light"
-                    ? colors.LightFontColors
-                    : colors.DarkFontColors,
-              }}
-            >
-              {props.texts.Paragraph}
-            </p>
+            <Paragraph paragraph={props.texts.Paragraph} />
             <form onSubmit={send}>
               <fieldset className="uk-fieldset">
-                <legend className="uk-legend">{props.texts.Labels.User}</legend>
+                <Label text={props.texts.Labels.User} />
                 <div className="uk-margin">
                   <input
                     id="name"
