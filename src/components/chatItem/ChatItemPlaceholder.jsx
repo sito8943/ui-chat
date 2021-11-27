@@ -13,7 +13,12 @@ const ChatItemPlaceholder = (props) => {
       <div className="img-container">
         <div
           className="img"
-          style={{ backgroundColor: props.background }}
+          style={{
+            backgroundColor:
+              contextState.mode === "light"
+                ? colors.LightPlaceholder
+                : colors.DarkPlaceholder,
+          }}
         ></div>
       </div>
       <div className="content">

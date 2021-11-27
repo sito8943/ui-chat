@@ -27,7 +27,7 @@ const SideBar = (props) => {
                   : colors.DarkShadows
               }`,
       }}
-      className="uk-width-medium uk-visible@s uk-section chat-list"
+      className="uk-width-medium uk-visible@s uk-section chat-list side-bar"
     >
       {props.children}
     </div>

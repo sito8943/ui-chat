@@ -38,7 +38,7 @@ const App = () => {
   }, []);
 
   return (
-    <div style={{ backgroundColor: contextState.mode === "light" ? colors.LightMainBackground : colors.DarkMainBackground}}>
+    <div className="main-background" style={{ backgroundColor: contextState.mode === "light" ? colors.LightMainBackground : colors.DarkMainBackground}}>
       {loading ? (
         <div
           style={{
