@@ -4,30 +4,30 @@
   width: 5px;
 }
 
-/* Ponemos un color de fondo y redondeamos las esquinas del thumb */
+/* We put a background color and round the corners of the thumb */
 *::-webkit-scrollbar-thumb,
 .css-4ljt47-MenuList::-webkit-scrollbar-thumb,
 .myScroll::-webkit-scrollbar-thumb {
-  background: gray;
+  background: #342E4A;
   border-radius: 4px;
 }
 
-/* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+/* We change the background and add a shadow when hover */
 *::-webkit-scrollbar-thumb:hover,
 .css-4ljt47-MenuList::-webkit-scrollbar-thumb:hover,
 .myScroll::-webkit-scrollbar-thumb:hover {
-  background: #949494;
+  background: #2E374A;
   box-shadow: 0 0 2px 1px rgba(102, 100, 100, 0.2);
 }
 
-/* Cambiamos el fondo cuando esté en active */
+/* We change the background when it is active */
 *::-webkit-scrollbar-thumb:active,
 .css-4ljt47-MenuList::-webkit-scrollbar-thumb:active,
 .myScroll::-webkit-scrollbar-thumb:active {
-  background-color: #9b9b9b;
+  background-color: #2E374A;
 }
 
-/* Ponemos un color de fondo y redondeamos las esquinas del track */
+/* We put a background color and round the corners of the track */
 *::-webkit-scrollbar-track,
 .css-4ljt47-MenuList::-webkit-scrollbar-track,
 .myScroll::-webkit-scrollbar-track {
@@ -35,7 +35,7 @@
   border-radius: 4px;
 }
 
-/* Cambiamos el fondo cuando esté en active o hover */
+/* We change the background when it is active or hover */
 *::-webkit-scrollbar-track:hover,
 .css-4ljt47-MenuList::-webkit-scrollbar:hover,
 .myScroll::-webkit-scrollbar-track:hover,
