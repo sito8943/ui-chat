@@ -290,7 +290,7 @@ const Main = (props) => {
             })}
           </div>
         </div>
-        <div className="uk-width-expand@m uk-width-1-1@s">
+        <div className="uk-width-expand">
           <div>
             <div
               className="uk-section message-list"
