@@ -7,7 +7,9 @@ import { useContext } from "../../context/ContextProvider";
 import { connectionState } from "../../services/get";
 
 import { colors } from "../../utils/colors";
-import { Header3, Label, Paragraph } from "../../components/theme/ThemeComponents";
+import { Paragraph } from "../../components/theme/ThemeComponents";
+import { Header3 } from "../../components/theme/headers/Headers";
+import { Label } from "../../components/theme/form/Label";
 
 const SignUp = (props) => {
   const [loading, setLoading] = useState(true);

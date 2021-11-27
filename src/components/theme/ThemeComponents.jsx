@@ -5,23 +5,6 @@ import { useContext } from "../../context/ContextProvider";
 
 import { Link as RouterLink } from "react-router-dom";
 
-export const Header3 = (props) => {
-  const { contextState, setContextState } = useContext();
-  return (
-    <h3
-      className="uk-card-title"
-      style={{
-        color:
-          contextState.mode === "light"
-            ? colors.LightFontColors
-            : colors.DarkFontColors,
-      }}
-    >
-      {props.title}
-    </h3>
-  );
-};
-
 export const Paragraph = (props) => {
   const { contextState, setContextState } = useContext();
   return (
@@ -35,23 +18,6 @@ export const Paragraph = (props) => {
     >
       {props.paragraph}
     </p>
-  );
-};
-
-export const Label = (props) => {
-  const { contextState, setContextState } = useContext();
-  return (
-    <legend
-      style={{
-        color:
-          contextState.mode === "light"
-            ? colors.LightFontColors
-            : colors.DarkFontColors,
-      }}
-      className="uk-legend"
-    >
-      {props.text}
-    </legend>
   );
 };
 

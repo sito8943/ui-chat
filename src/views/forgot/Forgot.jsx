@@ -5,13 +5,12 @@ import Loading from "../../components/loading/Loading";
 
 import { useContext } from "../../context/ContextProvider";
 import { connectionState } from "../../services/get";
-
 import { colors } from "../../utils/colors";
-import {
-  Header3,
-  Label,
-  Paragraph,
-} from "../../components/theme/ThemeComponents";
+
+import { Paragraph } from "../../components/theme/ThemeComponents";
+import { Header3 } from "../../components/theme/headers/Headers";
+import { Label } from "../../components/theme/form/Label";
+import Card from "../../components/theme/card/Card";
 
 const Forgot = (props) => {
   const [loading, setLoading] = useState(true);
@@ -48,7 +47,7 @@ const Forgot = (props) => {
   return (
     <div className="uk-animation-scale-down main-view" data-uk-grid>
       <div className="uk-width-expand"></div>
-      <div className="uk-card uk-card-default uk-card-body main-card">
+      <Card>
         {loading ? (
           <Loading />
         ) : (
@@ -108,7 +107,7 @@ const Forgot = (props) => {
             </form>
           </>
         )}
-      </div>
+      </Card>
       <div className="uk-width-expand"></div>
     </div>
   );

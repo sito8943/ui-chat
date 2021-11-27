@@ -1,13 +1,13 @@
 export let colors = {
     //main
     LightMainBackground: "#fff",
-    DarkMainBackground: "rgb(19 19 29)",
+    DarkMainBackground: "rgb(19, 19, 29)",
     //bars
     LightBarBackground: "#f8f8f8",
     DarkBarBackground: "#222333",
     //placeholders - shimmers
     LightPlaceholder: '#babbbc',
-    DarkPlaceholder: 'rgb(94 88 114)',
+    DarkPlaceholder: 'rgb(94, 88, 114)',
     //shadows
     LightShadows: 'lightgray',
     DarkShadows: 'black',
