@@ -102,13 +102,12 @@ const Navbar = (props) => {
               id="toggler"
               type="button"
               style={{
-                
                 color:
                   contextState.mode === "light"
                     ? colors.LightFontColors
                     : colors.DarkFontColors,
               }}
-              className="uk-button uk-button-default uk-margin-small-right menu-button"
+              className="uk-button uk-button-default uk-margin-small-right menu-button navbar-button"
               onClick={toggleMode}
             >
               {contextState.mode === "light" ? (
@@ -143,7 +142,7 @@ const Navbar = (props) => {
 
           <div className="uk-navbar-right uk-hidden@m">
             <button
-              className="uk-button uk-button-default uk-margin-small-right menu-button"
+              className="uk-button uk-button-default uk-margin-small-right menu-button navbar-button"
               type="button"
               data-uk-toggle="target: #offcanvas-usage"
               style={{
@@ -178,7 +177,14 @@ const Navbar = (props) => {
                   <XIcon />
                 </button>
 
-                <ChatItem data={contextState.user} />
+                <ChatItem
+                  data={contextState.user}
+                  color={
+                    contextState.mode === "light"
+                      ? colors.LightFontColors
+                      : colors.DarkFontColors
+                  }
+                />
 
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed

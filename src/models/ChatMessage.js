@@ -72,7 +72,7 @@ export default class ChatMessage {
    * @param {number} index
    * @param {number} newState
    */
-  set State(index, newState) {
+  setState(index, newState) {
     this.states[index] = newState
   }
 

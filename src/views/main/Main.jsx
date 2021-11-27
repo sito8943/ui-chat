@@ -60,7 +60,9 @@ const Main = (props) => {
       "/laura"
     ),
   ]);
-  const [messages, setMessages] = useState([new ChatMessage("Sito", )]);
+  const [messages, setMessages] = useState([
+   
+  ]);
   const [chats, setChats] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
   let pressTimer = undefined;
 
@@ -170,13 +172,13 @@ const Main = (props) => {
    */
   const showStateIcon = (state, index) => {
     switch (state) {
-      case MessageStates.not_sent:
+      case MessageStates.NotSent:
         return <NotSentIcon />;
-      case MessageStates.sent:
+      case MessageStates.Sent:
         return <SentIcon />;
-      case MessageStates.received:
+      case MessageStates.Received:
         return <CorrectIcon />;
-      case MessageStates.seen:
+      case MessageStates.Seen:
         break;
       // error
       default:
