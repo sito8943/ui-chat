@@ -34,6 +34,7 @@ const Navbar = (props) => {
     contextState.mode === "light"
       ? setContextState({ type: "changeMode", mode: "dark" })
       : setContextState({ type: "changeMode", mode: "light" });
+    
   };
 
   return (

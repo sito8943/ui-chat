@@ -214,6 +214,6 @@ input:focus {
   padding: 50px 75px;
 }
 
-.main-background, .main-card, .side-bar {
+.main-background, .main-card, .side-bar, .navbar {
   transition: all 200ms ease;
 }
