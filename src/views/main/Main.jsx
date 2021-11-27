@@ -4,6 +4,9 @@ import { base64encode } from "nodejs-base64";
 
 import { useContext } from "../../context/ContextProvider";
 import { useChatContext } from "../../context/ChatContext";
+import { sendMessage } from "../../services/post";
+import { colors } from "../../utils/colors";
+
 import {
   ChatIcon,
   BackspaceIcon,
@@ -28,9 +31,8 @@ import ChatMessage, { MessageStates } from "../../models/ChatMessage";
 import ChatItemPlaceholder from "../../components/chatItem/ChatItemPlaceholder";
 import ChatItem from "../../components/chatItem/ChatItem";
 import User from "../../models/User";
-import { sendMessage } from "../../services/post";
 import EmojiPanel, { Emojis } from "../../components/emojiPanel/EmojiPanel";
-import { colors } from "../../utils/colors";
+import SideBar from "../../components/theme/sideBar/SideBar";
 
 const emojis = [
   Emojis.Laughing,
@@ -237,21 +239,7 @@ const Main = (props) => {
         style={{ padding: "0" }}
         data-uk-grid
       >
-        <div
-          style={{
-            padding: "0",
-            backgroundColor:
-              contextState.mode === "light"
-                ? colors.LightBarBackground
-                : colors.DarkBarBackground,
-            boxShadow: `1px 1px 5px 1px ${
-              contextState.mode === "light"
-                ? colors.LightShadows
-                : colors.DarkShadows
-            }`,
-          }}
-          className="uk-width-medium uk-visible@s uk-section chat-list"
-        >
+        <SideBar side="left">
           <div>
             {chats.map((d, i) => {
               return (
@@ -289,7 +277,7 @@ const Main = (props) => {
               );
             })}
           </div>
-        </div>
+        </SideBar>
         <div className="uk-width-expand">
           <div>
             <div
@@ -415,21 +403,7 @@ const Main = (props) => {
             </form>
           </div>
         </div>
-        <div
-          style={{
-            padding: "0",
-            backgroundColor:
-              contextState.mode === "light"
-                ? colors.LightBarBackground
-                : colors.DarkBarBackground,
-            boxShadow: `1px 1px 5px 1px ${
-              contextState.mode === "light"
-                ? colors.LightShadows
-                : colors.DarkShadows
-            }`,
-          }}
-          className="uk-width-medium uk-visible@m uk-background-muted uk-section right-bar"
-        >
+        <SideBar side="right">
           <>
             {otherUsers.length == 1 ? (
               <div style={{ marginTop: "10px" }}>
@@ -457,7 +431,7 @@ const Main = (props) => {
               <></>
             )}
           </>
-        </div>
+        </SideBar>
       </div>
     </div>
   );
