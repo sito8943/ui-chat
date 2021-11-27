@@ -232,6 +232,19 @@ const Main = (props) => {
     setMessages(newMessages);
   };
 
+  const mainFocus = (e) => {
+    document.getElementById("main-control").style.border =
+      "1px solid dodgerblue";
+  };
+
+  const lostFocus = (e) => {
+    document.getElementById("main-control").style.border = `1px solid ${
+      contextState.mode === "light"
+        ? colors.LightInputBorderColor
+        : colors.DarkInputBorderColor
+    }`;
+  };
+
   return (
     <div className="main">
       <div
@@ -245,11 +258,7 @@ const Main = (props) => {
             {chats.map((d, i) => {
               return (
                 <div className="uk-animation-fade">
-                  {i !== 0 ? (
-                    <Divider />
-                  ) : (
-                    <></>
-                  )}
+                  {i !== 0 ? <Divider /> : <></>}
 
                   <ChatItemPlaceholder
                     key={i}
@@ -346,6 +355,7 @@ const Main = (props) => {
                   alignItems: "center",
                 }}
                 className="uk-width-1-1 uk-flex"
+                id="main-control"
               >
                 <input
                   id="message"
@@ -355,6 +365,8 @@ const Main = (props) => {
                   type="text"
                   placeholder={props.texts.Placeholders.Message}
                   autoComplete="off"
+                  onFocus={mainFocus}
+                  onBlur={lostFocus}
                   autoFocus
                   style={{
                     border: "none",

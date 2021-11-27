@@ -73,14 +73,15 @@ input {
   background: none !important;
 }
 
-input:hover, input:focus {
+input:hover,
+input:focus {
   border: 1px solid dodgerblue !important;
 }
 
-.div-input:hover {
+.div-input:hover,
+.div-input:focus {
   border: none !important;
 }
-
 
 .chat-icon {
   margin: 0 5px;
@@ -207,5 +208,5 @@ input:hover, input:focus {
 }
 
 .main-card {
-  padding: 50px 75px
+  padding: 50px 75px;
 }
