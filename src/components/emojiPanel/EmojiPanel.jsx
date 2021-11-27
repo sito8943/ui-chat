@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import * as unicodeEmoji from "unicode-emoji";
+import Divider from "../theme/divider/Divider";
 
 import "./style.css";
 
@@ -74,7 +75,7 @@ const EmojiPanel = (props) => {
           );
         })}
       </ul>
-      <hr style={{ margin: "auto", width: "90%" }} />
+      <Divider />
       <ul className="uk-switcher">
         {setOfEmojis.map((d, i) => {
           return (

@@ -11,6 +11,7 @@ import { Paragraph } from "../../components/theme/ThemeComponents";
 import { Header3 } from "../../components/theme/headers/Headers";
 import { Label } from "../../components/theme/form/Label";
 import Card from "../../components/theme/card/Card";
+import Divider from "../../components/theme/divider/Divider";
 
 const SignUp = (props) => {
   const [loading, setLoading] = useState(true);
@@ -193,7 +194,7 @@ const SignUp = (props) => {
                 </Link>
               </div>
             </form>
-            <hr />
+            <Divider />
             <div className="uk-button-group">
               <Link
                 style={{

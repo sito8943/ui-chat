@@ -8,7 +8,7 @@
 *::-webkit-scrollbar-thumb,
 .css-4ljt47-MenuList::-webkit-scrollbar-thumb,
 .myScroll::-webkit-scrollbar-thumb {
-  background: #342E4A;
+  background: #283640;
   border-radius: 4px;
 }
 
@@ -185,6 +185,10 @@ input:focus {
   padding: 40px 0;
   height: calc(100vh - 152px);
   overflow: auto;
+}
+
+.navbar {
+  height: 80px !important;
 }
 
 .navbar-button {
