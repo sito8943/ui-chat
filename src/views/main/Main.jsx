@@ -358,7 +358,7 @@ const Main = (props) => {
               >
                 <input
                   id="message"
-                  className="uk-input"
+                  className="uk-input div-input"
                   value={message}
                   onChange={handleInput}
                   type="text"

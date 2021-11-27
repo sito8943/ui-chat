@@ -73,9 +73,14 @@ input {
   background: none !important;
 }
 
-input:hover {
+input:hover, input:focus {
   border: 1px solid dodgerblue !important;
 }
+
+.div-input:hover {
+  border: none !important;
+}
+
 
 .chat-icon {
   margin: 0 5px;
