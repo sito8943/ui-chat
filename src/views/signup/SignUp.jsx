@@ -7,6 +7,7 @@ import { useContext } from "../../context/ContextProvider";
 import { connectionState } from "../../services/get";
 
 import { colors } from "../../utils/colors";
+import { Header3, Label, Paragraph } from "../../components/theme/ThemeComponents";
 
 const SignUp = (props) => {
   const [loading, setLoading] = useState(true);
@@ -54,10 +55,7 @@ const SignUp = (props) => {
   }, []);
 
   return (
-    <div
-      className="uk-animation-scale-down main-view"
-      data-uk-grid
-    >
+    <div className="uk-animation-scale-down main-view" data-uk-grid>
       <div className="uk-width-expand"></div>
       <div
         className="uk-card uk-card-default uk-card-body main-card"
@@ -83,41 +81,12 @@ const SignUp = (props) => {
                 alt="app-logo"
                 className="app-main-logo"
               />
-              <h3
-                className="uk-card-title"
-                style={{
-                  color:
-                    contextState.mode === "light"
-                      ? colors.LightFontColors
-                      : colors.DarkFontColors,
-                }}
-              >
-                {props.texts.Title}
-              </h3>
+              <Header3 title={props.texts.Title} />
             </div>
-            <p
-              style={{
-                color:
-                  contextState.mode === "light"
-                    ? colors.LightFontColors
-                    : colors.DarkFontColors,
-              }}
-            >
-              {props.texts.Paragraph}
-            </p>
+            <Paragraph paragraph={props.texts.Paragraph} />
             <form onSubmit={signUp}>
               <fieldset className="uk-fieldset">
-                <legend
-                  style={{
-                    color:
-                      contextState.mode === "light"
-                        ? colors.LightFontColors
-                        : colors.DarkFontColors,
-                  }}
-                  className="uk-legend"
-                >
-                  {props.texts.Labels.User}
-                </legend>
+                <Label text={props.texts.Labels.User} />
                 <div className="uk-margin">
                   <input
                     id="name"
@@ -142,17 +111,7 @@ const SignUp = (props) => {
                 </div>
               </fieldset>
               <fieldset className="uk-fieldset">
-                <legend
-                  style={{
-                    color:
-                      contextState.mode === "light"
-                        ? colors.LightFontColors
-                        : colors.DarkFontColors,
-                  }}
-                  className="uk-legend"
-                >
-                  {props.texts.Labels.Email}
-                </legend>
+                <Label text={props.texts.Labels.Email} />
                 <div className="uk-margin">
                   <input
                     id="email"
@@ -177,17 +136,7 @@ const SignUp = (props) => {
                 </div>
               </fieldset>
               <fieldset className="uk-fieldset">
-                <legend
-                  style={{
-                    color:
-                      contextState.mode === "light"
-                        ? colors.LightFontColors
-                        : colors.DarkFontColors,
-                  }}
-                  className="uk-legend"
-                >
-                  {props.texts.Labels.Password}
-                </legend>
+                <Label text={props.texts.Labels.Password} />
                 <div className="uk-margin">
                   <input
                     id="password"
@@ -212,17 +161,7 @@ const SignUp = (props) => {
                 </div>
               </fieldset>
               <fieldset className="uk-fieldset">
-                <legend
-                  style={{
-                    color:
-                      contextState.mode === "light"
-                        ? colors.LightFontColors
-                        : colors.DarkFontColors,
-                  }}
-                  className="uk-legend"
-                >
-                  {props.texts.Labels.PasswordR}
-                </legend>
+                <Label text={props.texts.Labels.PasswordR} />
                 <div className="uk-margin">
                   <input
                     id="passwordR"
