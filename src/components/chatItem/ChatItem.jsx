@@ -6,24 +6,27 @@ import { colors } from "../../utils/colors";
 
 import { IdleIcon, DotIcon, DontDisturbIcon } from "../../icons/icons";
 
+import StatePanel, { States } from "../statesPanel/StatePanel";
+
 const ChatItem = (props) => {
   const { contextState, setContextState } = useContext();
+  const [statePanel, setStatePanel] = useState(false);
 
   const printStateIcon = () => {
     switch (props.data.state) {
-      case "offline":
+      case States.Offline:
         return (
           <span className="offline state-icon">
             <DotIcon />
           </span>
         );
-      case "idle":
+      case States.Idle:
         return (
           <span className="idle state-icon">
             <IdleIcon />
           </span>
         );
-      case "dont-disturb":
+      case States.DontDisturb:
         return (
           <span className="dont-disturb state-icon">
             <DontDisturbIcon />
@@ -36,6 +39,10 @@ const ChatItem = (props) => {
           </span>
         );
     }
+  };
+
+  const toggleStatePanel = (e) => {
+    setStatePanel(!statePanel);
   };
 
   return (
@@ -65,12 +72,14 @@ const ChatItem = (props) => {
                 ? colors.LightFontColors
                 : colors.DarkFontColors,
           }}
+          onClick={toggleStatePanel}
           className="user-state-button"
         >
           {printStateIcon()}
           <span>{props.data.state}</span>
         </button>
       </div>
+      {statePanel ? <StatePanel /> : <></>}
     </div>
   );
 };

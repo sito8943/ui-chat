@@ -1,0 +1,12 @@
+.state-panel {
+  overflow: auto;
+  position: absolute;
+  width: 100px;
+  height: 92px;
+  margin-top: 148px;
+  margin-left: 62px;
+  z-index: 10;
+}
+
+.state-button {
+}

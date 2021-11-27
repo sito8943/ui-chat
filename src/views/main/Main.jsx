@@ -35,6 +35,7 @@ import EmojiPanel, { Emojis } from "../../components/emojiPanel/EmojiPanel";
 import SideBar from "../../components/theme/sideBar/SideBar";
 import Divider from "../../components/theme/divider/Divider";
 import MainInput from "../../components/theme/form/MainInput";
+import { Header3 } from "../../components/theme/headers/Headers";
 
 const emojis = [
   Emojis.Laughing,
@@ -383,17 +384,7 @@ const Main = (props) => {
                     alt={otherUsers[0].Name + "-photo"}
                   />
                 </Link>
-                <h3
-                  style={{
-                    margin: "0",
-                    color:
-                      contextState.mode === "light"
-                        ? colors.LightFontColors
-                        : colors.DarkFontColors,
-                  }}
-                >
-                  {otherUsers[0].Name}
-                </h3>
+                <Header3 margin="0" title={otherUsers[0].Name} />
               </div>
             ) : (
               <></>
