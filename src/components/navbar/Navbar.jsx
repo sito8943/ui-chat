@@ -102,8 +102,7 @@ const Navbar = (props) => {
               id="toggler"
               type="button"
               style={{
-                fontSize: "1.5rem",
-                marginBottom: "5px",
+                
                 color:
                   contextState.mode === "light"
                     ? colors.LightFontColors
@@ -147,7 +146,14 @@ const Navbar = (props) => {
               className="uk-button uk-button-default uk-margin-small-right menu-button"
               type="button"
               data-uk-toggle="target: #offcanvas-usage"
-              style={{ fontSize: "1.5rem", marginBottom: "10px" }}
+              style={{
+                fontSize: "1.5rem",
+                marginBottom: "10px",
+                color:
+                  contextState.mode === "light"
+                    ? colors.LightFontColors
+                    : colors.DarkFontColors,
+              }}
             >
               <SettingsIcon />
             </button>

@@ -339,7 +339,22 @@ const Main = (props) => {
               className="uk-expand"
               style={{ padding: "10px" }}
             >
-              {showEmojis ? <EmojiPanel /> : <></>}
+              {showEmojis ? (
+                <EmojiPanel
+                  background={
+                    contextState.mode === "light"
+                      ? colors.LightBarBackground
+                      : colors.DarkBarBackground
+                  }
+                  color={
+                    contextState.mode === "light"
+                      ? colors.LightShadows
+                      : colors.DarkShadows
+                  }
+                />
+              ) : (
+                <></>
+              )}
 
               <div
                 style={{

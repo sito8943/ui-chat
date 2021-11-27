@@ -172,6 +172,7 @@ input {
   padding: 0;
 }
 
-.user-state-button:hover {
-  background: aliceblue;
+.navbar-button {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
 }

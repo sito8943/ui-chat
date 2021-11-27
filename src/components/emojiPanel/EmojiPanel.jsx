@@ -52,7 +52,13 @@ const EmojiPanel = (props) => {
   }, []);
 
   return (
-    <div className="emoji-panel uk-background-muted">
+    <div
+      className="emoji-panel"
+      style={{
+        backgroundColor: props.background,
+        boxShadow: `2px 2px 2px 2px ${props.color}`,
+      }}
+    >
       <ul
         className="uk-subnav uk-subnav-pill"
         data-uk-switcher="animation: uk-animation-slide-left-medium, uk-animation-slide-right-medium"
@@ -61,7 +67,7 @@ const EmojiPanel = (props) => {
         {setOfCategories.map((d, i) => {
           return (
             <li style={{ paddingLeft: i == 0 ? "20px" : "0" }} key={i}>
-              <a style={{ fontSize: "20px", padding: "5px" }} href="#">
+              <a className="emoji-category" href="#">
                 {d.emoji.emoji}
               </a>
             </li>
@@ -73,11 +79,7 @@ const EmojiPanel = (props) => {
         {setOfEmojis.map((d, i) => {
           return (
             <li key={i}>
-              <div
-                className="uk-text-center"
-                
-                data-uk-grid
-              >
+              <div className="uk-text-center" data-uk-grid>
                 {d.emojis.map((e, j) => {
                   return (
                     <button type="button" key={j} className="emoji-button">

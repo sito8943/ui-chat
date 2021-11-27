@@ -1,5 +1,4 @@
 .emoji-panel {
-  box-shadow: 5px 5px 5px 5px lightgrey;
   overflow: auto;
   position: absolute;
   width: 300px;
@@ -17,4 +16,9 @@
   text-align: center;
   background: none;
   cursor: pointer;
+}
+
+.emoji-category {
+  font-size: 20px !important;
+  padding: 5px !important;
 }
