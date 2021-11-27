@@ -47,21 +47,21 @@ export const PrintStateIcon = (state) => {
 };
 
 /**
- * 
- * @param {number} state 
- * @param {object} texts 
- * @returns 
+ *
+ * @param {number} state
+ * @param {object} texts
+ * @returns
  */
 export const PrintStateString = (state, texts) => {
   switch (state) {
     case States.Offline:
-      return texts.States.OfflineState;
+      return texts.States.Offline;
     case States.Idle:
-      return texts.States.IdleState;
+      return texts.States.Idle;
     case States.DontDisturb:
-      return texts.States.DontDisturbState;
+      return texts.States.DontDisturb;
     default:
-      return texts.States.OnlineState;
+      return texts.States.Online;
   }
 };
 
@@ -82,17 +82,7 @@ const StatePanel = (props) => {
         }`,
       }}
     >
-      <ul>
-        <li>
-          <button></button>
-        </li>
-        <li>
-          <button></button>
-        </li>
-        <li>
-          <button></button>
-        </li>
-      </ul>
+      <ul>{}</ul>
     </div>
   );
 };

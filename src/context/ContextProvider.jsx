@@ -72,7 +72,7 @@ const ContextProvider = ({ children }) => {
     user: new User(
       base64encode("Sito"),
       "Sito",
-      "online",
+      4,
       "/logo192.png",
       "/account"
     ),
