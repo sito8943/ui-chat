@@ -10,6 +10,7 @@ import { colors } from "../../utils/colors";
 import { Paragraph } from "../../components/theme/ThemeComponents";
 import { Header3 } from "../../components/theme/headers/Headers";
 import { Label } from "../../components/theme/form/Label";
+import Card from "../../components/theme/card/Card";
 
 const Login = (props) => {
   const [loading, setLoading] = useState(true);
@@ -54,20 +55,7 @@ const Login = (props) => {
   return (
     <div className="uk-animation-scale-down main-view" data-uk-grid>
       <div className="uk-width-expand"></div>
-      <div
-        className="uk-card uk-card-default uk-card-body main-card"
-        style={{
-          backgroundColor:
-            contextState.mode === "light"
-              ? colors.LightBarBackground
-              : colors.DarkBarBackground,
-          boxShadow: `3px 3px 3px 3px ${
-            contextState.mode === "light"
-              ? colors.LightShadows
-              : colors.DarkShadows
-          }`,
-        }}
-      >
+      <Card>
         {loading ? (
           <Loading />
         ) : (
@@ -186,7 +174,7 @@ const Login = (props) => {
             </div>
           </>
         )}
-      </div>
+      </Card>
       <div className="uk-width-expand"></div>
     </div>
   );

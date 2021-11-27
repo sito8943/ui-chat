@@ -4,12 +4,16 @@ import { Link } from "react-router-dom";
 import { useContext } from "../../../context/ContextProvider";
 import { colors } from "../../../utils/colors";
 
-const Card = ({ children }) => {
+const Card = (props) => {
   const { contextState, setContextState } = useContext();
 
   return (
     <div
-      className="uk-card uk-card-default uk-card-body main-card"
+      className={
+        props.className === undefined
+          ? "uk-card uk-card-default uk-card-body main-card"
+          : props.className
+      }
       style={{
         backgroundColor:
           contextState.mode === "light"
@@ -22,7 +26,7 @@ const Card = ({ children }) => {
         }`,
       }}
     >
-      {children}
+      {props.children}
     </div>
   );
 };
