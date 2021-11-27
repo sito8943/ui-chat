@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useContext } from "../../context/ContextProvider";
+import { colors } from "../../utils/colors";
+
 import {
   SettingsIcon,
   XIcon,
@@ -11,7 +13,6 @@ import { Outlet, Link } from "react-router-dom";
 
 import ChatItemPlaceholder from "../../components/chatItem/ChatItemPlaceholder";
 import ChatItem from "../../components/chatItem/ChatItem";
-import { colors } from "../../utils/colors";
 
 const Navbar = (props) => {
   const { contextState, setContextState } = useContext();
@@ -34,7 +35,6 @@ const Navbar = (props) => {
     contextState.mode === "light"
       ? setContextState({ type: "changeMode", mode: "dark" })
       : setContextState({ type: "changeMode", mode: "light" });
-    
   };
 
   return (
@@ -87,9 +87,7 @@ const Navbar = (props) => {
           {contextState.user.name == "" ? (
             <></>
           ) : (
-            <ChatItem
-              data={contextState.user}
-            />
+            <ChatItem data={contextState.user} />
           )}
 
           <button

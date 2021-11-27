@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 
+import { useContext } from "../../context/ContextProvider";
+import { colors } from "../../utils/colors";
+
 import * as unicodeEmoji from "unicode-emoji";
 import Divider from "../theme/divider/Divider";
 
@@ -27,6 +30,8 @@ const omitWhere = {
 };
 
 const EmojiPanel = (props) => {
+  const { contextState, setContextState } = useContext();
+
   const [selectedEmoji, setSelectedEmoji] = useState(0);
   const [setOfEmojis, setSetOfEmojis] = useState([]);
   const [setOfCategories, setSetOfCategories] = useState([]);
