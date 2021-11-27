@@ -69,9 +69,12 @@ body {
   padding: 0 !important;
 }
 
-
 input {
   background: none !important;
+}
+
+input:hover {
+  border: 1px solid dodgerblue !important;
 }
 
 .chat-icon {
@@ -172,7 +175,18 @@ input {
   padding: 0;
 }
 
+.message-list {
+  padding: 40px 0;
+  height: calc(100vh - 152px);
+  overflow: auto;
+}
+
 .navbar-button {
   font-size: 1.5rem !important;
   margin-bottom: 5px !important;
+}
+
+.return-button {
+  text-decoration: none;
+  margin-left: 20px !important;
 }

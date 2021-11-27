@@ -60,9 +60,7 @@ const Main = (props) => {
       "/laura"
     ),
   ]);
-  const [messages, setMessages] = useState([
-   
-  ]);
+  const [messages, setMessages] = useState([]);
   const [chats, setChats] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
   let pressTimer = undefined;
 
@@ -71,11 +69,11 @@ const Main = (props) => {
   const checkForMessages = async () => {
     setTimeout(() => {
       for (let i = 0; i < messages.length; ++i)
-        if (messages[i].State === MessageStates.not_sent)
+        if (messages[i].State === MessageStates.NotSent)
           for (let j = 0; j < otherUsers.length; ++j) {
             const result = sendMessage(messages[i], otherUsers[j]);
-            if (result === 200) updateMessageState(i, MessageStates.sent);
-            else updateMessageState(i, MessageStates.error);
+            if (result === 200) updateMessageState(i, MessageStates.Sent);
+            else updateMessageState(i, MessageStates.Error);
           }
     }, 200);
   };
@@ -83,6 +81,7 @@ const Main = (props) => {
   useEffect(() => {
     init();
     checkForMessages();
+    console.log("init");
   }, [messages]);
 
   /**
@@ -102,7 +101,7 @@ const Main = (props) => {
       default:
         if (e.target.value !== "") addHover();
         else removeHover();
-        alert(chatContextState);
+        setMessage(e.target.value);
     }
   };
 
@@ -294,7 +293,7 @@ const Main = (props) => {
         <div className="uk-width-expand@m uk-width-1-1@s">
           <div>
             <div
-              className="uk-section"
+              className="uk-section message-list"
               data-uk-height-viewport="offset-top: true; offset-bottom: true"
             >
               {messages.map((d, i) => {
@@ -372,7 +371,7 @@ const Main = (props) => {
                 <input
                   id="message"
                   className="uk-input"
-                  value={useChatContext}
+                  value={message}
                   onChange={handleInput}
                   type="text"
                   placeholder={props.texts.Placeholders.Message}

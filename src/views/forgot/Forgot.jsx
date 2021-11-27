@@ -6,6 +6,8 @@ import Loading from "../../components/loading/Loading";
 import { useContext } from "../../context/ContextProvider";
 import { connectionState } from "../../services/get";
 
+import { colors } from "../../utils/colors";
+
 const Forgot = (props) => {
   const [loading, setLoading] = useState(true);
   const [name, setName] = useState("");
@@ -59,9 +61,28 @@ const Forgot = (props) => {
                 alt="app-logo"
                 style={{ height: "120px", marginRight: "20px" }}
               />
-              <h3 className="uk-card-title">{props.texts.Title}</h3>
+              <h3
+                className="uk-card-title"
+                style={{
+                  color:
+                    contextState.mode === "light"
+                      ? colors.LightFontColors
+                      : colors.DarkFontColors,
+                }}
+              >
+                {props.texts.Title}
+              </h3>
             </div>
-            <p>{props.texts.Paragraph}</p>
+            <p
+              style={{
+                color:
+                  contextState.mode === "light"
+                    ? colors.LightFontColors
+                    : colors.DarkFontColors,
+              }}
+            >
+              {props.texts.Paragraph}
+            </p>
             <form onSubmit={send}>
               <fieldset className="uk-fieldset">
                 <legend className="uk-legend">{props.texts.Labels.User}</legend>
@@ -74,6 +95,17 @@ const Forgot = (props) => {
                     type="text"
                     placeholder={props.texts.Placeholders.User}
                     required
+                    style={{
+                      border: `1px solid ${
+                        contextState.mode === "light"
+                          ? colors.LightInputBorderColor
+                          : colors.DarkInputBorderColor
+                      }`,
+                      color:
+                        contextState.mode === "light"
+                          ? colors.LightFontColors
+                          : colors.DarkFontColors,
+                    }}
                   />
                 </div>
               </fieldset>
@@ -82,8 +114,13 @@ const Forgot = (props) => {
                   {props.texts.Buttons.Send}
                 </button>
                 <Link
-                  className="uk-button uk-button-default"
-                  style={{ textDecoration: "none", marginLeft: "20px" }}
+                  className="uk-button uk-button-default return-button"
+                  style={{
+                    color:
+                      contextState.mode === "light"
+                        ? colors.LightFontColors
+                        : colors.DarkFontColors,
+                  }}
                   to="/"
                 >
                   {props.texts.Buttons.Return}
