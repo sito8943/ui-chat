@@ -13,6 +13,7 @@ import { Outlet, Link } from "react-router-dom";
 
 import ChatItemPlaceholder from "../../components/chatItem/ChatItemPlaceholder";
 import ChatItem from "../../components/chatItem/ChatItem";
+import Input from "../theme/form/Input";
 
 const Navbar = (props) => {
   const { contextState, setContextState } = useContext();
@@ -60,24 +61,12 @@ const Navbar = (props) => {
           </Link>
           <div className="uk-navbar-item ">
             <form action="javascript:void(0)">
-              <input
-                className="uk-input uk-form-width-small"
+              <Input
                 type="search"
                 id="search"
                 placeholder={props.texts.Placeholders.Search}
                 value={search}
                 onChange={handleInput}
-                style={{
-                  border: `1px solid ${
-                    contextState.mode === "light"
-                      ? colors.LightInputBorderColor
-                      : colors.DarkInputBorderColor
-                  }`,
-                  color:
-                    contextState.mode === "light"
-                      ? colors.LightFontColors
-                      : colors.DarkFontColors,
-                }}
               />
             </form>
           </div>
