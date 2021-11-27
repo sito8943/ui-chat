@@ -33,6 +33,7 @@ import ChatItem from "../../components/chatItem/ChatItem";
 import User from "../../models/User";
 import EmojiPanel, { Emojis } from "../../components/emojiPanel/EmojiPanel";
 import SideBar from "../../components/theme/sideBar/SideBar";
+import Divider from "../../components/theme/divider/Divider";
 
 const emojis = [
   Emojis.Laughing,
@@ -245,17 +246,7 @@ const Main = (props) => {
               return (
                 <div className="uk-animation-fade">
                   {i !== 0 ? (
-                    <hr
-                      style={{
-                        margin: "auto",
-                        width: "90%",
-                        border: `1px solid ${
-                          contextState.mode === "light"
-                            ? colors.LightInputBorderColor
-                            : colors.DarkInputBorderColor
-                        }`,
-                      }}
-                    />
+                    <Divider />
                   ) : (
                     <></>
                   )}
