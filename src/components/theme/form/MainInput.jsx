@@ -3,29 +3,30 @@ import React from "react";
 import { colors } from "../../../utils/colors";
 import { useContext } from "../../../context/ContextProvider";
 
-export const Input = (props) => {
+export const MainInput = (props) => {
   const { contextState, setContextState } = useContext();
+
   return (
     <input
-      className="uk-input uk-form-width-small"
-      type={props.type}
       id={props.id}
-      value={props.value}
-      placeholder={props.placeholder}
+      className="uk-input div-input"
+      type={props.type}
       onChange={props.onChange}
+      placeholder={props.placeholder}
+      autoComplete={props.autoComplete}
+      onFocus={props.onFocus}
+      onBlur={props.onBlur}
+      autoFocus={props.autoFocus}
       style={{
-        border: `1px solid ${
-          contextState.mode === "light"
-            ? colors.LightInputBorderColor
-            : colors.DarkInputBorderColor
-        }`,
+        border: "none",
+        height: "50px",
         color:
           contextState.mode === "light"
             ? colors.LightFontColors
             : colors.DarkFontColors,
       }}
-    ></input>
+    />
   );
 };
 
-export default Input;
+export default MainInput;

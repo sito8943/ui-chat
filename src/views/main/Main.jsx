@@ -34,6 +34,7 @@ import User from "../../models/User";
 import EmojiPanel, { Emojis } from "../../components/emojiPanel/EmojiPanel";
 import SideBar from "../../components/theme/sideBar/SideBar";
 import Divider from "../../components/theme/divider/Divider";
+import MainInput from "../../components/theme/form/MainInput";
 
 const emojis = [
   Emojis.Laughing,
@@ -332,7 +333,6 @@ const Main = (props) => {
               >
                 <input
                   id="message"
-                  className="uk-input div-input"
                   value={message}
                   onChange={handleInput}
                   type="text"
@@ -341,14 +341,6 @@ const Main = (props) => {
                   onFocus={mainFocus}
                   onBlur={lostFocus}
                   autoFocus
-                  style={{
-                    border: "none",
-                    height: "50px",
-                    color:
-                      contextState.mode === "light"
-                        ? colors.LightFontColors
-                        : colors.DarkFontColors,
-                  }}
                 />
                 <button
                   type="button"
