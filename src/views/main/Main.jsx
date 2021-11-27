@@ -262,16 +262,6 @@ const Main = (props) => {
 
                   <ChatItemPlaceholder
                     key={i}
-                    color={
-                      contextState.mode === "light"
-                        ? colors.LightMainBackground
-                        : colors.DarkMainBackground
-                    }
-                    background={
-                      contextState.mode === "light"
-                        ? colors.LightPlaceholder
-                        : colors.DarkPlaceholder
-                    }
                   />
                 </div>
               );

@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+import { useContext } from "../../context/ContextProvider";
+import { colors } from "../../utils/colors";
+
 import { IdleIcon, DotIcon, DontDisturbIcon } from "../../icons/icons";
 
 const ChatItem = (props) => {
+  const { contextState, setContextState } = useContext();
+
   const printStateIcon = () => {
     switch (props.data.state) {
       case "offline":
@@ -43,8 +48,25 @@ const ChatItem = (props) => {
         />
       </Link>
       <div className="chat-description">
-        <span style={{ color: props.color }}>{props.data.name}</span>
-        <button style={{ color: props.color }} className="user-state-button">
+        <span
+          style={{
+            color:
+              contextState.mode === "light"
+                ? colors.LightFontColors
+                : colors.DarkFontColors,
+          }}
+        >
+          {props.data.name}
+        </span>
+        <button
+          style={{
+            color:
+              contextState.mode === "light"
+                ? colors.LightFontColors
+                : colors.DarkFontColors,
+          }}
+          className="user-state-button"
+        >
           {printStateIcon()}
           <span>{props.data.state}</span>
         </button>

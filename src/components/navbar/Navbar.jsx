@@ -88,11 +88,6 @@ const Navbar = (props) => {
           ) : (
             <ChatItem
               data={contextState.user}
-              color={
-                contextState.mode === "light"
-                  ? colors.LightFontColors
-                  : colors.DarkFontColors
-              }
             />
           )}
 

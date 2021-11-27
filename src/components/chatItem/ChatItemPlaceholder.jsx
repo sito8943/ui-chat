@@ -1,8 +1,13 @@
 import React from "react";
 
+import { useContext } from "../../context/ContextProvider";
+import { colors } from "../../utils/colors";
+
 import "./style.css";
 
 const ChatItemPlaceholder = (props) => {
+  const { contextState, setContextState } = useContext();
+
   return (
     <div className="container loading">
       <div className="img-container">
@@ -15,15 +20,29 @@ const ChatItemPlaceholder = (props) => {
         <div
           className="stripe small-stripe"
           style={{
-            backgroundColor: props.background,
-            border: `border: 1px solid ${props.color}`,
+            backgroundColor:
+              contextState.mode === "light"
+                ? colors.LightPlaceholder
+                : colors.DarkPlaceholder,
+            border: `border: 1px solid ${
+              contextState.mode === "light"
+                ? colors.LightMainBackground
+                : colors.DarkMainBackground
+            }`,
           }}
         ></div>
         <div
           className="stripe medium-stripe"
           style={{
-            backgroundColor: props.background,
-            border: `border: 1px solid ${props.color}`,
+            backgroundColor:
+              contextState.mode === "light"
+                ? colors.LightPlaceholder
+                : colors.DarkPlaceholder,
+            border: `border: 1px solid ${
+              contextState.mode === "light"
+                ? colors.LightMainBackground
+                : colors.DarkMainBackground
+            }`,
           }}
         ></div>
       </div>
