@@ -42,14 +42,12 @@ const Forgot = (props) => {
 
   return (
     <div
-      className="uk-animation-scale-down"
+      className="uk-animation-scale-down main-view"
       data-uk-grid
-      style={{ alignItems: "center", height: "100vh" }}
     >
       <div className="uk-width-expand"></div>
       <div
-        className="uk-card uk-card-default uk-card-body"
-        style={{ padding: " 50px 75px" }}
+        className="uk-card uk-card-default uk-card-body main-card"
       >
         {loading ? (
           <Loading />
@@ -59,7 +57,7 @@ const Forgot = (props) => {
               <img
                 src="/logo512.png"
                 alt="app-logo"
-                style={{ height: "120px", marginRight: "20px" }}
+                className="app-main-logo"
               />
               <h3
                 className="uk-card-title"

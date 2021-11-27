@@ -55,18 +55,13 @@ const SignUp = (props) => {
 
   return (
     <div
-      className="uk-animation-scale-down"
+      className="uk-animation-scale-down main-view"
       data-uk-grid
-      style={{
-        alignItems: "center",
-        height: "100vh",
-      }}
     >
       <div className="uk-width-expand"></div>
       <div
-        className="uk-card uk-card-default uk-card-body"
+        className="uk-card uk-card-default uk-card-body main-card"
         style={{
-          padding: " 50px 75px",
           backgroundColor:
             contextState.mode === "light"
               ? colors.LightBarBackground
@@ -86,7 +81,7 @@ const SignUp = (props) => {
               <img
                 src="/logo512.png"
                 alt="app-logo"
-                style={{ height: "120px", marginRight: "20px" }}
+                className="app-main-logo"
               />
               <h3
                 className="uk-card-title"

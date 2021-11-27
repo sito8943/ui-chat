@@ -190,3 +190,17 @@ input:hover {
   text-decoration: none;
   margin-left: 20px !important;
 }
+
+.app-main-logo {
+  height: 120px !important;
+  margin-right: 20px !important;
+}
+
+.main-view {
+  align-items: center;
+  height: 100vh;
+}
+
+.main-card {
+  padding: 50px 75px
+}
