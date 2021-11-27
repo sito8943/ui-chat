@@ -3,6 +3,14 @@
     "Navbar": {
       "Placeholders": {
         "Search": "Buscar chat..."
+      },
+      "Chat": {
+        "States": {
+          "Offline": "desconectado",
+          "Idle": "inactivo",
+          "DontDisturb": "no molestar",
+          "Online": "conectado"
+        }
       }
     },
     "Notification": {
@@ -34,6 +42,14 @@
       },
       "Tooltips": {
         "NotConnected": "No tienes conexión con el servidor. Has clic para reintentar"
+      },
+      "Chat": {
+        "States": {
+          "Offline": "desconectado",
+          "Idle": "inactivo",
+          "DontDisturb": "no molestar",
+          "Online": "conectado"
+        }
       }
     },
     "Account": {},

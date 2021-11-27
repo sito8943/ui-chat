@@ -2,16 +2,70 @@ import React from "react";
 import { colors } from "../../utils/colors";
 import { useContext } from "../../context/ContextProvider";
 
+import { IdleIcon, DotIcon, DontDisturbIcon } from "../../icons/icons";
+
 import "./style.css";
 
-export let States = {
+export const States = {
   Offline: 1,
   Idle: 2,
   DontDisturb: 3,
   Online: 4,
 };
 
-export const StatePanel = (props) => {
+/**
+ *
+ * @param {number} state
+ */
+export const PrintStateIcon = (state) => {
+  switch (state) {
+    case States.Offline:
+      return (
+        <span className="offline state-icon">
+          <DotIcon />
+        </span>
+      );
+    case States.Idle:
+      return (
+        <span className="idle state-icon">
+          <IdleIcon />
+        </span>
+      );
+    case States.DontDisturb:
+      return (
+        <span className="dont-disturb state-icon">
+          <DontDisturbIcon />
+        </span>
+      );
+    default:
+      return (
+        <span className="online state-icon">
+          <DotIcon />
+        </span>
+      );
+  }
+};
+
+/**
+ * 
+ * @param {number} state 
+ * @param {object} texts 
+ * @returns 
+ */
+export const PrintStateString = (state, texts) => {
+  switch (state) {
+    case States.Offline:
+      return texts.States.OfflineState;
+    case States.Idle:
+      return texts.States.IdleState;
+    case States.DontDisturb:
+      return texts.States.DontDisturbState;
+    default:
+      return texts.States.OnlineState;
+  }
+};
+
+const StatePanel = (props) => {
   const { contextState, setContextState } = useContext();
   return (
     <div

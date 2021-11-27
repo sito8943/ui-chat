@@ -4,42 +4,14 @@ import { Link } from "react-router-dom";
 import { useContext } from "../../context/ContextProvider";
 import { colors } from "../../utils/colors";
 
-import { IdleIcon, DotIcon, DontDisturbIcon } from "../../icons/icons";
-
-import StatePanel, { States } from "../statesPanel/StatePanel";
+import StatePanel, {
+  PrintStateIcon,
+  PrintStateString,
+} from "../statesPanel/StatePanel";
 
 const ChatItem = (props) => {
   const { contextState, setContextState } = useContext();
   const [statePanel, setStatePanel] = useState(false);
-
-  const printStateIcon = () => {
-    switch (props.data.state) {
-      case States.Offline:
-        return (
-          <span className="offline state-icon">
-            <DotIcon />
-          </span>
-        );
-      case States.Idle:
-        return (
-          <span className="idle state-icon">
-            <IdleIcon />
-          </span>
-        );
-      case States.DontDisturb:
-        return (
-          <span className="dont-disturb state-icon">
-            <DontDisturbIcon />
-          </span>
-        );
-      default:
-        return (
-          <span className="online state-icon">
-            <DotIcon />
-          </span>
-        );
-    }
-  };
 
   const toggleStatePanel = (e) => {
     setStatePanel(!statePanel);
@@ -75,8 +47,8 @@ const ChatItem = (props) => {
           onClick={toggleStatePanel}
           className="user-state-button"
         >
-          {printStateIcon()}
-          <span>{props.data.state}</span>
+          {PrintStateIcon(props.data.state)}
+          <span>{PrintStateString(props.data.state, props.texts)}</span>
         </button>
       </div>
       {statePanel ? <StatePanel /> : <></>}
