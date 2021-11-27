@@ -260,9 +260,7 @@ const Main = (props) => {
                 <div className="uk-animation-fade">
                   {i !== 0 ? <Divider /> : <></>}
 
-                  <ChatItemPlaceholder
-                    key={i}
-                  />
+                  <ChatItemPlaceholder key={i} />
                 </div>
               );
             })}
@@ -318,22 +316,7 @@ const Main = (props) => {
               className="uk-expand"
               style={{ padding: "10px" }}
             >
-              {showEmojis ? (
-                <EmojiPanel
-                  background={
-                    contextState.mode === "light"
-                      ? colors.LightBarBackground
-                      : colors.DarkBarBackground
-                  }
-                  color={
-                    contextState.mode === "light"
-                      ? colors.LightShadows
-                      : colors.DarkShadows
-                  }
-                />
-              ) : (
-                <></>
-              )}
+              {showEmojis ? <EmojiPanel /> : <></>}
 
               <div
                 style={{

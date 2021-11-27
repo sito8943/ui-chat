@@ -61,8 +61,15 @@ const EmojiPanel = (props) => {
     <div
       className="emoji-panel"
       style={{
-        backgroundColor: props.background,
-        boxShadow: `2px 2px 2px 2px ${props.color}`,
+        backgroundColor:
+          contextState.mode === "light"
+            ? colors.LightBarBackground
+            : colors.DarkBarBackground,
+        boxShadow: `2px 2px 2px 2px ${
+          contextState.mode === "light"
+            ? colors.LightShadows
+            : colors.DarkShadows
+        }`,
       }}
     >
       <ul
