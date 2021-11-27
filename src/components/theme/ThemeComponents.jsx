@@ -26,17 +26,17 @@ export const Link = (props) => {};
 export const LinkButton = (props) => {
   const { contextState, setContextState } = useContext();
   return (
-    <Link
-      className="uk-button uk-button-default return-button"
+    <div
+      className="uk-button uk-button-default uk-link-muted return-button "
       style={{
         color:
           contextState.mode === "light"
             ? colors.LightFontColors
             : colors.DarkFontColors,
       }}
-      to={props.to}
+      
     >
-      {props.text}
-    </Link>
+      {props.children}
+    </div>
   );
 };

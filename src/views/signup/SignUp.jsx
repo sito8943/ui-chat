@@ -7,7 +7,7 @@ import { useContext } from "../../context/ContextProvider";
 import { connectionState } from "../../services/get";
 
 import { colors } from "../../utils/colors";
-import { Paragraph } from "../../components/theme/ThemeComponents";
+import { LinkButton, Paragraph } from "../../components/theme/ThemeComponents";
 import { Header3 } from "../../components/theme/headers/Headers";
 import { Label } from "../../components/theme/form/Label";
 import Card from "../../components/theme/card/Card";
@@ -195,20 +195,6 @@ const SignUp = (props) => {
               </div>
             </form>
             <Divider />
-            <div className="uk-button-group">
-              <Link
-                style={{
-                  color:
-                    contextState.mode === "light"
-                      ? colors.LightFontColors
-                      : colors.DarkFontColors,
-                }}
-                className="uk-link-muted"
-                to="/forgot"
-              >
-                {props.texts.Buttons.Forgot}
-              </Link>
-            </div>
           </>
         )}
       </Card>

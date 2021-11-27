@@ -331,7 +331,7 @@ const Main = (props) => {
                 className="uk-width-1-1 uk-flex"
                 id="main-control"
               >
-                <input
+                <MainInput
                   id="message"
                   value={message}
                   onChange={handleInput}
