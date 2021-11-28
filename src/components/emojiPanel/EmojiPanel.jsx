@@ -92,7 +92,7 @@ const EmojiPanel = (props) => {
         {setOfEmojis.map((d, i) => {
           return (
             <li key={i + 1}>
-              <div className="uk-text-center" data-uk-grid>
+              <div className="uk-text-center" style={{paddingLeft: "46px"}} data-uk-grid>
                 {d.emojis.map((e, j) => {
                   return (
                     <button
