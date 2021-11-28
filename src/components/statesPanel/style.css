@@ -1,10 +1,10 @@
 .state-panel {
   overflow: auto;
   position: absolute;
-  width: 100px;
-  height: 92px;
-  margin-top: 148px;
-  margin-left: 62px;
+  width: 130px;
+  height: 100px;
+  margin-top: 155px;
+  margin-left: 59px;
   z-index: 10;
 }
 

@@ -14,6 +14,8 @@ export default class User {
     this.link = "/uid:" + id;
   }
 
+  
+
   /**
    * @returns user's id
    */

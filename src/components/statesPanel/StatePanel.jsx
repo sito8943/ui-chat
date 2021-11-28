@@ -76,6 +76,16 @@ export const PrintStateString = (state, texts) => {
 
 const StatePanel = (props) => {
   const { contextState, setContextState } = useContext();
+
+  /**
+   *
+   * @param {number} newState
+   */
+  const setNewState = (e) => {
+    console.log(e.target.id[1]);
+    setContextState({ type: "changeState", state: e.target.id[1] });
+  };
+
   return (
     <div
       className="state-panel"
@@ -91,9 +101,26 @@ const StatePanel = (props) => {
         }`,
       }}
     >
-      <ul>
+      <ul style={{ paddingLeft: "10px", margin: 0 }}>
         {StatesAsArray().map((d, i) => {
-          <li key={i}></li>;
+          return (
+            <li key={i}>
+              <button
+                style={{
+                  color:
+                    contextState.mode === "light"
+                      ? colors.LightFontColors
+                      : colors.DarkFontColors,
+                }}
+                id={`b${i + 1}`}
+                onClick={setNewState}
+                className="user-state-button"
+              >
+                {PrintStateIcon(d)}
+                <span id={`s${i + 1}`}>{PrintStateString(d, props.texts)}</span>
+              </button>
+            </li>
+          );
         })}
       </ul>
     </div>

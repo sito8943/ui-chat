@@ -51,7 +51,7 @@ const ChatItem = (props) => {
           <span>{PrintStateString(props.data.state, props.texts)}</span>
         </button>
       </div>
-      {statePanel ? <StatePanel /> : <></>}
+      {statePanel ? <StatePanel texts={props.texts} /> : <></>}
     </div>
   );
 };
