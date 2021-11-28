@@ -14,6 +14,7 @@ import { Outlet, Link } from "react-router-dom";
 import ChatItemPlaceholder from "../../components/chatItem/ChatItemPlaceholder";
 import ChatItem from "../../components/chatItem/ChatItem";
 import SearchInput from "../theme/form/SearchInput";
+import { IconButton } from "../theme/ThemeComponents";
 
 const Navbar = (props) => {
   const { contextState, setContextState } = useContext();
@@ -81,20 +82,20 @@ const Navbar = (props) => {
 
           <button
             id="toggler"
-            type="button"
             style={{
               color:
                 contextState.mode === "light"
                   ? colors.LightFontColors
                   : colors.DarkFontColors,
+              marginBottom: "5px",
             }}
-            className="uk-button uk-button-default uk-margin-small-right menu-button navbar-button"
             onClick={toggleMode}
+            className="uk-button uk-button-default uk-margin-small-right navbar-button"
           >
             {contextState.mode === "light" ? (
-              <DarkModeIcon />
-            ) : (
               <LightModeIcon />
+            ) : (
+              <DarkModeIcon />
             )}
           </button>
           <ul className="uk-navbar-nav">
@@ -122,21 +123,9 @@ const Navbar = (props) => {
         </div>
 
         <div className="uk-navbar-right uk-hidden@m">
-          <button
-            className="uk-button uk-button-default uk-margin-small-right menu-button navbar-button"
-            type="button"
-            data-uk-toggle="target: #offcanvas-usage"
-            style={{
-              fontSize: "1.5rem",
-              marginBottom: "10px",
-              color:
-                contextState.mode === "light"
-                  ? colors.LightFontColors
-                  : colors.DarkFontColors,
-            }}
-          >
+          <IconButton marginBottom="10px" target="target: #offcanvas-usage">
             <SettingsIcon />
-          </button>
+          </IconButton>
         </div>
         <div>
           <div id="offcanvas-usage" data-uk-offcanvas>

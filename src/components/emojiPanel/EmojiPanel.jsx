@@ -63,8 +63,8 @@ const EmojiPanel = (props) => {
       style={{
         backgroundColor:
           contextState.mode === "light"
-            ? colors.LightBarBackground
-            : colors.DarkBarBackground,
+            ? colors.LightBarBackground + "b7"
+            : colors.DarkBarBackground + "b7",
         boxShadow: `2px 2px 2px 2px ${
           contextState.mode === "light"
             ? colors.LightShadows

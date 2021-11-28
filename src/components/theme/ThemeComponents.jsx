@@ -20,9 +20,6 @@ export const Paragraph = (props) => {
     </p>
   );
 };
-
-export const Link = (props) => {};
-
 export const LinkButton = (props) => {
   const { contextState, setContextState } = useContext();
   return (
@@ -34,9 +31,34 @@ export const LinkButton = (props) => {
             ? colors.LightFontColors
             : colors.DarkFontColors,
       }}
-      
     >
       {props.children}
     </div>
+  );
+};
+
+export const IconButton = (props) => {
+  const { contextState, setContextState } = useContext();
+  return (
+    <button
+      id={props.id}
+      type="button"
+      className="uk-button uk-button-default uk-margin-small-right navbar-button"
+      type="button"
+      data-uk-toggle={
+        props.target === undefined ? "" : "target: #offcanvas-usage"
+      }
+      style={{
+        color:
+          contextState.mode === "light"
+            ? colors.LightFontColors
+            : colors.DarkFontColors,
+        marginBottom:
+          props.marginBottom === undefined ? "default" : props.marginBottom,
+      }}
+      onClick={props.onClick}
+    >
+      {props.children}
+    </button>
   );
 };

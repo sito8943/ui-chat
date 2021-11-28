@@ -14,7 +14,7 @@ const ChatItem = (props) => {
   const [statePanel, setStatePanel] = useState(false);
 
   const toggleStatePanel = (e) => {
-    setStatePanel(!statePanel);
+    if (contextState.netStatus !== 0) setStatePanel(!statePanel);
   };
 
   return (

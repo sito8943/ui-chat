@@ -5,6 +5,8 @@
   height: 300px;
   margin-top: -315px;
   margin-left: 405px;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
 }
 
 .emoji-button {

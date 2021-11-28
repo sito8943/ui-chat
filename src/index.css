@@ -47,12 +47,17 @@ html::-webkit-scrollbar-track:active,
 
 .uk-notification-message-danger {
   color: aliceblue !important;
-  background-color: crimson !important;
+  background-color: rgba(220, 20, 60, 0.705) !important;
 }
 
 .uk-notification-message-warning {
   color: aliceblue !important;
-  background-color: orange !important;
+  background-color: rgba(255, 166, 0, 0.74) !important;
+}
+
+.uk-notification {
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
 }
 
 .uk-button {
@@ -109,14 +114,6 @@ input:focus {
 
 .icon-hover:hover {
   cursor: pointer;
-  color: dodgerblue !important;
-}
-
-.menu-button {
-  border: none !important;
-}
-
-.menu-button:hover {
   color: dodgerblue !important;
 }
 
@@ -193,6 +190,11 @@ input:focus {
 .navbar-button {
   font-size: 1.5rem !important;
   margin-bottom: 5px !important;
+  border: none !important;
+}
+
+.navbar-button:hover {
+  color: dodgerblue !important;
 }
 
 .return-button {
@@ -212,8 +214,13 @@ input:focus {
 
 .main-card {
   padding: 50px 75px;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
 }
 
-.main-background, .main-card, .side-bar, .navbar {
+.main-background,
+.main-card,
+.side-bar,
+.navbar {
   transition: all 200ms ease;
 }

@@ -8,10 +8,16 @@ const Context = React.createContext();
 
 const contextReducer = (contextState, action) => {
   switch (action.type) {
+    case "changeMessage":
+      return {
+        user: contextState.user,
+        message: action.message,
+        lang: contextState.lang,
+        mode: action.mode,
+        netStatus: contextState.netStatus,
+        showingNotification: contextState.showingNotification,
+      };
     case "changeState":
-      console.log(contextState.user.State);
-      console.log(action.state);
-      console.log(States);
       return {
         user: new User(
           contextState.user.Id,
@@ -19,6 +25,7 @@ const contextReducer = (contextState, action) => {
           action.state,
           contextState.user.Photo
         ),
+        message: contextState.message,
         lang: contextState.lang,
         mode: contextState.mode,
         newStatus: contextState.newStatus,
@@ -27,6 +34,7 @@ const contextReducer = (contextState, action) => {
     case "changeMode":
       return {
         user: contextState.user,
+        message: contextState.message,
         lang: contextState.lang,
         mode: action.mode,
         netStatus: contextState.netStatus,
@@ -35,6 +43,7 @@ const contextReducer = (contextState, action) => {
     case "showing":
       return {
         user: contextState.user,
+        message: contextState.message,
         lang: contextState.lang,
         mode: contextState.mode,
         netStatus: contextState.netStatus,
@@ -43,6 +52,7 @@ const contextReducer = (contextState, action) => {
     case "offline":
       return {
         user: contextState.user,
+        message: contextState.message,
         user: new User(
           contextState.user.Id,
           contextState.user.Name,
@@ -62,6 +72,7 @@ const contextReducer = (contextState, action) => {
           States.Online,
           contextState.user.Photo
         ),
+        message: contextState.message,
         lang: contextState.lang,
         netStatus: 1,
         mode: contextState.mode,
@@ -70,6 +81,7 @@ const contextReducer = (contextState, action) => {
     case "checking":
       return {
         user: contextState.user,
+        message: contextState.message,
         lang: contextState.lang,
         mode: contextState.mode,
         netStatus: 2,
@@ -78,6 +90,7 @@ const contextReducer = (contextState, action) => {
     case "log-in":
       return {
         user: action.user,
+        message: contextState.message,
         lang: contextState.lang,
         mode: contextState.mode,
         netStatus: contextState.netStatus,
@@ -86,7 +99,7 @@ const contextReducer = (contextState, action) => {
     case "log-off":
       return {
         user: {},
-
+        message: contextState.message,
         lang: contextState.lang,
         mode: contextState.mode,
         netStatus: contextState.netStatus,
@@ -99,7 +112,8 @@ const contextReducer = (contextState, action) => {
 
 const ContextProvider = ({ children }) => {
   const [contextState, setContextState] = React.useReducer(contextReducer, {
-    user: new User(base64encode("Sito"), "Sito", 4, "/logo192.png", "/account"),
+    user: new User(base64encode("Sito"), "Sito", 1, "/logo192.png", "/account"),
+    message: "",
     lang: "",
     netStatus: "",
     mode: "dark",
