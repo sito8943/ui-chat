@@ -18,7 +18,7 @@ export let colors = {
     LightInputBorderColor: 'lightgray',
     DarkInputBorderColor: '#434050',
     //font/icons color
-    LightFontColors: '#999',
+    LightFontColors: '#333',
     DarkFontColors: 'aliceblue',
 
 }

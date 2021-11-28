@@ -171,6 +171,7 @@ const Main = (props) => {
       e.target.innerText +
       newMessage.substr(position);
     setMessage(newMessage);
+    document.getElementById("message").focus();
   };
 
   const retry = (e) => {
@@ -233,9 +234,11 @@ const Main = (props) => {
 
   const sendReply = async (e) => {
     e.preventDefault();
-    const newMessage = new ChatMessage(contextState.user.Name, message);
-    setMessage("");
-    setMessages([...messages, newMessage]);
+    if (message.length > 0) {
+      const newMessage = new ChatMessage(contextState.user.Name, message);
+      setMessage("");
+      setMessages([...messages, newMessage]);
+    }
   };
 
   const updateMessageState = (index, newState) => {
