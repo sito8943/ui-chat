@@ -164,8 +164,12 @@ const Main = (props) => {
   };
 
   const selectEmoji = (e) => {
-    const newMessage = message + String(e.target.innerText);
-    console.log('')
+    let newMessage = message;
+    const position = document.getElementById("message").selectionStart;
+    newMessage =
+      newMessage.substr(0, position) +
+      e.target.innerText +
+      newMessage.substr(position);
     setMessage(newMessage);
   };
 
