@@ -19,8 +19,12 @@
   cursor: pointer;
 }
 
-.emoji-button:hover {
-  background-color: black;
+.dark-emoji-button:hover {
+  background-color: rgb(19, 19, 29);
+}
+
+.light-emoji-button:hover {
+  background-color: lightgray;
 }
 
 .emoji-category {
