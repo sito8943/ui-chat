@@ -46,6 +46,15 @@ export const PrintStateIcon = (state) => {
   }
 };
 
+export const StatesAsArray = () => {
+  const keys = Object.keys(States);
+  let states = [];
+  keys.forEach((item) => {
+    states.push(States[item]);
+  });
+  return states;
+};
+
 /**
  *
  * @param {number} state
@@ -82,7 +91,11 @@ const StatePanel = (props) => {
         }`,
       }}
     >
-      <ul>{}</ul>
+      <ul>
+        {StatesAsArray().map((d, i) => {
+          <li key={i}></li>;
+        })}
+      </ul>
     </div>
   );
 };
