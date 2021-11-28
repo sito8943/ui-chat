@@ -86,7 +86,6 @@ const Main = (props) => {
   useEffect(() => {
     init();
     checkForMessages();
-    console.log("init");
   }, [messages]);
 
   /**
@@ -107,6 +106,7 @@ const Main = (props) => {
         if (e.target.value !== "") addHover();
         else removeHover();
         setMessage(e.target.value);
+        break;
     }
   };
 
@@ -161,6 +161,12 @@ const Main = (props) => {
   const emojiPanel = (e) => {
     e.preventDefault();
     setShowEmojis(!showEmojis);
+  };
+
+  const selectEmoji = (e) => {
+    const newMessage = message + String(e.target.innerText);
+    console.log('')
+    setMessage(newMessage);
   };
 
   const retry = (e) => {
@@ -318,7 +324,7 @@ const Main = (props) => {
               className="uk-expand"
               style={{ padding: "10px" }}
             >
-              {showEmojis ? <EmojiPanel /> : <></>}
+              {showEmojis ? <EmojiPanel onClick={selectEmoji} /> : <></>}
 
               <div
                 style={{
@@ -332,7 +338,16 @@ const Main = (props) => {
                 className="uk-width-1-1 uk-flex"
                 id="main-control"
               >
-                <MainInput
+                <input
+                  className="uk-input div-input"
+                  style={{
+                    border: "none",
+                    height: "50px",
+                    color:
+                      contextState.mode === "light"
+                        ? colors.LightFontColors
+                        : colors.DarkFontColors,
+                  }}
                   id="message"
                   value={message}
                   onChange={handleInput}

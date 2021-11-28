@@ -91,11 +91,16 @@ const EmojiPanel = (props) => {
       <ul className="uk-switcher">
         {setOfEmojis.map((d, i) => {
           return (
-            <li key={i}>
+            <li key={i + 1}>
               <div className="uk-text-center" data-uk-grid>
                 {d.emojis.map((e, j) => {
                   return (
-                    <button type="button" key={j} className="emoji-button">
+                    <button
+                      type="button"
+                      key={j + 2 * 2}
+                      onClick={props.onClick}
+                      className="emoji-button"
+                    >
                       {e.emoji}
                     </button>
                   );
