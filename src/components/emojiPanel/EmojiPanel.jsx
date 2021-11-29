@@ -59,7 +59,9 @@ const EmojiPanel = (props) => {
 
   return (
     <div
-      className="emoji-panel"
+      className={`emoji-panel ${
+        contextState.mode === "light" ? "light-scroll" : "dark-scroll"
+      }`}
       style={{
         backgroundColor:
           contextState.mode === "light"

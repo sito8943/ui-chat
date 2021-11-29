@@ -27,7 +27,7 @@ const SideBar = (props) => {
                   : colors.DarkShadows
               }`,
       }}
-      className="uk-width-medium uk-visible@s uk-section chat-list side-bar"
+      className={`uk-width-medium uk-visible@s uk-section chat-list side-bar ${contextState.mode === 'light' ? 'light-scroll' : 'dark-scroll'}`}
     >
       {props.children}
     </div>
