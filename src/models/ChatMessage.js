@@ -11,6 +11,7 @@ export let MessageStates = {
  * @attribute sender - who sent the message
  * @attribute message - message's content
  * @attribute states - array of states per user's count - 1
+ * @attribute date - sent day
  */
 export default class ChatMessage {
   /**
@@ -18,12 +19,13 @@ export default class ChatMessage {
    * @param {string} sender
    * @param {string} message
    * @param {number[]} states
+   * @param {date} date
    */
-  constructor(sender = "", message = "", states = []) {
+  constructor(sender = "", message = "", states = [], date = "") {
     this.sender = sender;
     this.message = message;
     if (states === []) this.state.push(MessageStates.not_sent);
-    else this.states = states
+    else this.states = states;
   }
 
   /**
@@ -73,7 +75,20 @@ export default class ChatMessage {
    * @param {number} newState
    */
   setState(index, newState) {
-    this.states[index] = newState
+    this.states[index] = newState;
   }
 
+  /**
+   * @return sent date
+   */
+  get Date() {
+    return this.date;
+  }
+
+  /**
+   * @param {date} new date
+   */
+  set Date(date) {
+    this.date = date;
+  }
 }
