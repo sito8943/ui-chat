@@ -36,6 +36,8 @@ import SideBar from "../../components/theme/sideBar/SideBar";
 import Divider from "../../components/theme/divider/Divider";
 import MainInput from "../../components/theme/form/MainInput";
 import { Header3 } from "../../components/theme/headers/Headers";
+import Message from "../../components/message/Message";
+import { LookUserByName } from "../../utils/functions";
 
 const emojis = [
   Emojis.Laughing,
@@ -87,18 +89,6 @@ const Main = (props) => {
     init();
     checkForMessages();
   }, [messages]);
-
-  /**
-   *
-   * @param {string} name
-   */
-  const lookUserByName = (name) => {
-    const result = otherUsers.filter((item) => {
-      if (item.Name === name) return item;
-    });
-    if (result.length > 0) return result[0];
-    return null;
-  };
 
   const handleInput = (e) => {
     switch (e.target.id) {
@@ -181,36 +171,6 @@ const Main = (props) => {
     if (contextState.showEmojis) setContextState({ type: "toggleEmojiPanel" });
   };
 
-  /**
-   *
-   * @param {string} state
-   * @param {number} index
-   */
-  const showStateIcon = (state, index) => {
-    switch (state) {
-      case MessageStates.NotSent:
-        return <NotSentIcon />;
-      case MessageStates.Sent:
-        return <SentIcon />;
-      case MessageStates.Received:
-        return <CorrectIcon />;
-      case MessageStates.Seen:
-        break;
-      // error
-      default:
-        return (
-          <button
-            className="error-icon"
-            onClick={retry}
-            id={index}
-            uk-tooltip={props.texts.Tooltips.NotConnected}
-          >
-            x
-          </button>
-        );
-    }
-  };
-
   const deleteLast = (e) => {
     if (message !== "") {
       setMessage(message.substr(0, message.length - 1));
@@ -275,7 +235,6 @@ const Main = (props) => {
               return (
                 <div className="uk-animation-fade">
                   {i !== 0 ? <Divider /> : <></>}
-
                   <ChatItemPlaceholder key={i} />
                 </div>
               );
@@ -290,40 +249,13 @@ const Main = (props) => {
             >
               {messages.map((d, i) => {
                 return (
-                  <div key={i} style={{ padding: "10px" }}>
-                    {d.Sender !== contextState.user.name ? (
-                      <div style={{ textAlign: "left" }}>
-                        <Link to={lookUserByName(d.Sender).Link}>
-                          <img
-                            className="profile-img chat-photo small"
-                            src={lookUserByName(d.Sender).Photo}
-                            alt={lookUserByName(d.Sender).Id + "-photo"}
-                          />
-                        </Link>
-                        <label
-                          htmlFor=""
-                          style={{ backgroundColor: "darkslategrey" }}
-                          className="otherMessage"
-                        >
-                          {d.Message}
-                        </label>
-                      </div>
-                    ) : (
-                      <div style={{ textAlign: "right", paddingRight: "20px" }}>
-                        <label
-                          htmlFor=""
-                          style={{
-                            backgroundColor: "dodgerblue",
-                            marginRight: "5px",
-                          }}
-                          className="otherMessage"
-                        >
-                          {d.message}
-                        </label>
-                        {showStateIcon(d.State, i)}
-                      </div>
-                    )}
-                  </div>
+                  <Message
+                    key={i}
+                    sender={LookUserByName(d.sender, otherUsers)}
+                    message={d}
+                    onClick={retry}
+                    texts={props.texts}
+                  />
                 );
               })}
             </div>

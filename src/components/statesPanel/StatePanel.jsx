@@ -2,7 +2,16 @@ import React from "react";
 import { colors } from "../../utils/colors";
 import { useContext } from "../../context/ContextProvider";
 
-import { IdleIcon, DotIcon, DontDisturbIcon } from "../../icons/icons";
+import {
+  IdleIcon,
+  DotIcon,
+  DontDisturbIcon,
+  NotSentIcon,
+  SentIcon,
+  CorrectIcon,
+} from "../../icons/icons";
+
+import { MessageStates } from "../../models/ChatMessage";
 
 import "./style.css";
 
@@ -11,6 +20,38 @@ export const States = {
   Idle: 2,
   DontDisturb: 3,
   Online: 4,
+};
+
+/**
+ *
+ * @param {string} state - message's state
+ * @param {number} index - message's index
+ * @param {object} texts - set of texts
+ * @param {function} onClick - action after click the error button
+ */
+export const ShowStateIcon = (state, index, texts, onClick) => {
+  switch (state) {
+    case MessageStates.NotSent:
+      return <NotSentIcon />;
+    case MessageStates.Sent:
+      return <SentIcon />;
+    case MessageStates.Received:
+      return <CorrectIcon />;
+    case MessageStates.Seen:
+      break;
+    // error
+    default:
+      return (
+        <button
+          className="error-icon"
+          onClick={onClick}
+          id={index}
+          uk-tooltip={texts.Tooltips.NotConnected}
+        >
+          x
+        </button>
+      );
+  }
 };
 
 /**
