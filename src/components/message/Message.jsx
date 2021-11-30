@@ -52,7 +52,7 @@ const Message = (props) => {
         ) : (
           <></>
         )}
-        <div>
+        <div className="message-column">
           <label
             htmlFor=""
             style={
