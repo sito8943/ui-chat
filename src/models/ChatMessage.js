@@ -21,10 +21,11 @@ export default class ChatMessage {
    * @param {number[]} states
    * @param {date} date
    */
-  constructor(sender = "", message = "", states = [], date = "") {
+  constructor(sender = "", message = "", date = "", states = []) {
     this.sender = sender;
     this.message = message;
-    if (states === []) this.state.push(MessageStates.not_sent);
+    this.date = date;
+    if (states === []) this.state.push(MessageStates.NotSent);
     else this.states = states;
   }
 

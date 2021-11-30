@@ -196,7 +196,7 @@ const Main = (props) => {
   const sendReply = async (e) => {
     e.preventDefault();
     if (message.length > 0) {
-      const newMessage = new ChatMessage(contextState.user.Name, message);
+      const newMessage = new ChatMessage(contextState.user.Name, message, new Date());
       setMessage("");
       setMessages([...messages, newMessage]);
     }
