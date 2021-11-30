@@ -11,8 +11,19 @@ const Message = (props) => {
   const { contextState, setContextState } = useContext();
   return (
     <div style={{ padding: "10px" }}>
-      {props.message.Sender !== contextState.user.name ? (
-        <div style={{ textAlign: "left" }}>
+      <div
+        style={
+          props.message.Sender !== contextState.user.name
+            ? {
+                textAlign: "left",
+              }
+            : {
+                textAlign: "right",
+                paddingRight: "20px",
+              }
+        }
+      >
+        {props.message.Sender !== contextState.user.name ? (
           <Link to={props.sender.Link}>
             <img
               className="profile-img chat-photo small"
@@ -20,34 +31,36 @@ const Message = (props) => {
               alt={props.sender.Id + "-photo"}
             />
           </Link>
-          <label
-            htmlFor=""
-            style={{ backgroundColor: "darkslategrey" }}
-            className="otherMessage"
-          >
-            {props.message.Message}
-          </label>
-        </div>
-      ) : (
-        <div style={{ textAlign: "right", paddingRight: "20px" }}>
-          <label
-            htmlFor=""
-            style={{
-              backgroundColor: "dodgerblue",
-              marginRight: "5px",
-            }}
-            className="otherMessage"
-          >
-            {props.message.message}
-          </label>
-          {ShowStateIcon(
-            props.message.State,
-            props.key,
-            props.texts,
-            props.onClick
-          )}
-        </div>
-      )}
+        ) : (
+          <></>
+        )}
+        <label
+          htmlFor=""
+          style={
+            props.message.Sender !== contextState.user.name
+              ? { backgroundColor: "darkslategrey" }
+              : {
+                  backgroundColor: "dodgerblue",
+                  marginRight: "5px",
+                }
+          }
+          className="otherMessage"
+        >
+          {props.message.Message}
+        </label>
+        {props.message.Sender !== contextState.user.name ? (
+          <></>
+        ) : (
+          <>
+            {ShowStateIcon(
+              props.message.State,
+              props.key,
+              props.texts,
+              props.onClick
+            )}
+          </>
+        )}
+      </div>
     </div>
   );
 };
