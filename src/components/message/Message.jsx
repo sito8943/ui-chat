@@ -54,7 +54,7 @@ const Message = (props) => {
           <>
             {ShowStateIcon(
               props.message.State,
-              props.key,
+              props.index,
               props.texts,
               props.onClick
             )}

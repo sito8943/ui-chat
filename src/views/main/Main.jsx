@@ -251,6 +251,7 @@ const Main = (props) => {
                 return (
                   <Message
                     key={i}
+                    index={i}
                     sender={LookUserByName(d.sender, otherUsers)}
                     message={d}
                     onClick={retry}
