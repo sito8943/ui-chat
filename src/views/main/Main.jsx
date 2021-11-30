@@ -160,7 +160,7 @@ const Main = (props) => {
 
   const emojiPanel = (e) => {
     e.preventDefault();
-    setShowEmojis(!showEmojis);
+    setContextState({ type: "toggleEmojiPanel" });
   };
 
   const selectEmoji = (e) => {
@@ -178,6 +178,7 @@ const Main = (props) => {
     const newMessages = [...messages];
     newMessages[e.target.id].State = MessageStates.not_sent;
     setMessages(newMessages);
+    if (contextState.showEmojis) setContextState({ type: "toggleEmojiPanel" });
   };
 
   /**
@@ -331,7 +332,11 @@ const Main = (props) => {
               className="uk-expand"
               style={{ padding: "10px" }}
             >
-              {showEmojis ? <EmojiPanel onClick={selectEmoji} /> : <></>}
+              {contextState.showEmojis ? (
+                <EmojiPanel onClick={selectEmoji} />
+              ) : (
+                <></>
+              )}
 
               <div
                 style={{

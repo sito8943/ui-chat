@@ -84,6 +84,7 @@ const StatePanel = (props) => {
   const setNewState = (e) => {
     console.log(e.target.id[1]);
     setContextState({ type: "changeState", state: e.target.id[1] });
+    if (contextState.showEmojis) setContextState({ type: "toggleEmojiPanel" });
   };
 
   return (

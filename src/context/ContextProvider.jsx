@@ -8,6 +8,16 @@ const Context = React.createContext();
 
 const contextReducer = (contextState, action) => {
   switch (action.type) {
+    case "toggleEmojiPanel": {
+      return {
+        user: contextState.user,
+        lang: contextState.lang,
+        mode: contextState.mode,
+        netStatus: contextState.netStatus,
+        showingNotification: contextState.showingNotification,
+        showEmojis: !contextState.showEmojis,
+      };
+    }
     case "changeState":
       console.log(contextState.user.State);
       console.log(action.state);
@@ -23,6 +33,7 @@ const contextReducer = (contextState, action) => {
         mode: contextState.mode,
         newStatus: contextState.newStatus,
         showingNotification: contextState.showingNotification,
+        showEmojis: contextState.showEmojis,
       };
     case "changeMode":
       return {
@@ -31,6 +42,7 @@ const contextReducer = (contextState, action) => {
         mode: action.mode,
         netStatus: contextState.netStatus,
         showingNotification: contextState.showingNotification,
+        showEmojis: contextState.showEmojis,
       };
     case "showing":
       return {
@@ -39,6 +51,7 @@ const contextReducer = (contextState, action) => {
         mode: contextState.mode,
         netStatus: contextState.netStatus,
         showingNotification: true,
+        showEmojis: contextState.showEmojis,
       };
     case "offline":
       return {
@@ -53,6 +66,7 @@ const contextReducer = (contextState, action) => {
         netStatus: 0,
         mode: contextState.mode,
         showingNotification: contextState.showingNotification,
+        showEmojis: contextState.showEmojis,
       };
     case "online":
       return {
@@ -66,6 +80,7 @@ const contextReducer = (contextState, action) => {
         netStatus: 1,
         mode: contextState.mode,
         showingNotification: contextState.showingNotification,
+        showEmojis: contextState.showEmojis,
       };
     case "checking":
       return {
@@ -74,6 +89,7 @@ const contextReducer = (contextState, action) => {
         mode: contextState.mode,
         netStatus: 2,
         showingNotification: false,
+        showEmojis: contextState.showEmojis,
       };
     case "log-in":
       return {
@@ -82,15 +98,16 @@ const contextReducer = (contextState, action) => {
         mode: contextState.mode,
         netStatus: contextState.netStatus,
         showingNotification: contextState.showingNotification,
+        showEmojis: contextState.showEmojis,
       };
     case "log-off":
       return {
         user: {},
-
         lang: contextState.lang,
         mode: contextState.mode,
         netStatus: contextState.netStatus,
         showingNotification: contextState.showingNotification,
+        showEmojis: contextState.showEmojis,
       };
     default:
       throw new Error(`Unhandled action type: ${action.type}`);
@@ -104,6 +121,7 @@ const ContextProvider = ({ children }) => {
     netStatus: "",
     mode: "dark",
     showingNotification: false,
+    showEmojis: false,
   });
 
   const value = { contextState, setContextState };

@@ -37,6 +37,7 @@ const Navbar = (props) => {
     contextState.mode === "light"
       ? setContextState({ type: "changeMode", mode: "dark" })
       : setContextState({ type: "changeMode", mode: "light" });
+    if (contextState.showEmojis) setContextState({ type: "toggleEmojiPanel" });
   };
 
   return (
