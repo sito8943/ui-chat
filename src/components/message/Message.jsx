@@ -7,6 +7,8 @@ import { colors } from "../../utils/colors";
 
 import { ShowStateIcon } from "../statesPanel/StatePanel";
 
+import "./style.css";
+
 const Message = (props) => {
   const { contextState, setContextState } = useContext();
 
@@ -33,12 +35,10 @@ const Message = (props) => {
         style={
           props.message.Sender !== contextState.user.name
             ? {
-                justifyContent: "start",
                 textAlign: "left",
               }
             : {
                 textAlign: "right",
-                justifyContent: "end",
                 paddingRight: "20px",
               }
         }

@@ -4,6 +4,6 @@
 }
 
 .message-column {
-    display: flex;
-    flex-direction: column;
+  display: inline-grid;
+  display: -ms-inline-grid;
 }
