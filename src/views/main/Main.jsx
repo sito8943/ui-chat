@@ -88,6 +88,7 @@ const Main = (props) => {
   useEffect(() => {
     init();
     checkForMessages();
+    document.getElementById("message").focus();
   }, [messages]);
 
   const handleInput = (e) => {
@@ -196,7 +197,11 @@ const Main = (props) => {
   const sendReply = async (e) => {
     e.preventDefault();
     if (message.length > 0) {
-      const newMessage = new ChatMessage(contextState.user.Name, message, new Date());
+      const newMessage = new ChatMessage(
+        contextState.user.Name,
+        message,
+        new Date()
+      );
       setMessage("");
       setMessages([...messages, newMessage]);
     }

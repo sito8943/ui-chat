@@ -7,3 +7,7 @@
   display: inline-grid;
   display: -ms-inline-grid;
 }
+
+.date-label {
+  transition: all 200ms linear;
+}

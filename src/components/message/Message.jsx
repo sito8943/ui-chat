@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
 
@@ -11,8 +11,22 @@ import "./style.css";
 
 const Message = (props) => {
   const { contextState, setContextState } = useContext();
+  const [dateOpacity, setDateOpacity] = useState("0");
+  const [dateDisplay, setDateDisplay] = useState("none");
 
-  const showCurrentState = (e) => {};
+  const showCurrentState = (e) => {
+    if (dateDisplay === "none") {
+      setDateDisplay("inherit");
+      setTimeout(() => {
+        setDateOpacity("1");
+      }, 1);
+    } else {
+      setDateOpacity("0");
+      setTimeout(() => {
+        setDateDisplay("none");
+      }, 200);
+    }
+  };
 
   const showSentDate = () => {
     let date = "";
@@ -70,7 +84,17 @@ const Message = (props) => {
           >
             {props.message.Message}
           </label>
-          <label htmlFor="">{showSentDate()}</label>
+          <label
+            htmlFor=""
+            className="date-label"
+            style={{
+              opacity: dateOpacity,
+              display: dateDisplay,
+            }}
+            id={"d" + props.index}
+          >
+            {showSentDate()}
+          </label>
         </div>
 
         {props.message.Sender !== contextState.user.name ? (
