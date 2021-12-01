@@ -11,3 +11,20 @@
 .date-label {
   transition: all 200ms linear;
 }
+
+.other-message {
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10px;
+  cursor: text;
+}
+
+.error-icon {
+  border: none;
+  padding: 0px 5px 2px 5px;
+  font-size: 13px;
+  border-radius: 50%;
+  background: crimson;
+  color: white;
+  cursor: pointer;
+}
