@@ -50,8 +50,10 @@ const Message = (props) => {
           props.message.Sender !== contextState.user.name
             ? {
                 textAlign: "left",
+                justifyContent: "start",
               }
             : {
+                justifyContent: "end",
                 textAlign: "right",
                 paddingRight: "20px",
               }
