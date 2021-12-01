@@ -81,7 +81,7 @@ const Message = (props) => {
                     marginRight: "5px",
                   }
             }
-            className="otherMessage"
+            className="other-message"
             onClick={showCurrentState}
           >
             {props.message.Message}
