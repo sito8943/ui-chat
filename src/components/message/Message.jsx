@@ -32,13 +32,19 @@ const Message = (props) => {
     let date = "";
     const now = new Date();
     date += now.getHours() + " : " + now.getMinutes();
-    if (now.getDate() !== props.message.date.getDate())
-      date += "/" + props.message.date.getDate();
-    if (now.getMonth() !== props.message.date.getMonth())
-      date += "/" + props.message.date.getMonth();
-    if (now.getFullYear() !== props.message.date.getFullYear())
-      date += "/" + props.message.date.getFullYear();
-
+    //knowing if was yesterday (86'400'000 means a day in milliseconds)
+    if (
+      (now.getMilliseconds() - props.message.date.getMilliseconds() === 86400000)
+    )
+      date += " Yesterday";
+    else {
+      if (now.getDate() !== props.message.date.getDate())
+        date += "/" + props.message.date.getDate();
+      if (now.getMonth() !== props.message.date.getMonth())
+        date += "/" + props.message.date.getMonth();
+      if (now.getFullYear() !== props.message.date.getFullYear())
+        date += "/" + props.message.date.getFullYear();
+    }
     return date;
   };
 

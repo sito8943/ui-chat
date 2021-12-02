@@ -10,6 +10,7 @@
 
 .date-label {
   transition: all 200ms linear;
+  margin: auto;
 }
 
 .other-message {
