@@ -107,13 +107,13 @@ export const StatesAsArray = () => {
 export const PrintStateString = (state, texts) => {
   switch (state) {
     case States.Offline:
-      return texts.States.Offline;
+      return texts.Chat.States.Offline;
     case States.Idle:
-      return texts.States.Idle;
+      return texts.Chat.States.Idle;
     case States.DontDisturb:
-      return texts.States.DontDisturb;
+      return texts.Chat.States.DontDisturb;
     default:
-      return texts.States.Online;
+      return texts.Chat.States.Online;
   }
 };
 

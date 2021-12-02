@@ -51,11 +51,3 @@ export const generateTextDate = (now, messageDate) => {
       date += "/" + messageDate.getFullYear();
   }
 };
-
-/**
- * 
- * @param {string} lang 
- */
-export const changeLanguage = (lang) => {
-  
-}
