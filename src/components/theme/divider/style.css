@@ -1,0 +1,15 @@
+.light-icon-divider::before {
+  border-bottom: 1px solid lightgray;
+}
+
+.light-icon-divider::after {
+  border-bottom: 1px solid lightgray;
+}
+
+.dark-icon-divider::before {
+  border-bottom: 1px solid #434050;
+}
+
+.dark-icon-divider::after {
+  border-bottom: 1px solid #434050;
+}

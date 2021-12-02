@@ -38,6 +38,7 @@ import MainInput from "../../components/theme/form/MainInput";
 import { Header3 } from "../../components/theme/headers/Headers";
 import Message from "../../components/message/Message";
 import { LookUserByName } from "../../utils/functions";
+import IconDivider from "../../components/theme/divider/IconDivider";
 
 const emojis = [
   Emojis.Laughing,
@@ -226,6 +227,26 @@ const Main = (props) => {
     }`;
   };
 
+  /**
+   * @param {object} message
+   * @param {number} index
+   */
+  const printMessage = (message, index) => {
+    return (
+      <>
+        <IconDivider />
+        <Message
+          key={index}
+          index={index}
+          sender={LookUserByName(message.sender, otherUsers)}
+          message={message}
+          onClick={retry}
+          texts={props.texts}
+        />
+      </>
+    );
+  };
+
   return (
     <div className="main">
       <div
@@ -253,16 +274,7 @@ const Main = (props) => {
               data-uk-height-viewport="offset-top: true; offset-bottom: true"
             >
               {messages.map((d, i) => {
-                return (
-                  <Message
-                    key={i}
-                    index={i}
-                    sender={LookUserByName(d.sender, otherUsers)}
-                    message={d}
-                    onClick={retry}
-                    texts={props.texts}
-                  />
-                );
+                return printMessage(d, i);
               })}
             </div>
             <form
