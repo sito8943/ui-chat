@@ -11,11 +11,6 @@ const IconDivider = (props) => {
       style={{
         margin: "auto",
         width: "90%",
-        border: `1px solid ${
-          
-            ? colors.LightInputBorderColor
-            : colors.DarkInputBorderColor
-        }`,
       }}
     />
   );
