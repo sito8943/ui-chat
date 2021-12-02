@@ -2,6 +2,8 @@ import React from "react";
 import { colors } from "../../utils/colors";
 import { useContext } from "../../context/ContextProvider";
 
+import { GetTexts } from "../../lang/texts";
+
 import {
   IdleIcon,
   DotIcon,
@@ -159,7 +161,9 @@ const StatePanel = (props) => {
                 className="user-state-button"
               >
                 {PrintStateIcon(d)}
-                <span id={`s${i + 1}`}>{PrintStateString(d, props.texts)}</span>
+                <span id={`s${i + 1}`}>
+                  {PrintStateString(d, GetTexts(contextState.lang, "Main"))}
+                </span>
               </button>
             </li>
           );

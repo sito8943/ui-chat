@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { useContext } from "../../context/ContextProvider";
+import { GetTexts } from "../../lang/texts";
 import { colors } from "../../utils/colors";
 
 import StatePanel, {
@@ -48,10 +49,19 @@ const ChatItem = (props) => {
           className="user-state-button"
         >
           {PrintStateIcon(props.data.state)}
-          <span>{PrintStateString(props.data.state, props.texts)}</span>
+          <span>
+            {PrintStateString(
+              props.data.state,
+              GetTexts(contextState.lang, "Main")
+            )}
+          </span>
         </button>
       </div>
-      {statePanel ? <StatePanel texts={props.texts} /> : <></>}
+      {statePanel ? (
+        <StatePanel texts={GetTexts(contextState.lang, "Main")} />
+      ) : (
+        <></>
+      )}
     </div>
   );
 };

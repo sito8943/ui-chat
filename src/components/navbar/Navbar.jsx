@@ -78,7 +78,7 @@ const Navbar = (props) => {
           {contextState.user.name == "" ? (
             <></>
           ) : (
-            <ChatItem texts={props.texts.Chat} data={contextState.user} />
+            <ChatItem data={contextState.user} />
           )}
 
           <button

@@ -57,5 +57,5 @@ export const generateTextDate = (now, messageDate) => {
  * @param {string} lang 
  */
 export const changeLanguage = (lang) => {
-
+  
 }

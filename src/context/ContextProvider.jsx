@@ -12,7 +12,7 @@ const contextReducer = (contextState, action) => {
       return {
         user: contextState.user,
         lang: action.newLang,
-        texts: changeLanguage(action.newLang),
+        //texts: changeLanguage(action.newLang),
         mode: contextState.mode,
         netStatus: contextState.netStatus,
         showingNotification: contextState.showingNotification,
@@ -137,7 +137,7 @@ const contextReducer = (contextState, action) => {
 const ContextProvider = ({ children }) => {
   const [contextState, setContextState] = React.useReducer(contextReducer, {
     user: new User(base64encode("Sito"), "Sito", 1, "/logo192.png", "/account"),
-    lang: "",
+    lang: "ES",
     texts: {},
     netStatus: "",
     mode: "dark",

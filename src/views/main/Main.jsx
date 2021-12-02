@@ -256,7 +256,6 @@ const Main = (props) => {
           sender={LookUserByName(message.sender, otherUsers)}
           message={message}
           onClick={retry}
-          texts={props.texts}
         />
       </>
     );
