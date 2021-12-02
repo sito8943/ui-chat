@@ -132,7 +132,8 @@ const StatePanel = (props) => {
 
   return (
     <div
-      className="state-panel"
+      className="uk-navbar-dropdown"
+      data-uk-dropdown="mode: click"
       style={{
         backgroundColor:
           contextState.mode === "light"
@@ -145,10 +146,13 @@ const StatePanel = (props) => {
         }`,
       }}
     >
-      <ul style={{ paddingLeft: "10px", margin: 0 }}>
+      <ul
+        className="state-panel uk-nav uk-navbar-dropdown-nav"
+        style={{ paddingLeft: "10px", margin: 0 }}
+      >
         {StatesAsArray().map((d, i) => {
           return (
-            <li key={i}>
+            <li key={i} className="state-list-item">
               <button
                 style={{
                   color:

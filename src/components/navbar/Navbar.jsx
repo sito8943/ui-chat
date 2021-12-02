@@ -103,7 +103,7 @@ const Navbar = (props) => {
             <li className="uk-active"></li>
             <li>
               <a href="#">Parent</a>
-              <div className="uk-navbar-dropdown">
+              <div className="uk-navbar-dropdown" data-uk-dropdown="mode: click">
                 <ul className="uk-nav uk-navbar-dropdown-nav">
                   <li className="uk-active">
                     <Link to="#">Active</Link>

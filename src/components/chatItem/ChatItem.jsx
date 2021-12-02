@@ -12,11 +12,6 @@ import StatePanel, {
 
 const ChatItem = (props) => {
   const { contextState, setContextState } = useContext();
-  const [statePanel, setStatePanel] = useState(false);
-
-  const toggleStatePanel = (e) => {
-    if (contextState.netStatus !== 0) setStatePanel(!statePanel);
-  };
 
   return (
     <div style={{ padding: "20px" }} className="uk-flex-middle uk-flex">
@@ -38,14 +33,14 @@ const ChatItem = (props) => {
         >
           {props.data.name}
         </span>
-        <button
+        <a
+          href="#"
           style={{
             color:
               contextState.mode === "light"
                 ? colors.LightFontColors
                 : colors.DarkFontColors,
           }}
-          onClick={toggleStatePanel}
           className="user-state-button"
         >
           {PrintStateIcon(props.data.state)}
@@ -55,13 +50,9 @@ const ChatItem = (props) => {
               GetTexts(contextState.lang, "Main")
             )}
           </span>
-        </button>
-      </div>
-      {statePanel ? (
+        </a>
         <StatePanel texts={GetTexts(contextState.lang, "Main")} />
-      ) : (
-        <></>
-      )}
+      </div>
     </div>
   );
 };
