@@ -1,15 +1,9 @@
-.light-icon-divider::before {
-  border-bottom: 1px solid lightgray;
+.row-text-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.light-icon-divider::after {
-  border-bottom: 1px solid lightgray;
-}
-
-.dark-icon-divider::before {
-  border-bottom: 1px solid #434050;
-}
-
-.dark-icon-divider::after {
-  border-bottom: 1px solid #434050;
+.divider-text {
+  margin: 0 10px;
 }

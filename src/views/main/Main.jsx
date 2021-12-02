@@ -37,8 +37,8 @@ import Divider from "../../components/theme/divider/Divider";
 import MainInput from "../../components/theme/form/MainInput";
 import { Header3 } from "../../components/theme/headers/Headers";
 import Message from "../../components/message/Message";
-import { LookUserByName } from "../../utils/functions";
-import IconDivider from "../../components/theme/divider/IconDivider";
+import { compareDates, LookUserByName } from "../../utils/functions";
+import TextDivider from "../../components/theme/divider/TextDivider";
 
 const emojis = [
   Emojis.Laughing,
@@ -70,6 +70,7 @@ const Main = (props) => {
   ]);
   const [messages, setMessages] = useState([]);
   const [chats, setChats] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
+  const dateNow = new Date();
   let pressTimer = undefined;
 
   const init = async () => {};
@@ -234,7 +235,12 @@ const Main = (props) => {
   const printMessage = (message, index) => {
     return (
       <>
-        <IconDivider />
+        {!compareDates(dateNow, message.date) ? (
+          <TextDivider date={message.date} />
+        ) : (
+          <></>
+        )}
+
         <Message
           key={index}
           index={index}

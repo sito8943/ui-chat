@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import { useContext } from "../../context/ContextProvider";
 import { colors } from "../../utils/colors";
+import { generateTextDate } from "../../utils/functions";
 
 import { ShowStateIcon } from "../statesPanel/StatePanel";
 
@@ -31,20 +32,7 @@ const Message = (props) => {
   const showSentDate = () => {
     let date = "";
     const now = new Date();
-    date += now.getHours() + " : " + now.getMinutes();
-    //knowing if was yesterday (86'400'000 means a day in milliseconds)
-    if (
-      (now.getMilliseconds() - props.message.date.getMilliseconds() === 86400000)
-    )
-      date += " Yesterday";
-    else {
-      if (now.getDate() !== props.message.date.getDate())
-        date += "/" + props.message.date.getDate();
-      if (now.getMonth() !== props.message.date.getMonth())
-        date += "/" + props.message.date.getMonth();
-      if (now.getFullYear() !== props.message.date.getFullYear())
-        date += "/" + props.message.date.getFullYear();
-    }
+    date = generateTextDate(now, props.message.date);
     return date;
   };
 

@@ -9,7 +9,7 @@ const Divider = (props) => {
     <hr
       style={{
         margin: "auto",
-        width: "90%",
+        width: props.width === undefined ? "90%" : props.width,
         border: `1px solid ${
           contextState.mode === "light"
             ? colors.LightInputBorderColor
