@@ -230,17 +230,26 @@ const Main = (props) => {
 
   /**
    * @param {object} message
+   */
+  const printTextDivider = (message) => {
+    switch (compareDates(dateNow, message.date)) {
+      case 0:
+        return <></>;
+      case 1:
+        return <TextDivider date={message.date} special />;
+      default:
+        return <TextDivider date={message.date} />;
+    }
+  };
+
+  /**
+   * @param {object} message
    * @param {number} index
    */
   const printMessage = (message, index) => {
     return (
       <>
-        {!compareDates(dateNow, message.date) ? (
-          <TextDivider date={message.date} />
-        ) : (
-          <></>
-        )}
-
+        {printTextDivider(message)}
         <Message
           key={index}
           index={index}

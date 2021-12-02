@@ -15,12 +15,13 @@ const TextDivider = (props) => {
       <Divider width={"40%"} />
       <Header5
         className='divider-text'
-        title={
-          props.date.getDate() +
+        title={ props.special === undefined ?  
+          (props.date.getDate() +
           "/" +
           props.date.getMonth() +
           "/" +
-          props.date.getFullYear()
+          props.date.getFullYear())
+          : 
         }
       />
       <Divider width={"40%"} />
