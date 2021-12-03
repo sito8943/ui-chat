@@ -38,7 +38,7 @@
     },
     "Main": {
       "Placeholders": {
-        "Message": "Reply..."
+        "Message": "Mensaje..."
       },
       "Tooltips": {
         "NotConnected": "No tienes conexión con el servidor. Has clic para reintentar"
@@ -86,6 +86,96 @@
         "Email": "Email",
         "Password": "Contraseña",
         "PasswordR": "Repite la contraseña"
+      }
+    }
+  },
+  "EN": {
+    "Navbar": {
+      "Placeholders": {
+        "Search": "Search chat..."
+      },
+      "Chat": {
+        "States": {
+          "Offline": "disconnected",
+          "Idle": "idle",
+          "DontDisturb": "do not disturb",
+          "Online": "connected"
+        }
+      }
+    },
+    "Notification": {
+      "NotConnected": "No connection to the server",
+      "Connected": "Connection reestablished",
+      "CheckingConnection": "Checking connection"
+    },
+    "Login": {
+      "Title": "Ui-Chat",
+      "Paragraph": "A place where things start to make sense",
+      "Buttons": {
+        "SignIn": "Sign in",
+        "SignUp": "Sign up",
+        "Forgot": "Forgot password?"
+      },
+      "Labels": {
+        "User": "User",
+        "Password": "Password",
+        "Remember": "Remember..."
+      },
+      "Placeholders": {
+        "User": "Username",
+        "Password": "Password"
+      }
+    },
+    "Main": {
+      "Placeholders": {
+        "Message": "Reply..."
+      },
+      "Tooltips": {
+        "NotConnected": "No connection to the server. Click to retry"
+      },
+      "Chat": {
+        "States": {
+          "Offline": "disconnected",
+          "Idle": "idle",
+          "DontDisturb": "do not disturb",
+          "Online": "connected"
+        }
+      }
+    },
+    "Account": {},
+    "NotMatch": {},
+    "Forgot": {
+      "Title": "Forgot password?",
+      "Paragraph": "Send your username or email to reset your password",
+      "Labels": {
+        "User": "User"
+      },
+      "Buttons": {
+        "Send": "Send",
+        "Return": "Back to login"
+      },
+      "Placeholders": {
+        "User": "Username"
+      }
+    },
+    "SignUp": {
+      "Title": "Start your journey",
+      "Paragraph": "Join the amazing community. Games, news, friends and much more!",
+      "Buttons": {
+        "SignUp": "Sign up",
+        "Return": "Back to login"
+      },
+      "Labels": {
+        "User": "User",
+        "Email": "Email",
+        "Password": "Password",
+        "PasswordR": "Repeat password"
+      },
+      "Placeholders": {
+        "User": "Username",
+        "Email": "Email",
+        "Password": "Password",
+        "PasswordR": "Repeat password"
       }
     }
   }
