@@ -34,6 +34,7 @@ const Message = (props) => {
     let date = "";
     const now = new Date();
     date = generateTextDate(now, props.message.date);
+    console.log(date);
     return date;
   };
 

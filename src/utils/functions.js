@@ -50,4 +50,5 @@ export const generateTextDate = (now, messageDate) => {
     if (now.getFullYear() !== messageDate.getFullYear())
       date += "/" + messageDate.getFullYear();
   }
+  return date;
 };
