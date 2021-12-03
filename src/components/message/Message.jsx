@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useContext } from "../../context/ContextProvider";
 import { colors } from "../../utils/colors";
 import { generateTextDate } from "../../utils/functions";
+import { GetTexts } from "../../lang/texts";
 
 import { ShowStateIcon } from "../statesPanel/StatePanel";
 
@@ -100,7 +101,7 @@ const Message = (props) => {
             {ShowStateIcon(
               props.message.State,
               props.index,
-              props.texts,
+              GetTexts(contextState.lang, "Main"),
               props.onClick
             )}
           </>
