@@ -12,9 +12,7 @@ export default class User {
     this.state = state;
     this.photo = photo;
     this.link = "/uid:" + id;
-  }
-
-  
+  }  
 
   /**
    * @returns user's id

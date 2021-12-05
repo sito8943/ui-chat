@@ -19,7 +19,7 @@ const Forgot = (props) => {
 
   const handleInput = (e) => {
     switch (e.target.id) {
-      case "name":
+      default: //name
         return setName(e.target.value);
     }
   };

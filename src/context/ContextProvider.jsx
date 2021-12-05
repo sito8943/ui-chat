@@ -65,7 +65,6 @@ const contextReducer = (contextState, action) => {
       };
     case "offline":
       return {
-        user: contextState.user,
         user: new User(
           contextState.user.Id,
           contextState.user.Name,

@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useContext } from "./context/ContextProvider";
 import { ChatContext } from "./context/ChatContext";
 
-import "uikit/dist/css/uikit.min.css";
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+import { connectionState } from "./services/get";
+import { colors } from "./utils/colors";
 import { GetTexts } from "./lang/texts";
 
 import Notification from "./components/notification/Notification";
@@ -19,8 +19,7 @@ import SignUp from "./views/signup/SignUp";
 import Forgot from "./views/forgot/Forgot";
 import Account from "./views/account/Account";
 
-import { connectionState } from "./services/get";
-import { colors } from "./utils/colors";
+import "uikit/dist/css/uikit.min.css";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -28,7 +27,7 @@ const App = () => {
 
   const init = async () => {
     const netStatus = await connectionState();
-    if (netStatus == 200) setContextState({ type: "online" });
+    if (netStatus === 200) setContextState({ type: "online" });
     else setContextState({ type: "offline" });
   };
 
