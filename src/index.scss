@@ -1,0 +1,145 @@
+* {
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+}
+
+/**Light-Scroll**/
+.light-scroll {
+  /* We put a background color and round the corners of the thumb */
+  &::-webkit-scrollbar-thumb {
+    background: rgb(125, 156, 167);
+    border-radius: 4px;
+  }
+
+  /* We change the background and add a shadow when hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgb(106, 145, 158);
+    box-shadow: 0 0 2px 1px rgba(102, 100, 100, 0.2);
+  }
+
+  /* We change the background when it is active */
+  &::-webkit-scrollbar-thumb:active {
+    background-color: rgb(106, 145, 158);
+  }
+
+  /* We put a background color and round the corners of the track */
+  &::-webkit-scrollbar-track {
+    background: #3a3a3a00;
+    border-radius: 4px;
+  }
+
+  /* We change the background when it is active or hover */
+  &::-webkit-scrollbar-track:hover {
+    background: #3a3a3a00;
+  }
+}
+
+/**Dark-Scroll**/
+.dark-scroll {
+  /* We put a background color and round the corners of the thumb */
+  &::-webkit-scrollbar-thumb {
+    background: #283640;
+    border-radius: 4px;
+  }
+
+  /* We change the background and add a shadow when hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #2e374a;
+    box-shadow: 0 0 2px 1px rgba(102, 100, 100, 0.2);
+  }
+
+  /* We change the background when it is active */
+  &::-webkit-scrollbar-thumb:active {
+    background-color: #2e374a;
+  }
+
+  /* We put a background color and round the corners of the track */
+  &::-webkit-scrollbar-track {
+    background: #3a3a3a00;
+    border-radius: 4px;
+  }
+
+  /* We change the background when it is active or hover */
+  &::-webkit-scrollbar-track:hover {
+    background: #3a3a3a00;
+  }
+}
+
+.uk-button {
+  padding: 0 10px !important;
+}
+
+
+body {
+  padding: 0 !important;
+}
+
+input {
+  background: none !important;
+}
+
+input:hover,
+input:focus {
+  border: 1px solid dodgerblue !important;
+}
+
+.div-input:hover,
+.div-input:focus {
+  border: none !important;
+}
+
+.icon {
+  color: #a09f9f;
+}
+
+.icon:disabled {
+  color: #e5e5e5 !important;
+}
+
+.icon-no-hover {
+  cursor: inherit;
+}
+
+.icon-no-hover:hover {
+  color: #a09f9f !important;
+}
+
+.icon-hover:hover {
+  cursor: pointer;
+  color: dodgerblue !important;
+}
+
+.right-bar {
+  box-shadow: 2px 1px 5px 5px lightgrey;
+  overflow: auto;
+  height: calc(100vh - 80px);
+}
+
+.return-button {
+  text-decoration: none;
+  margin-left: 20px !important;
+}
+
+.app-main-logo {
+  height: 120px !important;
+  margin-right: 20px !important;
+}
+
+.main-view {
+  align-items: center;
+  height: 100vh;
+}
+
+.main-card {
+  padding: 50px 75px;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.main-background,
+.main-card,
+.side-bar,
+.navbar {
+  transition: all 200ms ease;
+}

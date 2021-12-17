@@ -1,0 +1,26 @@
+@mixin mobile {
+  @media screen and (max-width: 500px) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
+.main-card {
+  width: 450px;
+
+  @include mobile {
+    padding-left: 50px;
+    margin-top: 0px;
+    width: 100%;
+    height: 100%;
+  }
+
+  @include large {
+    width: 600px;
+  }
+}

@@ -1,0 +1,14 @@
+.uk-notification-message-danger {
+  color: aliceblue !important;
+  background-color: rgba(220, 20, 60, 0.705) !important;
+}
+
+.uk-notification-message-warning {
+  color: aliceblue !important;
+  background-color: rgba(255, 166, 0, 0.74) !important;
+}
+
+.uk-notification {
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}

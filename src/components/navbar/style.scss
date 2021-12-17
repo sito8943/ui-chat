@@ -1,0 +1,15 @@
+.navbar {
+  height: 80px !important;
+  align-items: center;
+
+}
+
+.navbar-button {
+  font-size: 1.5rem !important;
+  margin-bottom: 5px !important;
+  border: none !important;
+
+  &:hover {
+    color: dodgerblue !important;
+  }
+}

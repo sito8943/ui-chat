@@ -1,0 +1,23 @@
+.big {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .backdrop {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    background-color: #1d1d1d88;
+    z-index: 1;
+  
+    div {
+      margin: auto;
+    }
+  }
