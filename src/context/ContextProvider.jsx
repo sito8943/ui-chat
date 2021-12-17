@@ -2,8 +2,6 @@ import { base64encode } from "nodejs-base64";
 import * as React from "react";
 import User from "../models/User";
 
-import { States } from "../components/statesPanel/StatePanel";
-
 const Context = React.createContext();
 
 const contextReducer = (contextState, action) => {
@@ -38,7 +36,6 @@ const contextReducer = (contextState, action) => {
         user: new User(
           contextState.user.Id,
           contextState.user.Name,
-          States.Offline,
           contextState.user.Photo
         ),
         lang: contextState.lang,
@@ -51,7 +48,6 @@ const contextReducer = (contextState, action) => {
         user: new User(
           contextState.user.Id,
           contextState.user.Name,
-          States.Online,
           contextState.user.Photo
         ),
         lang: contextState.lang,

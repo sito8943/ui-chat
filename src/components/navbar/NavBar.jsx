@@ -11,11 +11,6 @@ import {
 
 import { Outlet, Link } from "react-router-dom";
 
-import ChatItemPlaceholder from "../../components/chatItem/ChatItemPlaceholder";
-import ChatItem from "../../components/chatItem/ChatItem";
-import SearchInput from "../theme/form/SearchInput";
-import { IconButton } from "../theme/ThemeComponents";
-
 const Navbar = (props) => {
   const { contextState, setContextState } = useContext();
   const [search, setSearch] = useState("");
@@ -61,26 +56,9 @@ const Navbar = (props) => {
           <Link className="uk-navbar-item uk-logo" to="#">
             <img src="/logo192.png" alt="app-logo" style={{ height: "60px" }} />
           </Link>
-          <div className="uk-navbar-item ">
-            <form action="javascript:void(0)">
-              <SearchInput
-                type="search"
-                id="search"
-                placeholder={props.texts.Placeholders.Search}
-                value={search}
-                onChange={handleInput}
-              />
-            </form>
-          </div>
         </div>
 
         <div className="uk-navbar-right uk-visible@m">
-          {contextState.user.name == "" ? (
-            <></>
-          ) : (
-            <ChatItem data={contextState.user} />
-          )}
-
           <button
             id="toggler"
             style={{
